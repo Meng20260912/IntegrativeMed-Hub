@@ -1,7 +1,7 @@
 ---
 title: 讀懂中醫臨床試驗：為什麼「辨證論治」讓隨機分派變得困難
 slug: tcm-trial-methodology
-author: Meng
+author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-09-10
 summary: 中醫的個人化處方與 RCT 的標準化前提存在結構性張力。介紹固定方、證型分層與 N-of-1 三種折衷設計，以及各自的代價。
 hero: lab.jpg

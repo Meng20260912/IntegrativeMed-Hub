@@ -1,7 +1,7 @@
 ---
 title: 中西醫整合醫學到底在整合什麼？三種常見模式的差別
 slug: what-is-integrative-medicine
-author: Meng
+author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-08-18
 summary: 「中西醫合治」常被當成一個詞用，實際上臨床上至少有三種完全不同的操作模式，責任歸屬與證據要求都不一樣。
 hero: hero-tcm-shop.jpg

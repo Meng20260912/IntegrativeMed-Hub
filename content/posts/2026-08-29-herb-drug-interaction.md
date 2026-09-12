@@ -1,7 +1,7 @@
 ---
 title: 中藥與西藥的交互作用：臨床上最該警覺的幾類
 slug: herb-drug-interaction
-author: Meng
+author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-08-29
 summary: 「純天然所以安全」是最危險的誤解。從 CYP450 誘導、抗凝血加成到電解質失衡，整理機轉明確、後果嚴重的幾組經典交互作用。
 hero: pharmacy.jpg

@@ -219,6 +219,8 @@ const posts = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md')).map(f => 
     slug, file, html, toc,
     title: fm.title || slug,
     author: fm.author || 'IntegrativeMed-Hub 編輯部',
+    authorName: (fm.author || 'IntegrativeMed-Hub 編輯部').split(/\s*[\/／]\s*/)[0],
+    authorAffil: (fm.author || '').split(/\s*[\/／]\s*/).slice(1).join(' · '),
     summary: fm.summary || '',
     hero: fm.hero || '',
     heroAlt: fm.heroAlt || fm.title || '',
@@ -248,7 +250,7 @@ const cards = posts.map(p => `      <article class="card">
           <h3><a href="/posts/${attr(p.slug)}/">${esc(p.title)}</a></h3>
           <p class="card-sum">${esc(p.summary)}</p>
           <ul class="card-meta">
-            <li class="m-author">${esc(p.author)}</li>
+            <li class="m-author"><b>${esc(p.authorName)}</b>${p.authorAffil ? `<span class="affil">${esc(p.authorAffil)}</span>` : ''}</li>
             <li><time datetime="${attr(p.published)}">發布 ${fmtDate(p.published)}</time></li>
             <li><time datetime="${attr(p.updated)}">更新 ${fmtDate(p.updated)}</time></li>
             <li class="m-views">瀏覽 <span class="views" data-slug="${attr(p.slug)}">–</span></li>
@@ -294,7 +296,7 @@ for (const p of posts) {
     <h1>${esc(p.title)}</h1>
     ${p.summary ? `<p class="lede">${esc(p.summary)}</p>` : ''}
     <ul class="post-meta">
-      <li class="m-author"><span class="lbl">作者</span> <b>${esc(p.author)}</b></li>
+      <li class="m-author"><span class="lbl">作者</span> <b>${esc(p.authorName)}</b>${p.authorAffil ? `<span class="affil">${esc(p.authorAffil)}</span>` : ''}</li>
       <li><span class="lbl">發布</span> <time datetime="${attr(p.published)}">${fmtDate(p.published)}</time></li>
       <li><span class="lbl">最後更新</span> <time datetime="${attr(p.updated)}">${fmtDate(p.updated)}</time></li>
       <li><span class="lbl">閱讀</span> 約 ${p.readMins} 分鐘</li>

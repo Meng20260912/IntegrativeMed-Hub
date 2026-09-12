@@ -1,7 +1,7 @@
 ---
 title: 針灸的現代研究證據：我們知道什麼、還不知道什麼
 slug: acupuncture-evidence
-author: Meng
+author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-09-05
 summary: 針灸研究最棘手的問題是「假針灸不是安慰劑」。拆解安慰對照的設計難題，並區分哪些適應症證據較穩、哪些仍在爭論中。
 hero: needles.jpg

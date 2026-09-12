@@ -85,7 +85,9 @@ h1,h2,h3,h4{line-height:1.3;letter-spacing:-.005em;overflow-wrap:break-word}
 .card-sum{margin:0;font-size:.88rem;color:var(--ink-2);overflow-wrap:break-word}
 .card-meta{list-style:none;display:flex;flex-wrap:wrap;gap:4px 12px;margin:auto 0 0;padding:10px 0 0;
   border-top:1px dashed var(--line);font-size:.76rem;color:var(--ink-3)}
-.card-meta .m-author{font-weight:600;color:var(--accent-2);flex-basis:100%}
+.card-meta .m-author{flex-basis:100%;min-width:0;display:flex;flex-direction:column;gap:1px}
+.card-meta .m-author b{font-weight:700;color:var(--accent-2);font-size:.8rem}
+.card-meta .m-author .affil{color:var(--ink-3);font-size:.72rem;line-height:1.45;overflow-wrap:anywhere}
 .card-meta .views{font-variant-numeric:tabular-nums;font-weight:600}
 
 /* ---------- post ---------- */
@@ -97,7 +99,10 @@ h1,h2,h3,h4{line-height:1.3;letter-spacing:-.005em;overflow-wrap:break-word}
 .post-meta{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;padding:14px 0 0;
   border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-2)}
 .post-meta .lbl{color:var(--ink-3);font-size:.76rem;margin-right:2px}
+.post-meta .m-author{flex-basis:100%;min-width:0}
 .post-meta .m-author b{color:var(--accent-2)}
+.post-meta .m-author .affil{display:block;margin-top:1px;padding-left:2.4em;
+  font-size:.76rem;color:var(--ink-3);line-height:1.5;overflow-wrap:anywhere}
 .post-meta .views{font-variant-numeric:tabular-nums}
 
 /* 需求 4：HERO 圖等比例縮放、寬度不超過內容文字區寬度 */
