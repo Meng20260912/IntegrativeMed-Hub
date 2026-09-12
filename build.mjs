@@ -226,7 +226,7 @@ const jsonLd = (obj) => JSON.stringify(obj).replace(/</g, '\\u003c');
 
 function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
                   ogType = 'website', image = '', schema = null, showHeader = true }) {
-  const img = image || `${SITE_URL}/img/hero-ginseng.jpg`;
+  const img = image || `${SITE_URL}/img/banner-integrative.jpg`;
   return `<!doctype html>
 <html lang="${SITE.lang}">
 <head>
@@ -348,7 +348,7 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 fs.cpSync(STATIC_DIR, OUT, { recursive: true });
 
-const heroImg = 'hero-ginseng.jpg';
+const heroImg = 'banner-integrative.jpg';
 const heroCredit = CREDITS[heroImg];
 
 // --- 首頁：卡片直接寫進 HTML（需求 6），不靠 JS 讀 JSON ---
@@ -379,7 +379,7 @@ const indexBody = `<section class="hero">
     <p class="hero-sub">把傳統中醫的辨證思維，放到現代實證醫學的檢驗架構下一起讀</p>
     <p class="hero-by">— 魏孟鈞</p>
     <p class="hero-updated">最近更新 ${fmtDate(latestPost.updated).replace(/-/g, '/')}｜<a href="/posts/${attr(latestPost.slug)}/">${esc(latestPost.title)}</a></p>
-    <p class="hero-credit">主視覺：<a href="${attr(heroCredit.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.title)}</a>，${esc(heroCredit.author)}／<a href="${attr(heroCredit.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.license)}</a>。完整出處見頁尾。</p>
+    ${heroCredit ? `<p class="hero-credit">主視覺：<a href="${attr(heroCredit.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.title)}</a>，${esc(heroCredit.author)}／<a href="${attr(heroCredit.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.license)}</a>。完整出處見頁尾。</p>` : `<p class="hero-credit">主視覺為情境示意圖（AI 生成），非真實臨床照片。</p>`}
   </div>
 </section>
 

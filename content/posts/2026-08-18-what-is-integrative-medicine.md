@@ -4,8 +4,9 @@ slug: what-is-integrative-medicine
 author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-08-18
 summary: 會診單上同樣寫著「中醫會診」，在不同醫院可能代表三種完全不同的運作方式。決策權、病歷互通與責任歸屬都不一樣，也決定了這類研究能回答什麼問題。
-hero: hero-ginseng.jpg
-heroAlt: 高麗參的鮮根
+hero: consultation.jpg
+heroAlt: 西醫師與中醫師並肩檢視同一份病歷與影像
+heroCaption: 情境示意圖（AI 生成），非真實臨床照片。
 tags: [概念釐清, 臨床模式, 衛生政策]
 ---
 
