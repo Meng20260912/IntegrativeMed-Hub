@@ -170,6 +170,7 @@ function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '' }
 <meta property="og:description" content="${attr(desc)}">
 <meta property="og:type" content="website">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="stylesheet" href="/styles.css">
 ${extraHead}
 </head>
@@ -178,7 +179,9 @@ ${extraHead}
 <header class="site-head">
   <div class="wrap head-inner">
     <a class="brand" href="/">
-      <span class="brand-mark" aria-hidden="true">中西</span>
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="currentColor"/><path d="M8 34h18l5-16 6 30 5-14h14" fill="none" stroke="var(--bg)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
       <span class="brand-text"><b>IntegrativeMed-Hub</b><small>中西醫整合醫學學習網站</small></span>
     </a>
     <nav><a href="/">文章</a><a href="/about/">關於</a></nav>
