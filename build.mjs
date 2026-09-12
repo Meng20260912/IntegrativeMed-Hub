@@ -32,6 +32,27 @@ const assetVer = (rel) => {
     return `?v=${h.slice(0, 8)}`;
   } catch { return ''; }
 };
+// 圖片也加內容雜湊版本號：換圖後瀏覽器與 CDN 會立刻取得新檔，不會沿用舊快取
+const imgSrc = (name) => `/img/${name}${assetVer(path.join('img', name))}`;
+
+// 讀取 JPEG/PNG 實際尺寸，讓 width/height 屬性正確保留版面空間，避免圖片載入時跳動
+function imgSize(name) {
+  try {
+    const b = fs.readFileSync(path.join(STATIC_DIR, 'img', name));
+    if (b[0] === 0x89 && b[1] === 0x50) return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) }; // PNG
+    let i = 2;
+    while (i < b.length) {
+      if (b[i] !== 0xff) { i++; continue; }
+      const m = b[i + 1];
+      if (m >= 0xc0 && m <= 0xcf && m !== 0xc4 && m !== 0xc8 && m !== 0xcc) {
+        return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) };
+      }
+      i += 2 + b.readUInt16BE(i + 2);
+    }
+  } catch {}
+  return null;
+}
+const sizeAttr = (name) => { const d = imgSize(name); return d ? ` width="${d.w}" height="${d.h}"` : ''; };
 const CSS_V = assetVer('styles.css');
 const VIEWS_V = assetVer('views.js');
 
@@ -295,7 +316,7 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
 const tagCount = (t) => posts.filter(p => p.tags.includes(t)).length;
 
 const cards = posts.map(p => `      <article class="card" data-tags="${attr(p.tags.join('|'))}" data-search="${attr(p.searchText)}">
-        ${p.hero ? `<a class="card-thumb" href="/posts/${attr(p.slug)}/" tabindex="-1" aria-hidden="true"><img src="/img/${attr(p.hero)}" alt="" loading="lazy" decoding="async"></a>` : ''}
+        ${p.hero ? `<a class="card-thumb" href="/posts/${attr(p.slug)}/" tabindex="-1" aria-hidden="true"><img src="${attr(imgSrc(p.hero))}" alt="" loading="lazy" decoding="async"></a>` : ''}
         <div class="card-body">
           <p class="card-date"><time datetime="${attr(p.updated)}">${fmtDate(p.updated).replace(/-/g, '/')}</time> 更新</p>
           <h3><a href="/posts/${attr(p.slug)}/">${esc(p.title)}</a></h3>
@@ -311,7 +332,7 @@ const cards = posts.map(p => `      <article class="card" data-tags="${attr(p.ta
 
 const latestPost = posts[0];
 const indexBody = `<section class="hero">
-  <div class="hero-cover"><img src="/img/${attr(heroImg)}" alt="" fetchpriority="high" decoding="async" width="1600" height="867"></div>
+  <div class="hero-cover"><img src="${attr(imgSrc(heroImg))}" alt="" fetchpriority="high" decoding="async"${sizeAttr(heroImg)}></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>中西醫整合醫學學習網站</h1>
@@ -409,7 +430,7 @@ for (const p of posts) {
     </ul>
   </header>
   ${p.hero ? `<figure class="post-hero">
-    <img src="/img/${attr(p.hero)}" alt="${attr(p.heroAlt)}" decoding="async" fetchpriority="high" width="1600" height="900">
+    <img src="${attr(imgSrc(p.hero))}" alt="${attr(p.heroAlt)}" decoding="async" fetchpriority="high"${sizeAttr(p.hero)}>
     ${c ? `<figcaption>圖：<a href="${attr(c.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a>，${esc(c.author)}／<a href="${attr(c.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.license)}</a></figcaption>` : ''}
   </figure>` : ''}
   ${p.toc.length >= 4 ? `<nav class="wrap toc" aria-label="本文章節">
