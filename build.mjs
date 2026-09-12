@@ -10,6 +10,17 @@ const POSTS_DIR = path.join(ROOT, 'content', 'posts');
 const STATIC_DIR = path.join(ROOT, 'static');
 const OUT = path.join(ROOT, 'dist');
 
+// 個人品牌下的兩個網站：本站（學術）與衛教部落格（大眾）
+const BLOG_URL = 'https://blog.drmjwei.net';
+const SITES = [
+  { url: '/', name: 'IntegrativeMed-Hub', sub: 'drmjwei.net',
+    audience: '中醫學生 · 臨床同業',
+    desc: '實證回顧、研究方法學與臨床整合觀點。標示證據等級，不做療效宣稱。', here: true },
+  { url: BLOG_URL, name: '魏孟鈞中醫師｜中醫內科', sub: 'blog.drmjwei.net',
+    audience: '一般民眾 · 病人與家屬',
+    desc: '把門診常見問題寫成看得懂的衛教：胸悶、靜脈曲張、排濕、季節保養。', here: false },
+];
+
 const SITE = {
   name: 'IntegrativeMed-Hub',
   tagline: '中西醫整合醫學學習網站',
@@ -243,7 +254,7 @@ ${showHeader ? `<header class="site-head">
       </span>
       <span class="brand-text"><b>IntegrativeMed-Hub</b><small>中西醫整合醫學學習網站</small></span>
     </a>
-    <nav><a href="/">文章</a><a href="/about/">關於</a></nav>
+    <nav><a href="/">文章</a><a href="/about/">關於</a><a href="${BLOG_URL}" class="nav-blog">衛教部落格 ↗</a></nav>
   </div>
 </header>` : ''}
 <main id="main">
@@ -257,6 +268,18 @@ ${body}
       <ul>
 ${Object.entries(CREDITS).map(([f, c]) => `        <li><span class="cf">${esc(f)}</span>「<a href="${attr(c.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a>」，作者 <b>${esc(c.author)}</b>，授權 <a href="${attr(c.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.license)}</a>，經本站${esc(c.modified)}。</li>`).join('\n')}
       </ul>
+    </section>
+    <section class="sites">
+      <h2>魏孟鈞的兩個網站</h2>
+      <p class="sites-note">同一個人，兩種讀者。內容深度與寫法不同，但出自同一套臨床判斷。</p>
+      <div class="sites-grid">
+${SITES.map(x => `        <a class="site-card${x.here ? ' is-here' : ''}" href="${attr(x.url)}"${x.here ? '' : ' target="_blank" rel="noopener noreferrer"'}>
+          <span class="site-aud">${esc(x.audience)}</span>
+          <b>${esc(x.name)}</b>
+          <span class="site-host">${esc(x.sub)}${x.here ? '（目前所在）' : ' ↗'}</span>
+          <span class="site-desc">${esc(x.desc)}</span>
+        </a>`).join('\n')}
+      </div>
     </section>
     <p class="disclaimer"><b>免責聲明：</b>本站內容僅供醫學教育與學術討論之用，不構成診斷或治療建議。任何用藥、停藥或療法選擇，請諮詢您的醫師或藥師。</p>
     <p class="foot-meta">© ${new Date().getFullYear()} IntegrativeMed-Hub · <a href="https://github.com/Meng20260912/IntegrativeMed-Hub" target="_blank" rel="noopener noreferrer">原始碼於 GitHub</a></p>
@@ -355,6 +378,7 @@ ${allTags.map(t => `      <li><button type="button" class="chip" data-tag="${att
         <input type="search" id="q" placeholder="搜尋標題、摘要或標籤…" autocomplete="off">
       </div>
       <div class="toolbar-links">
+        <a href="${BLOG_URL}" class="btn-blog">衛教部落格 ↗</a>
         <a href="/about/">關於本站</a>
         <a href="/feed.xml">RSS</a>
       </div>

@@ -210,3 +210,28 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
   background:var(--blue-soft);border-radius:var(--radius-sm);max-width:60rem}
 .foot-meta{margin:0;font-size:.76rem;color:var(--ink-3)}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto}}
+
+/* ---------- 個人品牌：兩個網站 ---------- */
+.site-head nav .nav-blog{color:var(--navy);font-weight:500}
+.site-head nav .nav-blog:hover{background:var(--blue-soft)}
+.toolbar-links .btn-blog{background:var(--surface-2);color:var(--navy);border:1px solid var(--line)}
+.toolbar-links .btn-blog:hover{background:var(--blue-soft);color:var(--navy);border-color:var(--blue)}
+.sites{margin:0 0 1.6em}
+.sites h2{margin:0 0 .35em;font-family:var(--serif);font-weight:900;font-size:1rem;letter-spacing:.03em}
+.sites-note{margin:0 0 .9em;font-size:.78rem;color:var(--ink-3);line-height:1.8}
+.sites-grid{display:grid;gap:12px;grid-template-columns:1fr;max-width:60rem}
+@media (min-width:640px){.sites-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.site-card{display:flex;flex-direction:column;gap:3px;min-width:0;padding:14px 16px;
+  background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-sm);
+  text-decoration:none;color:inherit;transition:border-color .18s,transform .18s}
+.site-card:hover{border-color:var(--blue);transform:translateY(-2px);color:inherit}
+.site-card.is-here{border-color:var(--navy);background:var(--blue-soft)}
+.site-aud{font-size:.7rem;color:var(--ink-3);letter-spacing:.04em}
+.site-card b{font-size:.92rem;font-weight:700;color:var(--navy);line-height:1.5;overflow-wrap:anywhere}
+.site-host{font-size:.73rem;color:var(--ink-3);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}
+.site-desc{margin-top:4px;font-size:.78rem;color:var(--ink-2);line-height:1.75}
+@media (max-width:520px){
+  .site-head nav{gap:0}
+  .site-head nav a{padding:.4em .55em;font-size:.82rem}
+  .site-head nav .nav-blog{font-size:.78rem}
+}
