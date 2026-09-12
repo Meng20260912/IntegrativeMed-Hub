@@ -1,0 +1,12 @@
+{
+  "name": "integrativemed-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "中西醫整合醫學學習網站 · Integrative Chinese & Western Medicine Learning Hub",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && npx --yes wrangler pages dev dist"
+  },
+  "engines": { "node": ">=20" }
+}

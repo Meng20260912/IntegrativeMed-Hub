@@ -1,0 +1,9 @@
+# Cloudflare Pages 設定
+name = "integrativemed-hub"
+compatibility_date = "2026-09-01"
+pages_build_output_dir = "dist"
+
+# 瀏覽計數器使用的 KV。無 API 金鑰——以 binding 方式注入。
+[[kv_namespaces]]
+binding = "VIEWS"
+id = "0da24863268b486093a1d84647c04569"
