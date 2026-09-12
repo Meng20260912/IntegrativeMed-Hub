@@ -235,3 +235,14 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
   .site-head nav a{padding:.4em .55em;font-size:.82rem}
   .site-head nav .nav-blog{font-size:.78rem}
 }
+
+/* ---------- 個人品牌 logo ---------- */
+/* logo 為深綠＋金色的透明去背 PNG，在深色模式下對比不足，
+   因此一律放在淺色面板上，兩種主題都能清楚辨識。 */
+.brand-logo{display:block;max-width:340px;margin:0 0 1.4em;padding:10px 14px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm)}
+.brand-logo img{width:100%;height:auto}
+.page-logo{max-width:var(--measure);padding-top:clamp(24px,5vw,44px)}
+.page-logo img{width:100%;height:auto;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:clamp(10px,2.5vw,20px)}
+@media (max-width:520px){.brand-logo{max-width:100%}}

@@ -269,6 +269,9 @@ ${body}
 ${Object.entries(CREDITS).map(([f, c]) => `        <li><span class="cf">${esc(f)}</span>「<a href="${attr(c.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a>」，作者 <b>${esc(c.author)}</b>，授權 <a href="${attr(c.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.license)}</a>，經本站${esc(c.modified)}。</li>`).join('\n')}
       </ul>
     </section>
+    <a class="brand-logo" href="/about/" aria-label="魏孟鈞中醫師">
+      <img src="${attr(imgSrc('brand-logo-sm.png'))}" alt="魏孟鈞中醫師"${sizeAttr('brand-logo-sm.png')} loading="lazy" decoding="async">
+    </a>
     <section class="sites">
       <h2>魏孟鈞的兩個網站</h2>
       <p class="sites-note">同一個人，兩種讀者。內容深度與寫法不同，但出自同一套臨床判斷。</p>
@@ -528,9 +531,10 @@ ${p.html}
 fs.mkdirSync(path.join(OUT, 'about'), { recursive: true });
 fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
   title: `關於 — ${SITE.name}`, desc: SITE.desc, canonical: SITE_URL + '/about/',
-  body: `<div class="wrap prose page">
+  body: `<div class="wrap page-logo"><img src="${attr(imgSrc('brand-logo.png'))}" alt="魏孟鈞中醫師"${sizeAttr('brand-logo.png')} fetchpriority="high" decoding="async"></div>
+<div class="wrap prose page">
 <h1>關於本站</h1>
-<p>IntegrativeMed-Hub 是一個中西醫整合醫學的學習筆記站。這裡不談療效宣稱，而是整理兩套醫學體系在<strong>概念、證據與臨床實作</strong>上如何對話、又在哪裡衝突。</p>
+<p>IntegrativeMed-Hub 是一個中西醫整合醫學的學習筆記站。這裡整理兩套醫學體系在<strong>概念、證據與臨床實作</strong>上如何對話、又在哪裡衝突，不做療效宣稱。</p>
 <h2>編輯原則</h2>
 <ul>
 <li>任何療效陳述都標示證據等級與來源，區分「有隨機對照試驗支持」「僅有機轉推論」「僅有傳統經驗」。</li>
