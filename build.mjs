@@ -238,7 +238,8 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 fs.cpSync(STATIC_DIR, OUT, { recursive: true });
 
-const SITE_URL = process.env.CF_PAGES_URL || 'https://integrativemed-hub.pages.dev';
+// 正式網域。canonical / sitemap / og 一律指向這裡，避免 pages.dev 與自訂網域內容重複被搜尋引擎分散權重。
+const SITE_URL = process.env.SITE_URL || 'https://drmjwei.net';
 
 const heroImg = 'hero-tcm-shop.jpg';
 const heroCredit = CREDITS[heroImg];
