@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 
 const ROOT = path.dirname(new URL(import.meta.url).pathname);
 const POSTS_DIR = path.join(ROOT, 'content', 'posts');
@@ -17,6 +18,18 @@ const SITE = {
 };
 
 const CREDITS = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'credits.json'), 'utf8'));
+
+// 資產版本號：/styles.css 與 /views.js 沒有內容雜湊檔名，而 Cloudflare 給
+// 它們 max-age=14400。改版後 HTML 會即時更新、CSS 卻可能還是舊的（頁首標誌
+// 就這樣白掉過一次）。用內容雜湊當 query string，改一次就換一次網址。
+const assetVer = (rel) => {
+  try {
+    const h = createHash('sha1').update(fs.readFileSync(path.join(STATIC_DIR, rel))).digest('hex');
+    return `?v=${h.slice(0, 8)}`;
+  } catch { return ''; }
+};
+const CSS_V = assetVer('styles.css');
+const VIEWS_V = assetVer('views.js');
 
 /* ---------- utils ---------- */
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -171,7 +184,7 @@ function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '' }
 <meta property="og:type" content="website">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/styles.css${CSS_V}">
 ${extraHead}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
@@ -180,7 +193,7 @@ ${extraHead}
   <div class="wrap head-inner">
     <a class="brand" href="/">
       <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="currentColor"/><path d="M8 34h18l5-16 6 30 5-14h14" fill="none" stroke="var(--bg)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 64 64" width="34" height="34"><circle cx="32" cy="32" r="32" fill="var(--accent,#8a2f2a)"/><path d="M8 34h18l5-16 6 30 5-14h14" fill="none" stroke="var(--bg,#fbfaf7)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
       <span class="brand-text"><b>IntegrativeMed-Hub</b><small>中西醫整合醫學學習網站</small></span>
     </a>
@@ -286,7 +299,7 @@ ${cards}
 fs.writeFileSync(path.join(OUT, 'index.html'), layout({
   title: `${SITE.name} — ${SITE.tagline}`,
   desc: SITE.desc, canonical: SITE_URL + '/', body: indexBody, bodyClass: 'is-home',
-  extraHead: '<script src="/views.js" defer></script>',
+  extraHead: `<script src="/views.js${VIEWS_V}" defer></script>`,
 }));
 
 // --- 文章頁：各自獨立網址 /posts/<slug>/（需求 2） ---
@@ -324,7 +337,7 @@ ${p.html}
     desc: p.summary || SITE.desc,
     canonical: `${SITE_URL}/posts/${p.slug}/`,
     body, bodyClass: 'is-post',
-    extraHead: '<script src="/views.js" defer></script>',
+    extraHead: `<script src="/views.js${VIEWS_V}" defer></script>`,
   }));
 }
 
