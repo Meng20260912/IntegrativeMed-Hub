@@ -17,6 +17,10 @@ const SITE = {
   lang: 'zh-Hant',
 };
 
+// 正式網域。canonical / sitemap / og / RSS 一律指向這裡，
+// 避免 pages.dev 與自訂網域內容重複被搜尋引擎分散權重。
+const SITE_URL = process.env.SITE_URL || 'https://drmjwei.net';
+
 const CREDITS = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'credits.json'), 'utf8'));
 
 // 資產版本號：/styles.css 與 /views.js 沒有內容雜湊檔名，而 Cloudflare 給
@@ -133,7 +137,9 @@ function markdown(src) {
         '<div class="table-wrap"><table><thead><tr>' +
         head.map(c => `<th>${c}</th>`).join('') + '</tr></thead><tbody>' +
         body.map(r => '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>').join('') +
-        '</tbody></table></div>'
+        '</tbody></table></div>' +
+        // 窄螢幕上表格需橫向捲動，給一個明確的提示（CSS 控制只在手機顯示）
+        '<p class="table-hint" aria-hidden="true">表格可左右滑動</p>'
       );
       continue;
     }
@@ -170,7 +176,12 @@ function markdown(src) {
 }
 
 /* ---------- 版面 ---------- */
-function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '' }) {
+// JSON-LD 安全序列化：避免內容中的 </script> 提前關閉標籤
+const jsonLd = (obj) => JSON.stringify(obj).replace(/</g, '\\u003c');
+
+function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
+                  ogType = 'website', image = '', schema = null, showHeader = true }) {
+  const img = image || `${SITE_URL}/img/hero-tcm-shop.jpg`;
   return `<!doctype html>
 <html lang="${SITE.lang}">
 <head>
@@ -178,28 +189,42 @@ function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '' }
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(title)}</title>
 <meta name="description" content="${attr(desc)}">
+<meta name="theme-color" content="#12395f" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="${attr(canonical)}">
+<meta property="og:site_name" content="${attr(SITE.name)}">
+<meta property="og:locale" content="zh_TW">
 <meta property="og:title" content="${attr(title)}">
 <meta property="og:description" content="${attr(desc)}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="${attr(ogType)}">
+<meta property="og:url" content="${attr(canonical)}">
+<meta property="og:image" content="${attr(img)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${attr(title)}">
+<meta name="twitter:description" content="${attr(desc)}">
+<meta name="twitter:image" content="${attr(img)}">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="${attr(SITE.name)}" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
 <link rel="stylesheet" href="/styles.css${CSS_V}">
-${extraHead}
+${schema ? `<script type="application/ld+json">${jsonLd(schema)}</script>\n` : ''}${extraHead}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
 <a class="skip" href="#main">跳到主要內容</a>
-<header class="site-head">
+${showHeader ? `<header class="site-head">
   <div class="wrap head-inner">
     <a class="brand" href="/">
       <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 64 64" width="34" height="34"><circle cx="32" cy="32" r="32" fill="var(--accent,#8a2f2a)"/><path d="M8 34h18l5-16 6 30 5-14h14" fill="none" stroke="var(--bg,#fbfaf7)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 64 64" width="34" height="34" role="img"><circle cx="32" cy="32" r="32" fill="var(--navy,#12395f)"/><path d="M8 34h18l5-16 6 30 5-14h14" fill="none" stroke="var(--surface,#fff)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
       <span class="brand-text"><b>IntegrativeMed-Hub</b><small>中西醫整合醫學學習網站</small></span>
     </a>
     <nav><a href="/">文章</a><a href="/about/">關於</a></nav>
   </div>
-</header>
+</header>` : ''}
 <main id="main">
 ${body}
 </main>
@@ -241,8 +266,16 @@ const posts = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md')).map(f => 
     hero: fm.hero || '',
     heroAlt: fm.heroAlt || fm.title || '',
     tags: Array.isArray(fm.tags) ? fm.tags : (fm.tags ? [fm.tags] : []),
-    published, updated,
+    published, updated, words,
     readMins: Math.max(1, Math.round(words / 450)),
+    // 首頁搜尋索引：標題＋摘要＋標籤＋內文純文字（去 Markdown 標記與多餘空白）
+    searchText: (
+      (fm.title || '') + ' ' + (fm.summary || '') + ' ' +
+      (Array.isArray(fm.tags) ? fm.tags.join(' ') : (fm.tags || '')) + ' ' +
+      body.replace(/```[\s\S]*?```/g, ' ')
+          .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+          .replace(/[#*>`|_~-]/g, ' ')
+    ).replace(/\s+/g, ' ').trim().toLowerCase(),
   };
 });
 
@@ -254,52 +287,107 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 fs.cpSync(STATIC_DIR, OUT, { recursive: true });
 
-// 正式網域。canonical / sitemap / og 一律指向這裡，避免 pages.dev 與自訂網域內容重複被搜尋引擎分散權重。
-const SITE_URL = process.env.SITE_URL || 'https://drmjwei.net';
-
 const heroImg = 'hero-tcm-shop.jpg';
 const heroCredit = CREDITS[heroImg];
 
 // --- 首頁：卡片直接寫進 HTML（需求 6），不靠 JS 讀 JSON ---
-const cards = posts.map(p => `      <article class="card">
-        ${p.hero ? `<a class="card-media" href="/posts/${attr(p.slug)}/" tabindex="-1" aria-hidden="true"><img src="/img/${attr(p.hero)}" alt="" loading="lazy" decoding="async"></a>` : ''}
+const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
+const tagCount = (t) => posts.filter(p => p.tags.includes(t)).length;
+
+const cards = posts.map(p => `      <article class="card" data-tags="${attr(p.tags.join('|'))}" data-search="${attr(p.searchText)}">
+        ${p.hero ? `<a class="card-thumb" href="/posts/${attr(p.slug)}/" tabindex="-1" aria-hidden="true"><img src="/img/${attr(p.hero)}" alt="" loading="lazy" decoding="async"></a>` : ''}
         <div class="card-body">
+          <p class="card-date"><time datetime="${attr(p.updated)}">${fmtDate(p.updated).replace(/-/g, '/')}</time> 更新</p>
           <h3><a href="/posts/${attr(p.slug)}/">${esc(p.title)}</a></h3>
           <p class="card-sum">${esc(p.summary)}</p>
-          <ul class="card-meta">
-            <li class="m-author"><b>${esc(p.authorName)}</b>${p.authorAffil ? `<span class="affil">${esc(p.authorAffil)}</span>` : ''}</li>
-            <li><time datetime="${attr(p.published)}">發布 ${fmtDate(p.published)}</time></li>
-            <li><time datetime="${attr(p.updated)}">更新 ${fmtDate(p.updated)}</time></li>
-            <li class="m-views">瀏覽 <span class="views" data-slug="${attr(p.slug)}">–</span></li>
-          </ul>
+          ${p.tags.length ? `<ul class="card-tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+          <div class="card-meta">
+            <span class="m-author"><b>${esc(p.authorName)}</b>${p.authorAffil ? `<span class="affil">${esc(p.authorAffil)}</span>` : ''}</span>
+            <span><time datetime="${attr(p.published)}">發布 ${fmtDate(p.published).replace(/-/g, '/')}</time></span>
+            <span>瀏覽 <span class="views" data-slug="${attr(p.slug)}">–</span></span>
+          </div>
         </div>
       </article>`).join('\n');
 
+const latestPost = posts[0];
 const indexBody = `<section class="hero">
-  <div class="hero-media">
-    <img src="/img/${attr(heroImg)}" alt="傳統中藥行的藥櫃與陳列" fetchpriority="high" decoding="async" width="1600" height="867">
-  </div>
-  <div class="wrap hero-copy">
-    <h1>中西醫整合醫學<br><span>學習筆記</span></h1>
-    <p>把傳統中醫的辨證思維，放到現代實證醫學的檢驗架構下一起讀。這裡整理臨床整合模式、藥物交互作用、研究方法學與證據現況。</p>
-    <p class="hero-credit">首頁主視覺：<a href="${attr(heroCredit.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.title)}</a>，${esc(heroCredit.author)}／<a href="${attr(heroCredit.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.license)}</a>。完整出處見頁尾。</p>
+  <div class="hero-cover"><img src="/img/${attr(heroImg)}" alt="" fetchpriority="high" decoding="async" width="1600" height="867"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>中西醫整合醫學學習網站</h1>
+    <p class="hero-sub">把傳統中醫的辨證思維，放到現代實證醫學的檢驗架構下一起讀</p>
+    <p class="hero-by">— 魏孟鈞</p>
+    <p class="hero-updated">最近更新 ${fmtDate(latestPost.updated).replace(/-/g, '/')}｜<a href="/posts/${attr(latestPost.slug)}/">${esc(latestPost.title)}</a></p>
+    <p class="hero-credit">主視覺：<a href="${attr(heroCredit.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.title)}</a>，${esc(heroCredit.author)}／<a href="${attr(heroCredit.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.license)}</a>。完整出處見頁尾。</p>
   </div>
 </section>
+
+<div class="wrap toolbar">
+  <div class="toolbar-inner">
+    <ul class="chips" id="tagChips">
+      <li><button type="button" class="chip" data-tag="" aria-pressed="true">全部 <span class="n">${posts.length}</span></button></li>
+${allTags.map(t => `      <li><button type="button" class="chip" data-tag="${attr(t)}" aria-pressed="false">${esc(t)} <span class="n">${tagCount(t)}</span></button></li>`).join('\n')}
+    </ul>
+    <div class="toolbar-row">
+      <div class="search">
+        <label class="skip" for="q">搜尋文章</label>
+        <input type="search" id="q" placeholder="搜尋標題、摘要或標籤…" autocomplete="off">
+      </div>
+      <div class="toolbar-links">
+        <a href="/about/">關於本站</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <section class="wrap posts">
   <div class="posts-head">
     <h2>全部文章</h2>
-    <p class="count">${posts.length} 篇 · 依最後更新時間排序</p>
+    <p class="count" id="resultCount">${posts.length} 篇 · 依最後更新時間排序</p>
   </div>
-  <div class="grid">
+  <div class="grid" id="grid">
 ${cards}
   </div>
+  <p class="no-result" id="noResult" hidden>沒有符合的文章。試試其他關鍵字或標籤。</p>
 </section>`;
 
 fs.writeFileSync(path.join(OUT, 'index.html'), layout({
   title: `${SITE.name} — ${SITE.tagline}`,
   desc: SITE.desc, canonical: SITE_URL + '/', body: indexBody, bodyClass: 'is-home',
-  extraHead: `<script src="/views.js${VIEWS_V}" defer></script>`,
+  image: `${SITE_URL}/img/${heroImg}`,
+  showHeader: false,
+  extraHead: `<script src="/views.js${VIEWS_V}" defer></script>\n<script src="/filter.js${assetVer('filter.js')}" defer></script>`,
+  schema: {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: SITE.name,
+        alternateName: SITE.tagline,
+        description: SITE.desc,
+        inLanguage: 'zh-Hant-TW',
+      },
+      {
+        '@type': 'Blog',
+        '@id': `${SITE_URL}/#blog`,
+        url: `${SITE_URL}/`,
+        name: SITE.tagline,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        inLanguage: 'zh-Hant-TW',
+        blogPost: posts.map(p => ({
+          '@type': 'BlogPosting',
+          headline: p.title,
+          url: `${SITE_URL}/posts/${p.slug}/`,
+          datePublished: p.published,
+          dateModified: p.updated,
+          author: { '@type': 'Person', name: p.authorName },
+        })),
+      },
+    ],
+  },
 }));
 
 // --- 文章頁：各自獨立網址 /posts/<slug>/（需求 2） ---
@@ -321,9 +409,15 @@ for (const p of posts) {
     </ul>
   </header>
   ${p.hero ? `<figure class="post-hero">
-    <img src="/img/${attr(p.hero)}" alt="${attr(p.heroAlt)}" decoding="async">
+    <img src="/img/${attr(p.hero)}" alt="${attr(p.heroAlt)}" decoding="async" fetchpriority="high" width="1600" height="900">
     ${c ? `<figcaption>圖：<a href="${attr(c.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a>，${esc(c.author)}／<a href="${attr(c.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.license)}</a></figcaption>` : ''}
   </figure>` : ''}
+  ${p.toc.length >= 4 ? `<nav class="wrap toc" aria-label="本文章節">
+    <h2>本文章節</h2>
+    <ol>
+${p.toc.map(t => `      <li><a href="#${attr(t.id)}">${t.txt}</a></li>`).join('\n')}
+    </ol>
+  </nav>` : ''}
   <div class="wrap prose">
 ${p.html}
   </div>
@@ -332,12 +426,56 @@ ${p.html}
     <a class="back" href="/">← 回文章列表</a>
   </div>
 </article>`;
+  const url = `${SITE_URL}/posts/${p.slug}/`;
+  const ogImage = `${SITE_URL}/img/${p.hero || heroImg}`;
   fs.writeFileSync(path.join(dir, 'index.html'), layout({
     title: `${p.title} — ${SITE.name}`,
     desc: p.summary || SITE.desc,
-    canonical: `${SITE_URL}/posts/${p.slug}/`,
+    canonical: url,
     body, bodyClass: 'is-post',
-    extraHead: `<script src="/views.js${VIEWS_V}" defer></script>`,
+    ogType: 'article',
+    image: ogImage,
+    extraHead: [
+      `<meta property="article:published_time" content="${attr(p.published)}">`,
+      `<meta property="article:modified_time" content="${attr(p.updated)}">`,
+      `<meta property="article:author" content="${attr(p.authorName)}">`,
+      ...p.tags.map(t => `<meta property="article:tag" content="${attr(t)}">`),
+      `<script src="/views.js${VIEWS_V}" defer></script>`,
+    ].join('\n'),
+    schema: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BlogPosting',
+          '@id': `${url}#article`,
+          headline: p.title,
+          description: p.summary,
+          url,
+          mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+          datePublished: p.published,
+          dateModified: p.updated,
+          inLanguage: 'zh-Hant-TW',
+          wordCount: p.words,
+          keywords: p.tags.join(', '),
+          image: [ogImage],
+          author: {
+            '@type': 'Person',
+            name: p.authorName,
+            ...(p.authorAffil ? { affiliation: { '@type': 'Organization', name: p.authorAffil } } : {}),
+          },
+          publisher: { '@type': 'Organization', name: SITE.name, url: `${SITE_URL}/` },
+          isPartOf: { '@id': `${SITE_URL}/#blog` },
+          license: 'https://creativecommons.org/licenses/by/4.0/',
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: '文章', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: p.title, item: url },
+          ],
+        },
+      ],
+    },
   }));
 }
 
@@ -362,14 +500,41 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 }));
 
 // --- sitemap / robots ---
+const newest = posts.length ? posts[0].updated.slice(0, 10) : new Date().toISOString().slice(0, 10);
 const urls = ['/', '/about/', ...posts.map(p => `/posts/${p.slug}/`)];
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   urls.map(u => {
     const p = posts.find(x => `/posts/${x.slug}/` === u);
-    return `  <url><loc>${SITE_URL}${u}</loc>${p ? `<lastmod>${p.updated.slice(0, 10)}</lastmod>` : ''}</url>`;
+    const lastmod = p ? p.updated.slice(0, 10) : newest;           // 首頁／關於頁也給 lastmod
+    const priority = u === '/' ? '1.0' : (p ? '0.8' : '0.5');
+    return `  <url><loc>${SITE_URL}${u}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority></url>`;
   }).join('\n') + `\n</urlset>\n`);
 fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+
+// --- RSS ---
+const rssDate = (iso) => new Date(iso).toUTCString();
+fs.writeFileSync(path.join(OUT, 'feed.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>${esc(SITE.name)} — ${esc(SITE.tagline)}</title>
+  <link>${SITE_URL}/</link>
+  <description>${esc(SITE.desc)}</description>
+  <language>zh-Hant-TW</language>
+  <lastBuildDate>${rssDate(posts.length ? posts[0].updated : new Date().toISOString())}</lastBuildDate>
+  <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
+${posts.map(p => `  <item>
+    <title>${esc(p.title)}</title>
+    <link>${SITE_URL}/posts/${p.slug}/</link>
+    <guid isPermaLink="true">${SITE_URL}/posts/${p.slug}/</guid>
+    <pubDate>${rssDate(p.published)}</pubDate>
+    <author>${esc(p.authorName)}</author>
+${p.tags.map(t => `    <category>${esc(t)}</category>`).join('\n')}
+    <description>${esc(p.summary)}</description>
+  </item>`).join('\n')}
+</channel>
+</rss>\n`);
 
 console.log(`✓ built ${posts.length} posts → dist/`);
 for (const p of posts) console.log(`  /posts/${p.slug}/  更新 ${fmtDate(p.updated)}  發布 ${fmtDate(p.published)}  — ${p.title}`);

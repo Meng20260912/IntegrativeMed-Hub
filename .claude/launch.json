@@ -3,9 +3,12 @@
   "configurations": [
     {
       "name": "imh-preview",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8788", "--directory", "dist"],
-      "port": 8788
+      "autoPort": true,
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "exec python3 -m http.server \"$PORT\" --bind 127.0.0.1 --directory /Users/arsen/MyProjects/IntegrativeMed-Hub/dist"
+      ]
     }
   ]
 }
