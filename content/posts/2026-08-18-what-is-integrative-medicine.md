@@ -4,8 +4,8 @@ slug: what-is-integrative-medicine
 author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-08-18
 summary: 「中西醫合治」常被當成一個詞用，實際上臨床上至少有三種完全不同的操作模式，責任歸屬與證據要求都不一樣。
-hero: hero-tcm-shop.jpg
-heroAlt: 傳統中藥行的藥櫃與藥材陳列
+hero: hero-ginseng.jpg
+heroAlt: 高麗參的鮮根
 tags: [概念釐清, 臨床模式]
 ---
 

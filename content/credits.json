@@ -1,19 +1,19 @@
 {
-  "hero-tcm-shop.jpg": {
-    "title": "金門存德藥房（2012-06-07 Chinese medicine shop at Kinmen）",
-    "author": "tomscoffin",
+  "hero-ginseng.jpg": {
+    "title": "Korean ginseng（高麗參鮮根）",
+    "author": "Eugene Kim",
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2012-06-07_Chinese_medicine_shop_at_Kinmen.jpg",
-    "modified": "縮放並重新壓縮"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korean_ginseng.jpg",
+    "modified": "裁切、縮放並重新壓縮"
   },
-  "pharmacy.jpg": {
-    "title": "博安堂蔘藥行（Bo'an Tang Traditional Chinese Medicine Pharmacy）",
-    "author": "Solomon203",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bo%27an_Tang_Traditional_Chinese_Medicine_Pharmacy_20200604.jpg",
-    "modified": "縮放並重新壓縮"
+  "cinchona.jpg": {
+    "title": "Cinchona officinalis var. angustifolia 蠟葉標本",
+    "author": "Wellcome Collection",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cinchona_Officinalis_var_angustifolia._Wellcome_M0001582.jpg",
+    "modified": "裁切、縮放並重新壓縮"
   },
   "lab.jpg": {
     "title": "Precision pipetting in biology research",

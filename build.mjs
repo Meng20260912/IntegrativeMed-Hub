@@ -181,7 +181,7 @@ const jsonLd = (obj) => JSON.stringify(obj).replace(/</g, '\\u003c');
 
 function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
                   ogType = 'website', image = '', schema = null, showHeader = true }) {
-  const img = image || `${SITE_URL}/img/hero-tcm-shop.jpg`;
+  const img = image || `${SITE_URL}/img/hero-ginseng.jpg`;
   return `<!doctype html>
 <html lang="${SITE.lang}">
 <head>
@@ -287,7 +287,7 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 fs.cpSync(STATIC_DIR, OUT, { recursive: true });
 
-const heroImg = 'hero-tcm-shop.jpg';
+const heroImg = 'hero-ginseng.jpg';
 const heroCredit = CREDITS[heroImg];
 
 // --- 首頁：卡片直接寫進 HTML（需求 6），不靠 JS 讀 JSON ---
