@@ -7,6 +7,7 @@
   --navy-deep:#0b2540;   /* 更深，用於 hero 遮罩 */
   --blue:#1d6fa5;        /* 連結／互動 */
   --blue-soft:#e9f0f7;
+  --accent-warn:#b4553f;
   --radius:20px; --radius-sm:12px;
   --wrap:1120px; --measure:44rem;
   --shadow:0 2px 8px rgba(18,57,95,.05), 0 8px 28px rgba(18,57,95,.05);
@@ -20,6 +21,7 @@
     --ink:#e9eef4; --ink-2:#b2bfcc; --ink-3:#7e8d9c;
     --line:#26323f;
     --navy:#8cc0e8; --navy-deep:#050d16; --blue:#a5d4f2; --blue-soft:#172230;
+    --accent-warn:#d98570;
     --shadow:0 2px 8px rgba(0,0,0,.34), 0 8px 28px rgba(0,0,0,.34);
     --shadow-lg:0 4px 14px rgba(0,0,0,.45), 0 18px 44px -12px rgba(0,0,0,.6);
   }
@@ -246,3 +248,9 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .page-logo img{width:100%;height:auto;background:#fff;border:1px solid var(--line);
   border-radius:var(--radius);padding:clamp(10px,2.5vw,20px)}
 @media (max-width:520px){.brand-logo{max-width:100%}}
+
+/* ---------- 內嵌圖解 ---------- */
+.diagram{margin:1.8em 0;padding:clamp(12px,2.5vw,18px);background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius-sm);overflow-x:auto}
+.diagram svg{width:100%;min-width:30rem;height:auto;display:block}
+.diagram figcaption{margin-top:10px;font-size:.75rem;color:var(--ink-3);line-height:1.7}

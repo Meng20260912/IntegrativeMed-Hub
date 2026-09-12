@@ -49,6 +49,11 @@ const imgSrc = (name) => `/img/${name}${assetVer(path.join('img', name))}`;
 // 讀取 JPEG/PNG 實際尺寸，讓 width/height 屬性正確保留版面空間，避免圖片載入時跳動
 function imgSize(name) {
   try {
+    if (/\.svg$/i.test(name)) {
+      const v = fs.readFileSync(path.join(STATIC_DIR, 'img', name), 'utf8')
+        .match(/viewBox\s*=\s*["']\s*[\d.-]+\s+[\d.-]+\s+([\d.]+)\s+([\d.]+)/);
+      return v ? { w: Math.round(+v[1]), h: Math.round(+v[2]) } : null;
+    }
     const b = fs.readFileSync(path.join(STATIC_DIR, 'img', name));
     if (b[0] === 0x89 && b[1] === 0x50) return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) }; // PNG
     let i = 2;
@@ -139,6 +144,14 @@ function markdown(src) {
 
     if (!line.trim()) { i++; continue; }
 
+    // 內嵌圖表：<figure> 區塊原樣輸出，供 SVG 圖解使用（會繼承頁面的 CSS 變數，自動跟隨深色模式）
+    if (/^&lt;figure/.test(line)) {
+      const buf = [];
+      while (i < lines.length && !/^&lt;\/figure&gt;/.test(lines[i])) buf.push(lines[i++]);
+      buf.push(lines[i++] || '');
+      out.push(buf.join('\n').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&'));
+      continue;
+    }
     // 圍籬程式碼
     if (/^```/.test(line)) {
       const buf = [];
@@ -312,6 +325,7 @@ const posts = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md')).map(f => 
     summary: fm.summary || '',
     hero: fm.hero || '',
     heroAlt: fm.heroAlt || fm.title || '',
+    heroCaption: fm.heroCaption || '',
     tags: Array.isArray(fm.tags) ? fm.tags : (fm.tags ? [fm.tags] : []),
     published, updated, words,
     readMins: Math.max(1, Math.round(words / 450)),
@@ -458,7 +472,7 @@ for (const p of posts) {
   </header>
   ${p.hero ? `<figure class="post-hero">
     <img src="${attr(imgSrc(p.hero))}" alt="${attr(p.heroAlt)}" decoding="async" fetchpriority="high"${sizeAttr(p.hero)}>
-    ${c ? `<figcaption>圖：<a href="${attr(c.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a>，${esc(c.author)}／<a href="${attr(c.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.license)}</a></figcaption>` : ''}
+    ${c ? `<figcaption>圖：<a href="${attr(c.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a>，${esc(c.author)}／<a href="${attr(c.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.license)}</a></figcaption>` : (p.heroCaption ? `<figcaption>${esc(p.heroCaption)}</figcaption>` : '')}
   </figure>` : ''}
   ${p.toc.length >= 4 ? `<nav class="wrap toc" aria-label="本文章節">
     <h2>本文章節</h2>

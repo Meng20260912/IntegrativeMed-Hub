@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" width="720" height="430" role="img" aria-labelledby="ep-t ep-d">
+<title id="ep-t">實證醫學證據金字塔與中醫研究的分布</title>
+<desc id="ep-d">由下而上依序為細胞與動物實驗、個案報告與病例系列、觀察性研究、隨機對照試驗、系統性回顧與統合分析。右側標註中醫研究在各層的處境：下層數量最多但只能作為機轉線索，中層受選擇偏誤與時間相關陷阱影響，上層受假針灸對照與辨證標準化的限制，最上層的結論品質受納入研究品質限制。</desc>
+<style>
+  .ep-bg{fill:#ffffff}
+  .ep-ti{font:700 15px "Noto Serif TC",serif;fill:#12395f}
+  .ep-tier{font:700 13px "Noto Sans TC",sans-serif}
+  .ep-note{font:12px "Noto Sans TC",sans-serif;fill:#4c5a68}
+  .ep-nh{font:700 12px "Noto Sans TC",sans-serif;fill:#12395f}
+  .ep-ax{font:11px "Noto Sans TC",sans-serif;fill:#8695a4}
+  .ep-ln{stroke:#cfd9e4;stroke-width:1}
+  .t1{fill:#d6e4f0}.t2{fill:#a8c4dd}.t3{fill:#6f9dc4}.t4{fill:#2f5f8c}.t5{fill:#12395f}
+  .dark1{fill:#1b3a55}.on-l{fill:#12395f}.on-d{fill:#ffffff}
+  @media (prefers-color-scheme:dark){
+    .ep-bg{fill:#151e28}
+    .ep-ti,.ep-nh{fill:#8cc0e8}
+    .ep-note{fill:#b2bfcc}
+    .ep-ax{fill:#7e8d9c}
+    .ep-ln{stroke:#2c3a48}
+    .t1{fill:#24435e}.t2{fill:#33607f}.t3{fill:#4d84a8}.t4{fill:#7bb0d6}.t5{fill:#a5d4f2}
+    .on-l{fill:#e9eef4}
+    .on-d{fill:#0d1720}
+  }
+</style>
+<rect class="ep-bg" width="720" height="430"/>
+<text class="ep-ti" x="24" y="34">中醫研究在證據金字塔上的分布</text>
+
+<text class="ep-ax" x="24" y="72" >證據強度</text>
+<line class="ep-ln" x1="60" y1="88" x2="60" y2="392"/>
+<path d="M60 96 l-4 8 h8 z" fill="#8695a4"/>
+<text class="ep-ax" x="24" y="392">數量</text>
+
+<polygon class="t1" points="100,380 340,380 319,320 121,320"/>
+<polygon class="t2" points="121,320 319,320 298,260 142,260"/>
+<polygon class="t3" points="142,260 298,260 277,200 163,200"/>
+<polygon class="t4" points="163,200 277,200 256,140 184,140"/>
+<polygon class="t5" points="184,140 256,140 235,80 205,80"/>
+
+<text class="ep-tier on-l" x="220" y="356" text-anchor="middle">細胞與動物實驗</text>
+<text class="ep-tier on-l" x="220" y="296" text-anchor="middle">個案報告・病例系列</text>
+<text class="ep-tier on-d" x="220" y="236" text-anchor="middle">觀察性研究</text>
+<text class="ep-tier on-d" x="220" y="176" text-anchor="middle">隨機對照試驗</text>
+<text class="ep-tier on-d" x="220" y="116" text-anchor="middle">統合分析</text>
+
+<line class="ep-ln" x1="340" y1="350" x2="386" y2="350"/>
+<text class="ep-nh" x="396" y="342">數量最多，只能算線索</text>
+<text class="ep-note" x="396" y="362">單味藥、萃取物的機轉研究大量累積，</text>
+<text class="ep-note" x="396" y="380">但不能推論到人體療效。</text>
+
+<line class="ep-ln" x1="319" y1="292" x2="386" y2="292"/>
+<text class="ep-nh" x="396" y="284">無法排除自然病程</text>
+<text class="ep-note" x="396" y="304">治療前後順序不等於因果。</text>
+
+<line class="ep-ln" x1="298" y1="234" x2="386" y2="234"/>
+<text class="ep-nh" x="396" y="226">健保資料庫的主場</text>
+<text class="ep-note" x="396" y="246">受選擇偏誤與時間相關陷阱影響，</text>
+<text class="ep-note" x="396" y="264">適合產生假說與偵測安全訊號。</text>
+
+<line class="ep-ln" x1="277" y1="176" x2="386" y2="176"/>
+<text class="ep-nh" x="396" y="168">中醫的設計難題所在</text>
+<text class="ep-note" x="396" y="188">假針灸不是惰性對照；辨證論治與</text>
+<text class="ep-note" x="396" y="206">標準化處方之間必須取捨。</text>
+
+<line class="ep-ln" x1="256" y1="116" x2="386" y2="116"/>
+<text class="ep-nh" x="396" y="108">上限取決於下層品質</text>
+<text class="ep-note" x="396" y="128">納入的試驗若有偏差，統合只會</text>
+<text class="ep-note" x="396" y="146">把偏差放大得更精確。</text>
+
+<text class="ep-ax" x="24" y="414">層級愈高，愈能支持因果宣稱；中醫研究的數量分布與證據強度恰好相反。</text>
+</svg>

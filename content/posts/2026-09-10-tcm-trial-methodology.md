@@ -4,8 +4,9 @@ slug: tcm-trial-methodology
 author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-09-10
 summary: 中醫的個人化處方與 RCT 的標準化前提存在結構性張力。介紹固定方、證型分層與 N-of-1 三種折衷設計，以及各自的代價。
-hero: lab.jpg
-heroAlt: 研究人員在實驗室進行精密移液操作
+hero: evidence-pyramid.svg
+heroAlt: 實證醫學證據金字塔，標註中醫研究在各層級的處境
+heroCaption: 中醫研究的數量分布與證據強度恰好相反：機轉研究最多，能支持因果宣稱的最少。
 tags: [研究方法, 實證醫學, 試驗設計]
 ---
 
