@@ -254,3 +254,12 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
   border:1px solid var(--line);border-radius:var(--radius-sm);overflow-x:auto}
 .diagram svg{width:100%;min-width:30rem;height:auto;display:block}
 .diagram figcaption{margin-top:10px;font-size:.75rem;color:var(--ink-3);line-height:1.7}
+
+/* ---------- 參考文獻引用連結 ---------- */
+.prose a.cite{font-size:.82em;text-decoration:none;white-space:nowrap;font-variant-numeric:tabular-nums}
+.prose a.cite:hover,.prose a.cite:focus-visible{text-decoration:underline}
+.prose .ref-list{list-style:none;padding-left:0}
+.prose .ref-item{margin:0 0 .5em -.6em;padding:.4em .6em;border-radius:8px;
+  scroll-margin-top:88px;transition:background-color .3s ease}
+.prose .ref-item:target{background:var(--blue-soft)}
+.prose .ref-num{margin-right:.2em;color:var(--ink-3);font-variant-numeric:tabular-nums}

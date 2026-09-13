@@ -120,12 +120,26 @@ function parseFrontmatter(raw) {
 }
 
 /* ---------- 極簡 Markdown 渲染器 ---------- */
+// 參考文獻：文末清單中以「- [n] 」開頭的條目視為文獻，正文的 [n] 會連到對應條目。
+// 只有清單中確實存在的編號才會轉成連結，避免產生指向不存在錨點的死連結。
+const REF_LINE = /^\s*[-*]\s+\[(\d{1,3})\]\s/;
+const CITE = /\[(\d{1,3})\](?!\()/g;
+let REFS = new Set();
+function collectRefs(src) {
+  return new Set(src.split(/\r?\n/).map(l => (l.match(REF_LINE) || [])[1]).filter(Boolean));
+}
+function citedIds(src) {
+  const text = src.split(/\r?\n/).filter(l => !REF_LINE.test(l)).join('\n');
+  return new Set([...text.matchAll(CITE)].map(m => m[1]));
+}
+
 function inline(s) {
   return s
     .replace(/`([^`]+)`/g, (_, c) => `<code>${c}</code>`)
     .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, (_, a, u) => `<img src="${attr(u)}" alt="${attr(a)}" loading="lazy">`)
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) =>
       `<a href="${attr(u)}"${/^https?:/.test(u) ? ' target="_blank" rel="noopener noreferrer"' : ''}>${t}</a>`)
+    .replace(CITE, (m, n) => REFS.has(n) ? `<a class="cite" href="#ref-${n}" aria-label="參考文獻 ${n}">[${n}]</a>` : m)
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
 }
@@ -199,14 +213,22 @@ function markdown(src) {
     if (/^\s*([-*]|\d+\.)\s+/.test(line)) {
       const ordered = /^\s*\d+\./.test(line);
       const items = [];
+      let isRefList = false;
       while (i < lines.length && /^\s*([-*]|\d+\.)\s+/.test(lines[i])) {
         let txt = lines[i++].replace(/^\s*([-*]|\d+\.)\s+/, '');
         while (i < lines.length && lines[i].trim() && !/^\s*([-*]|\d+\.)\s+/.test(lines[i]) && !/^(#{1,6}\s|```|\|)/.test(lines[i])) {
           txt += ' ' + lines[i++].trim();
         }
-        items.push(`<li>${inline(txt)}</li>`);
+        const ref = txt.match(/^\[(\d{1,3})\]\s+([\s\S]*)$/);
+        if (ref && REFS.has(ref[1])) {
+          isRefList = true;
+          items.push(`<li id="ref-${ref[1]}" class="ref-item"><span class="ref-num">[${ref[1]}]</span> ${inline(ref[2])}</li>`);
+        } else {
+          items.push(`<li>${inline(txt)}</li>`);
+        }
       }
-      out.push(`<${ordered ? 'ol' : 'ul'}>${items.join('')}</${ordered ? 'ol' : 'ul'}>`);
+      const tag = ordered ? 'ol' : 'ul';
+      out.push(`<${tag}${isRefList ? ' class="ref-list"' : ''}>${items.join('')}</${tag}>`);
       continue;
     }
     // 段落
@@ -312,6 +334,10 @@ const posts = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md')).map(f => 
   const raw = fs.readFileSync(file, 'utf8');
   const { fm, body } = parseFrontmatter(raw);
   const slug = fm.slug || f.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  REFS = collectRefs(body);
+  const cited = citedIds(body);
+  for (const n of cited) if (!REFS.has(n)) console.warn(`⚠ ${f}：正文引用 [${n}] 找不到對應文獻`);
+  for (const n of REFS) if (!cited.has(n)) console.warn(`⚠ ${f}：文獻 [${n}] 未在正文中被引用`);
   const { html, toc } = markdown(body);
   const updated = lastUpdated(path.relative(ROOT, file), fm);
   const published = fm.date ? new Date(fm.date).toISOString() : updated;
