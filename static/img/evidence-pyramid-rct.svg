@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 404" width="720" height="404" role="img" aria-labelledby="epr-t epr-d">
+<title id="epr-t">隨機對照試驗在證據金字塔上的位置</title>
+<desc id="epr-d">實證醫學證據金字塔，由下而上為細胞與動物實驗、個案報告與病例系列、觀察性研究、隨機對照試驗、統合分析。隨機對照試驗一層被標亮，其餘各層調淡，旁邊列出本篇討論的三種設計：固定方、證型分層、個人化處方。</desc>
+<style>
+  .ep-bg{fill:#ffffff}
+  .ep-ti{font:700 15px "Noto Serif TC",serif;fill:#12395f}
+  .ep-tier{font:700 13px "Noto Sans TC",sans-serif}
+  .ep-note{font:12px "Noto Sans TC",sans-serif;fill:#4c5a68}
+  .ep-nh{font:700 12px "Noto Sans TC",sans-serif;fill:#12395f}
+  .ep-big{font:700 17px "Noto Sans TC",sans-serif;fill:#12395f}
+  .ep-hd{font:700 13px "Noto Sans TC",sans-serif;fill:#12395f}
+  .ep-ax{font:11px "Noto Sans TC",sans-serif;fill:#8695a4}
+  .ep-ln{stroke:#cfd9e4;stroke-width:1}
+  .ep-cn{stroke:#12395f;stroke-width:1.5}
+  .ep-dot{fill:#12395f}
+  .ep-box{fill:#eef3f8;stroke:#cfd9e4;stroke-width:1}
+  .t1{fill:#d6e4f0}.t2{fill:#a8c4dd}.t3{fill:#6f9dc4}.t4{fill:#2f5f8c}.t5{fill:#12395f}
+  .hl{stroke:#12395f;stroke-width:3}
+  .dim{opacity:.22}
+  .dim-l{fill:#5d6c7b}
+  .on-l{fill:#12395f}.on-d{fill:#ffffff}
+  @media (prefers-color-scheme:dark){
+    .ep-bg{fill:#151e28}
+    .ep-ti,.ep-nh,.ep-hd,.ep-big{fill:#8cc0e8}
+    .ep-note{fill:#b2bfcc}
+    .ep-ax{fill:#7e8d9c}
+    .ep-ln{stroke:#2c3a48}
+    .ep-cn{stroke:#8cc0e8}
+    .ep-dot{fill:#8cc0e8}
+    .ep-box{fill:#1b2733;stroke:#2c3a48}
+    .t1{fill:#24435e}.t2{fill:#33607f}.t3{fill:#4d84a8}.t4{fill:#7bb0d6}.t5{fill:#a5d4f2}
+    .hl{stroke:#a5d4f2}
+    .dim-l{fill:#9aa8b6}
+    .on-l{fill:#e9eef4}
+    .on-d{fill:#0d1720}
+  }
+</style>
+<rect class="ep-bg" width="720" height="404"/>
+<text class="ep-ti" x="24" y="34">隨機對照試驗在證據金字塔上的位置</text>
+
+<text class="ep-ax" x="24" y="72">證據強度</text>
+<line class="ep-ln" x1="60" y1="88" x2="60" y2="392"/>
+<path d="M60 96 l-4 8 h8 z" fill="#8695a4"/>
+<text class="ep-ax" x="24" y="392">數量</text>
+
+<g class="dim">
+  <polygon class="t1" points="100,380 340,380 319,320 121,320"/>
+  <polygon class="t2" points="121,320 319,320 298,260 142,260"/>
+  <polygon class="t3" points="142,260 298,260 277,200 163,200"/>
+  <polygon class="t5" points="184,140 256,140 235,80 205,80"/>
+</g>
+<text class="ep-tier dim-l" x="220" y="356" text-anchor="middle">細胞與動物實驗</text>
+<text class="ep-tier dim-l" x="220" y="296" text-anchor="middle">個案報告・病例系列</text>
+<text class="ep-tier dim-l" x="220" y="236" text-anchor="middle">觀察性研究</text>
+<text class="ep-tier dim-l" x="220" y="116" text-anchor="middle">統合分析</text>
+<polygon class="t4 hl" points="163,200 277,200 256,140 184,140" stroke-linejoin="round"/>
+<text class="ep-tier on-d" x="220" y="176" text-anchor="middle">隨機對照試驗</text>
+
+<line class="ep-cn" x1="277" y1="170" x2="386" y2="170"/>
+<circle class="ep-dot" cx="277" cy="170" r="3.5"/>
+
+<rect class="ep-box" x="386" y="86" width="286" height="168" rx="10"/>
+<text class="ep-big" x="414" y="136">固定方</text>
+<line class="ep-ln" x1="414" y1="154" x2="644" y2="154"/>
+<text class="ep-big" x="414" y="182">證型分層</text>
+<line class="ep-ln" x1="414" y1="200" x2="644" y2="200"/>
+<text class="ep-big" x="414" y="228">個人化處方</text>
+</svg>
