@@ -574,17 +574,25 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
   title: `關於 — ${SITE.name}`, desc: SITE.desc, canonical: SITE_URL + '/about/',
   body: `<div class="wrap page-logo"><img src="${attr(imgSrc('brand-logo.png'))}" alt="魏孟鈞中醫師"${sizeAttr('brand-logo.png')} fetchpriority="high" decoding="async"></div>
 <div class="wrap prose page">
-<h1>關於本站</h1>
+<h1>關於作者</h1>
+<figure class="about-profile"><img src="${attr(imgSrc('about-profile.jpg'))}" alt="魏孟鈞醫師個人介紹圖：台北慈濟醫院中醫部中醫內科主治醫師，列出現職、專長領域、研究方向與醫療特色"${sizeAttr('about-profile.jpg')} decoding="async"></figure>
+<p><strong>魏孟鈞</strong>，台北慈濟醫院中醫部中醫內科主治醫師。</p>
+<ul>
+<li><strong>專長領域：</strong>心血管疾病調理、周邊動脈疾病照護、重症與術後整合照護、安寧緩和醫療、代謝與內分泌失調</li>
+<li><strong>研究方向：</strong>中西醫整合醫療、雷射針灸與循環改善、中藥抗發炎機轉研究、心血管保護與重症照護</li>
+</ul>
+<p>寫給一般民眾的衛教文章，放在<a href="${BLOG_URL}" target="_blank" rel="noopener noreferrer">魏孟鈞中醫師衛教部落格</a>。</p>
+<h2>關於本站</h2>
 <p>IntegrativeMed-Hub 是一個中西醫整合醫學的學習筆記站。這裡整理兩套醫學體系在<strong>概念、證據與臨床實作</strong>上如何對話、又在哪裡衝突，不做療效宣稱。</p>
-<h2>編輯原則</h2>
+<h3>編輯原則</h3>
 <ul>
 <li>任何療效陳述都標示證據等級與來源，區分「有隨機對照試驗支持」「僅有機轉推論」「僅有傳統經驗」。</li>
 <li>藥物交互作用一律以具體成分、機轉與臨床後果描述，不使用「純天然所以安全」這類說法。</li>
 <li>不確定就寫不確定。方法學上的限制會直接寫出來。</li>
 </ul>
-<h2>技術</h2>
+<h3>技術</h3>
 <p>純靜態網站，由零依賴的 Node 腳本把 Markdown 產生成 HTML，部署於 Cloudflare Pages。首頁文章卡片在建置階段就寫入 HTML，不靠瀏覽器端 JavaScript 產生。瀏覽計數使用 Cloudflare KV，不使用第三方追蹤服務、不放置 Cookie。</p>
-<h2>授權</h2>
+<h3>授權</h3>
 <p>文字內容採 CC BY 4.0。圖片各自標示原作者與授權，詳見頁尾。</p>
 </div>`,
 }));

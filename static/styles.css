@@ -248,6 +248,10 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .page-logo img{width:100%;height:auto;background:#fff;border:1px solid var(--line);
   border-radius:var(--radius);padding:clamp(10px,2.5vw,20px)}
 @media (max-width:520px){.brand-logo{max-width:100%}}
+/* 關於頁個人介紹圖：直式海報，桌機限寬置中，手機滿版 */
+.prose .about-profile{max-width:520px;margin:1.2em auto 1.6em}
+.prose .about-profile img{display:block;width:100%;height:auto;border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow)}
 
 /* ---------- 內嵌圖解 ---------- */
 .diagram{margin:1.8em 0;padding:clamp(12px,2.5vw,18px);background:var(--surface);
