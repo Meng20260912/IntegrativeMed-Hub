@@ -3,7 +3,7 @@ title: 針灸的現代研究證據：假針灸也有效，該怎麼解讀？
 slug: acupuncture-evidence
 author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-09-05
-summary: 德國大型下背痛試驗中，真針灸與假針灸的效果相近，卻都明顯優於常規治療。同一組數據，可以讀成「針灸無效」，也可以讀成「假針灸本身有作用」。從對照組設計談起，整理哪些適應症證據較一致、哪些在更嚴格的對照下沒有得到證實，以及台灣健保資料呈現的安全性輪廓。
+summary: 德國大型下背痛試驗中，真針灸與假針灸的效果相近，卻都明顯優於常規治療。同一組數據，可以讀成「針灸無效」，也可以讀成「假針灸本身有作用」。從對照組設計談起，整理哪些適應症證據較一致、哪些在更嚴格的對照下沒有得到證實，以及施針前該辨認的併發症風險。
 hero: needles.jpg
 heroAlt: 現代臨床使用的毫針，銅絲纏繞針柄與圈狀針尾
 tags: [實證醫學, 研究方法, 針灸]
@@ -46,6 +46,8 @@ tags: [實證醫學, 研究方法, 針灸]
 
 ## 證據較一致的領域
 
+臨床上，針灸用得很廣：中風後遺症、坐骨神經痛、顏面神經麻痺等神經系統問題，肩頸腰背痛、網球肘、媽媽手等肌肉骨骼問題，還有腹脹、便秘、功能性消化不良這類功能性的內科症狀。能通過假針灸對照檢驗、結果也較一致的適應症，範圍則窄得多。
+
 | 適應症 | 主要證據 | 解讀時的限制 |
 |---|---|---|
 | 慢性肌肉骨骼疼痛 | 個別病人資料統合分析：優於假針灸與不針灸，效果可持續 [4] | 對假針灸的效果量小 |
@@ -57,26 +59,44 @@ tags: [實證醫學, 研究方法, 針灸]
 
 ## 對照組一換，結論就改寫
 
-急性中風是很好的例子。Cochrane 回顧納入 33 篇試驗，與不針灸的開放式對照比較時，針灸組的死亡或依賴比例、神經功能與運動功能看起來都有改善；換成與假針灸比較，這些改善都沒有得到證實 [9]。回顧作者的判斷是，開放式對照帶來的偏差，干擾了表面上的療效。安全性方面，針灸組約 6.2% 出現疼痛、頭暈或暈針等不良反應，多半輕微，因不良反應而停止治療的占 1.4% [9]。
+急性中風是很好的例子。Cochrane 回顧納入 33 篇試驗，與不針灸的開放式對照比較時，針灸組的死亡或依賴比例、神經功能與運動功能看起來都有改善；換成與假針灸比較，這些改善都沒有得到證實 [9]。回顧作者的判斷是，開放式對照帶來的偏差，干擾了表面上的療效。
 
-戒菸也有類似的情況。Cochrane 回顧顯示，針灸與假針灸相比，短期戒菸率略高，但沒有一致且無偏差的證據支持 6 個月以上的持續效果，效果也不如尼古丁替代療法 [10]。
+真實世界的資料則描述了另一個面向。台北慈濟醫院回溯分析 2019 年中西醫合療中風照護計畫的 255 位住院病人，他們在亞急性早期接受針灸，或針灸合併中藥，同時進行常規復健。無論出血性或缺血性中風，NIH 中風量表（NIHSS）與巴氏量表（Barthel Index）分數在計畫前後都顯著改善；巴氏量表 40 分以下、日常功能較差的病人，合併中藥組的進步又多於單純針灸組 [10]。這項研究沒有不接受針灸的對照組，前後差異也包含亞急性期的自然恢復與復健效果。它描繪了整合照護在病房裡的實際樣貌，也提出一個值得檢驗的假說：功能較差的病人，或許能從合併中藥得到更多幫助。針灸本身的貢獻，仍待前瞻性對照試驗釐清。
 
-## 安全性：少見，但風險族群可以預先辨認
+## 安全性：併發症少見，但各有來由
 
-德國一項前瞻性研究追蹤 229230 位接受針灸的病人，平均治療約 10 次，8.6% 至少出現一次不良反應，2.2% 需要處理；最常見的是出血或瘀青，氣胸只有 2 例 [11]。中文文獻的系統性回顧則整理了 479 例不良事件，最常見的是氣胸、暈針、蜘蛛膜下腔出血與感染，作者認為多數源自施針技術不當 [12]。
+2024 年底，一則民眾指稱針灸後發生氣胸的新聞引起不少討論。針刺是侵入性的醫療處置，必須由熟悉解剖、受過完整臨床訓練的中醫師執行。嚴重併發症很少見，不必因噎廢食；但一旦發生，若沒有及時辨認與處置，後果可能相當嚴重。
 
-台灣健保資料庫的一系列研究，讓風險輪廓更具體：
+先看整體輪廓。德國一項前瞻性研究追蹤 229230 位接受針灸的病人，平均治療約 10 次，8.6% 至少出現一次不良反應，2.2% 需要處理；最常見的是出血或瘀青，氣胸只有 2 例 [11]。這類出血多半是針刺穿過看不見的微血管造成的少量滲血，熱敷後兩三天內大多會消退。中文文獻的系統性回顧整理了 479 例不良事件，作者認為多數源自施針技術不當 [12]。
 
-- **氣胸**：需要住院的氣胸，每百萬次針灸約 0.87 次；有胸腔手術史、肺氣腫、肺結核、肺癌、慢性支氣管炎或肺炎病史者風險較高，男性也高於女性 [13]。
-- **蜂窩性組織炎**：每十萬個療程約 64.4 次，好發於腿部、足部與臉部；靜脈曲張、類風濕性關節炎、心臟衰竭、慢性腎臟病、糖尿病、中風與肝硬化病人風險較高 [14]。
-- **出血**：輕微出血每萬針約 8.31 次，嚴重出血每十萬針約 4.26 次；使用 warfarin、直接口服抗凝血劑或 heparin 者出血風險上升，抗血小板藥物則沒有顯著關聯 [15]。
-- **神經損傷**：每萬次處置約 5.76 次，風險隨年齡上升，糖尿病、甲狀腺低下、慢性腎臟病、帶狀皰疹等共病者也較高 [16]。
+**暈針**常見於空腹、焦慮緊張、過度疲勞、熬夜或血糖不穩定的病人，表現為冒冷汗、頭暈、臉色蒼白，嚴重時會短暫暈厥。多數中醫師在執業生涯中都會遇到，及時處理通常能完全恢復。請病人治療前先吃點含碳水化合物的食物、糖尿病病人確認血糖穩定、上治療床前先如廁，都能降低發生機會。
 
-這些危險因子多半是內科共病與西藥，也正是中西醫合療門診常見的病人。施針前問清楚肺部病史、皮膚狀況與抗凝血藥物，比背下發生率更有用。
+**氣胸**在台灣健保資料中，需要住院的案例約每百萬次針灸 0.87 次；有胸腔手術史、肺氣腫、肺結核、肺癌、慢性支氣管炎或肺炎病史者風險較高，男性也高於女性 [13]。肺氣腫的風險在臨床上不難理解：肺臟長期過度膨脹，位置可能超出一般解剖標誌判斷的範圍。身形高瘦的病人同樣要小心，胸廓前後徑較窄，進針深度不易拿捏，本身也較容易發生自發性氣胸。
+
+**感染**以蜂窩性組織炎為主，每十萬個療程約 64.4 次，好發於腿部、足部與臉部；靜脈曲張、類風濕性關節炎、心臟衰竭、慢性腎臟病、糖尿病、中風與肝硬化病人風險較高 [14]。正在接受化放療的病人也要格外留意，嚴重時可能進展為敗血症。台灣合格的中醫院所全面使用一次性無菌針具，中醫師須定期接受感染控制繼續教育，院所也有定期訪查；重複使用針具、消毒不確實的問題，多出現在非法施針場所。
+
+**出血與神經損傷**同樣和共病、用藥有關。輕微出血每萬針約 8.31 次，嚴重出血每十萬針約 4.26 次；使用 warfarin、直接口服抗凝血劑或 heparin 者風險上升，抗血小板藥物則沒有顯著關聯 [15]。神經損傷每萬次處置約 5.76 次，風險隨年齡上升，糖尿病、甲狀腺低下、慢性腎臟病、帶狀皰疹等共病者也較高 [16]。
+
+## 施針前要問清楚的事
+
+這些危險因子多半是內科共病與西藥，也正是中西醫合療門診常見的病人。問清楚下面幾件事，比背下發生率更有用：
+
+| 病人狀況 | 施針時的處理 |
+|---|---|
+| 肺部病史、胸腔手術史、身形高瘦 | 胸背部穴位控制進針深度與角度 |
+| 糖尿病、慢性腎臟病、靜脈曲張、化放療中 | 確實消毒，追蹤施針部位有無紅腫熱痛 |
+| 使用 warfarin、直接口服抗凝血劑、heparin | 留意出血，拔針後確實按壓 |
+| 乳癌腋下淋巴結廓清術後 | 患側上肢避免針刺 |
+| 洗腎動靜脈瘻管 | 瘻管側手臂避免針刺 |
+| 顱骨切除術後、腦部引流管 | 顱骨缺損處與引流管位置避免針刺 |
+| 懷孕、體力極度虛弱 | 由醫師慎重評估是否適合，或暫緩治療 |
+| 血液傳染病 | 請病人事先告知，採取必要防護 |
+
+治療結束時核對拔針數量，也是容易被忽略的一環。台北市立聯合醫院改良住院針灸的標準作業流程，以即時通訊取代紙本核對表、治療前召開簡短會議、治療後重複確認，遺留針事件從每千次治療 6.8 次降到 2.2 次 [17]。
 
 ## 讀針灸論文時的檢查點
 
-針灸試驗的報告規範是 STRICTA 2010，要求交代穴位、進針深度、是否追求得氣、留針時間、療程次數與施針者資歷 [17]。
+針灸試驗的報告規範是 STRICTA 2010，要求交代穴位、進針深度、是否追求得氣、留針時間、療程次數與施針者資歷 [18]。
 
 | 檢查點 | 要找什麼 |
 |---|---|
@@ -107,11 +127,12 @@ tags: [實證醫學, 研究方法, 針灸]
 - [7] Kolasinski SL, Neogi T, Hochberg MC, Oatis C, et al. 2019 American College of Rheumatology/Arthritis Foundation guideline for the management of osteoarthritis of the hand, hip, and knee. *Arthritis Care Res (Hoboken)*. 2020;72(2):149–162. [PMID 31908149](https://pubmed.ncbi.nlm.nih.gov/31908149/)
 - [8] National Institute for Health and Care Excellence. Osteoarthritis in over 16s: diagnosis and management (NG226). 2022. [連結](https://www.nice.org.uk/guidance/ng226)
 - [9] Xu M, Li D, Zhang S. Acupuncture for acute stroke. *Cochrane Database Syst Rev*. 2018;3:CD003317. [PMID 29607495](https://pubmed.ncbi.nlm.nih.gov/29607495/)
-- [10] White AR, Rampes H, Liu JP, Stead LF, Campbell J. Acupuncture and related interventions for smoking cessation. *Cochrane Database Syst Rev*. 2014;1:CD000009. [PMID 24459016](https://pubmed.ncbi.nlm.nih.gov/24459016/)
+- [10] Tseng CY, Hsu PS, Lee CT, Huang HF, et al. Acupuncture and traditional Chinese herbal medicine integrated with conventional rehabilitation for post-stroke functional recovery: a retrospective cohort study. *Front Neurosci*. 2022;16:851333. [PMID 35368268](https://pubmed.ncbi.nlm.nih.gov/35368268/)
 - [11] Witt CM, Pach D, Brinkhaus B, Wruck K, et al. Safety of acupuncture: results of a prospective observational study with 229,230 patients and introduction of a medical information and consent form. *Forsch Komplementmed*. 2009;16(2):91–97. [PMID 19420954](https://pubmed.ncbi.nlm.nih.gov/19420954/)
 - [12] Zhang J, Shang H, Gao X, Ernst E. Acupuncture-related adverse events: a systematic review of the Chinese literature. *Bull World Health Organ*. 2010;88(12):915–921C. [PMID 21124716](https://pubmed.ncbi.nlm.nih.gov/21124716/)
 - [13] Lin SK, Liu JM, Hsu RJ, Chuang HC, et al. Incidence of iatrogenic pneumothorax following acupuncture treatments in Taiwan. *Acupunct Med*. 2019;37(6):332–339. [PMID 31433202](https://pubmed.ncbi.nlm.nih.gov/31433202/)
 - [14] Lin SK, Liu JM, Wang PH, Hung SP, et al. Incidence of cellulitis following acupuncture treatments in Taiwan. *Int J Environ Res Public Health*. 2019;16(20):3831. [PMID 31614442](https://pubmed.ncbi.nlm.nih.gov/31614442/)
 - [15] Hsieh HT, Chou HJ, Wu PY, Lin SK. Bleeding risk after acupuncture in patients taking anticoagulant drugs: a case control study based on real-world data. *Complement Ther Med*. 2023;74:102951. [PMID 37141924](https://pubmed.ncbi.nlm.nih.gov/37141924/)
 - [16] Lin CL, Chern A, Wang MJ, Lin SK. Incidence of nerve injury following acupuncture treatments in Taiwan. *Complement Ther Med*. 2024;80:103007. [PMID 38040097](https://pubmed.ncbi.nlm.nih.gov/38040097/)
-- [17] MacPherson H, Altman DG, Hammerschlag R, Li Y, et al. Revised STandards for Reporting Interventions in Clinical Trials of Acupuncture (STRICTA): extending the CONSORT statement. *PLoS Med*. 2010;7(6):e1000261. [PMID 20543992](https://pubmed.ncbi.nlm.nih.gov/20543992/)
+- [17] Hsieh HT, Lin CL, Lin SK. Ameliorating standard operating procedures could reduce the risk of needle retention after acupuncture. *Medicine (Baltimore)*. 2025;104(7):e41488. [PMID 39960942](https://pubmed.ncbi.nlm.nih.gov/39960942/)
+- [18] MacPherson H, Altman DG, Hammerschlag R, Li Y, et al. Revised STandards for Reporting Interventions in Clinical Trials of Acupuncture (STRICTA): extending the CONSORT statement. *PLoS Med*. 2010;7(6):e1000261. [PMID 20543992](https://pubmed.ncbi.nlm.nih.gov/20543992/)
