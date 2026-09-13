@@ -3,7 +3,7 @@ title: 針灸的現代研究證據：假針灸也有效，該怎麼解讀？
 slug: acupuncture-evidence
 author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-09-05
-summary: 德國大型下背痛試驗中，真針灸與假針灸的效果相近，卻都明顯優於常規治療。同一組數據，可以讀成「針灸無效」，也可以讀成「假針灸本身有作用」。從對照組設計談起，整理哪些適應症證據較一致、哪些在更嚴格的對照下沒有得到證實。
+summary: 德國大型下背痛試驗中，真針灸與假針灸的效果相近，卻都明顯優於常規治療。同一組數據，可以讀成「針灸無效」，也可以讀成「假針灸本身有作用」。從對照組設計談起，整理哪些適應症證據較一致、哪些在更嚴格的對照下沒有得到證實，以及台灣健保資料呈現的安全性輪廓。
 hero: needles.jpg
 heroAlt: 現代臨床使用的毫針，銅絲纏繞針柄與圈狀針尾
 tags: [實證醫學, 研究方法, 針灸]
@@ -61,9 +61,22 @@ tags: [實證醫學, 研究方法, 針灸]
 
 戒菸也有類似的情況。Cochrane 回顧顯示，針灸與假針灸相比，短期戒菸率略高，但沒有一致且無偏差的證據支持 6 個月以上的持續效果，效果也不如尼古丁替代療法 [10]。
 
+## 安全性：少見，但風險族群可以預先辨認
+
+德國一項前瞻性研究追蹤 229230 位接受針灸的病人，平均治療約 10 次，8.6% 至少出現一次不良反應，2.2% 需要處理；最常見的是出血或瘀青，氣胸只有 2 例 [11]。中文文獻的系統性回顧則整理了 479 例不良事件，最常見的是氣胸、暈針、蜘蛛膜下腔出血與感染，作者認為多數源自施針技術不當 [12]。
+
+台灣健保資料庫的一系列研究，讓風險輪廓更具體：
+
+- **氣胸**：需要住院的氣胸，每百萬次針灸約 0.87 次；有胸腔手術史、肺氣腫、肺結核、肺癌、慢性支氣管炎或肺炎病史者風險較高，男性也高於女性 [13]。
+- **蜂窩性組織炎**：每十萬個療程約 64.4 次，好發於腿部、足部與臉部；靜脈曲張、類風濕性關節炎、心臟衰竭、慢性腎臟病、糖尿病、中風與肝硬化病人風險較高 [14]。
+- **出血**：輕微出血每萬針約 8.31 次，嚴重出血每十萬針約 4.26 次；使用 warfarin、直接口服抗凝血劑或 heparin 者出血風險上升，抗血小板藥物則沒有顯著關聯 [15]。
+- **神經損傷**：每萬次處置約 5.76 次，風險隨年齡上升，糖尿病、甲狀腺低下、慢性腎臟病、帶狀皰疹等共病者也較高 [16]。
+
+這些危險因子多半是內科共病與西藥，也正是中西醫合療門診常見的病人。施針前問清楚肺部病史、皮膚狀況與抗凝血藥物，比背下發生率更有用。
+
 ## 讀針灸論文時的檢查點
 
-針灸試驗的報告規範是 STRICTA 2010，要求交代穴位、進針深度、是否追求得氣、留針時間、療程次數與施針者資歷 [11]。
+針灸試驗的報告規範是 STRICTA 2010，要求交代穴位、進針深度、是否追求得氣、留針時間、療程次數與施針者資歷 [17]。
 
 | 檢查點 | 要找什麼 |
 |---|---|
@@ -95,4 +108,10 @@ tags: [實證醫學, 研究方法, 針灸]
 - [8] National Institute for Health and Care Excellence. Osteoarthritis in over 16s: diagnosis and management (NG226). 2022. [連結](https://www.nice.org.uk/guidance/ng226)
 - [9] Xu M, Li D, Zhang S. Acupuncture for acute stroke. *Cochrane Database Syst Rev*. 2018;3:CD003317. [PMID 29607495](https://pubmed.ncbi.nlm.nih.gov/29607495/)
 - [10] White AR, Rampes H, Liu JP, Stead LF, Campbell J. Acupuncture and related interventions for smoking cessation. *Cochrane Database Syst Rev*. 2014;1:CD000009. [PMID 24459016](https://pubmed.ncbi.nlm.nih.gov/24459016/)
-- [11] MacPherson H, Altman DG, Hammerschlag R, Li Y, et al. Revised STandards for Reporting Interventions in Clinical Trials of Acupuncture (STRICTA): extending the CONSORT statement. *PLoS Med*. 2010;7(6):e1000261. [PMID 20543992](https://pubmed.ncbi.nlm.nih.gov/20543992/)
+- [11] Witt CM, Pach D, Brinkhaus B, Wruck K, et al. Safety of acupuncture: results of a prospective observational study with 229,230 patients and introduction of a medical information and consent form. *Forsch Komplementmed*. 2009;16(2):91–97. [PMID 19420954](https://pubmed.ncbi.nlm.nih.gov/19420954/)
+- [12] Zhang J, Shang H, Gao X, Ernst E. Acupuncture-related adverse events: a systematic review of the Chinese literature. *Bull World Health Organ*. 2010;88(12):915–921C. [PMID 21124716](https://pubmed.ncbi.nlm.nih.gov/21124716/)
+- [13] Lin SK, Liu JM, Hsu RJ, Chuang HC, et al. Incidence of iatrogenic pneumothorax following acupuncture treatments in Taiwan. *Acupunct Med*. 2019;37(6):332–339. [PMID 31433202](https://pubmed.ncbi.nlm.nih.gov/31433202/)
+- [14] Lin SK, Liu JM, Wang PH, Hung SP, et al. Incidence of cellulitis following acupuncture treatments in Taiwan. *Int J Environ Res Public Health*. 2019;16(20):3831. [PMID 31614442](https://pubmed.ncbi.nlm.nih.gov/31614442/)
+- [15] Hsieh HT, Chou HJ, Wu PY, Lin SK. Bleeding risk after acupuncture in patients taking anticoagulant drugs: a case control study based on real-world data. *Complement Ther Med*. 2023;74:102951. [PMID 37141924](https://pubmed.ncbi.nlm.nih.gov/37141924/)
+- [16] Lin CL, Chern A, Wang MJ, Lin SK. Incidence of nerve injury following acupuncture treatments in Taiwan. *Complement Ther Med*. 2024;80:103007. [PMID 38040097](https://pubmed.ncbi.nlm.nih.gov/38040097/)
+- [17] MacPherson H, Altman DG, Hammerschlag R, Li Y, et al. Revised STandards for Reporting Interventions in Clinical Trials of Acupuncture (STRICTA): extending the CONSORT statement. *PLoS Med*. 2010;7(6):e1000261. [PMID 20543992](https://pubmed.ncbi.nlm.nih.gov/20543992/)
