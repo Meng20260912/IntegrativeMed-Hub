@@ -3,7 +3,7 @@ title: 針灸的現代研究證據：假針灸也有效，該怎麼解讀？
 slug: acupuncture-evidence
 author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-09-05
-summary: 德國大型下背痛試驗中，真針灸與假針灸的效果相近，卻都明顯優於常規治療。同一組數據，可以讀成「針灸無效」，也可以讀成「假針灸本身有作用」。從對照組設計談起，整理哪些適應症證據較一致、哪些結果為陰性。
+summary: 德國大型下背痛試驗中，真針灸與假針灸的效果相近，卻都明顯優於常規治療。同一組數據，可以讀成「針灸無效」，也可以讀成「假針灸本身有作用」。從對照組設計談起，整理哪些適應症證據較一致、哪些在更嚴格的對照下沒有得到證實。
 hero: needles.jpg
 heroAlt: 現代臨床使用的毫針，銅絲纏繞針柄與圈狀針尾
 tags: [實證醫學, 研究方法, 針灸]
@@ -59,15 +59,11 @@ tags: [實證醫學, 研究方法, 針灸]
 
 急性中風是很好的例子。Cochrane 回顧納入 33 篇試驗，與不針灸的開放式對照比較時，針灸組的死亡或依賴比例、神經功能與運動功能看起來都有改善；換成與假針灸比較，這些改善都沒有得到證實 [9]。回顧作者的判斷是，開放式對照帶來的偏差，干擾了表面上的療效。安全性方面，針灸組約 6.2% 出現疼痛、頭暈或暈針等不良反應，多半輕微，因不良反應而停止治療的占 1.4% [9]。
 
-結果為陰性的大型試驗也有。試管嬰兒療程中的針灸曾經廣受期待。2018 年發表在 JAMA 的試驗納入 848 位女性，在促排卵與胚胎植入前後施針，活產率為 18.3%，使用不刺入皮膚假針的對照組為 17.8%，兩組沒有差異 [10]。
-
-這篇試驗的對照是不刺入皮膚的假針，殘留的「咖啡因」相對少，較難用「假針灸也有作用」來解釋陰性結果。依目前的證據，不宜以提高活產率為由建議試管療程病人接受針灸。
-
-戒菸也類似。Cochrane 回顧顯示，針灸與假針灸相比，短期戒菸率略高，但沒有一致且無偏差的證據支持 6 個月以上的持續效果，效果也不如尼古丁替代療法 [11]。
+戒菸也有類似的情況。Cochrane 回顧顯示，針灸與假針灸相比，短期戒菸率略高，但沒有一致且無偏差的證據支持 6 個月以上的持續效果，效果也不如尼古丁替代療法 [10]。
 
 ## 讀針灸論文時的檢查點
 
-針灸試驗的報告規範是 STRICTA 2010，要求交代穴位、進針深度、是否追求得氣、留針時間、療程次數與施針者資歷 [12]。
+針灸試驗的報告規範是 STRICTA 2010，要求交代穴位、進針深度、是否追求得氣、留針時間、療程次數與施針者資歷 [11]。
 
 | 檢查點 | 要找什麼 |
 |---|---|
@@ -98,6 +94,5 @@ tags: [實證醫學, 研究方法, 針灸]
 - [7] Kolasinski SL, Neogi T, Hochberg MC, Oatis C, et al. 2019 American College of Rheumatology/Arthritis Foundation guideline for the management of osteoarthritis of the hand, hip, and knee. *Arthritis Care Res (Hoboken)*. 2020;72(2):149–162. [PMID 31908149](https://pubmed.ncbi.nlm.nih.gov/31908149/)
 - [8] National Institute for Health and Care Excellence. Osteoarthritis in over 16s: diagnosis and management (NG226). 2022. [連結](https://www.nice.org.uk/guidance/ng226)
 - [9] Xu M, Li D, Zhang S. Acupuncture for acute stroke. *Cochrane Database Syst Rev*. 2018;3:CD003317. [PMID 29607495](https://pubmed.ncbi.nlm.nih.gov/29607495/)
-- [10] Smith CA, de Lacey S, Chapman M, Ratcliffe J, et al. Effect of acupuncture vs sham acupuncture on live births among women undergoing in vitro fertilization: a randomized clinical trial. *JAMA*. 2018;319(19):1990–1998. [PMID 29800212](https://pubmed.ncbi.nlm.nih.gov/29800212/)
-- [11] White AR, Rampes H, Liu JP, Stead LF, Campbell J. Acupuncture and related interventions for smoking cessation. *Cochrane Database Syst Rev*. 2014;1:CD000009. [PMID 24459016](https://pubmed.ncbi.nlm.nih.gov/24459016/)
-- [12] MacPherson H, Altman DG, Hammerschlag R, Li Y, et al. Revised STandards for Reporting Interventions in Clinical Trials of Acupuncture (STRICTA): extending the CONSORT statement. *PLoS Med*. 2010;7(6):e1000261. [PMID 20543992](https://pubmed.ncbi.nlm.nih.gov/20543992/)
+- [10] White AR, Rampes H, Liu JP, Stead LF, Campbell J. Acupuncture and related interventions for smoking cessation. *Cochrane Database Syst Rev*. 2014;1:CD000009. [PMID 24459016](https://pubmed.ncbi.nlm.nih.gov/24459016/)
+- [11] MacPherson H, Altman DG, Hammerschlag R, Li Y, et al. Revised STandards for Reporting Interventions in Clinical Trials of Acupuncture (STRICTA): extending the CONSORT statement. *PLoS Med*. 2010;7(6):e1000261. [PMID 20543992](https://pubmed.ncbi.nlm.nih.gov/20543992/)
