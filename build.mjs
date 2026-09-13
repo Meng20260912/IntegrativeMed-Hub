@@ -515,7 +515,8 @@ ${p.html}
   </div>
 </article>`;
   const url = `${SITE_URL}/posts/${p.slug}/`;
-  const ogImage = `${SITE_URL}/img/${p.hero || heroImg}`;
+  // 臉書、LINE 的分享預覽不支援 SVG，SVG 主圖改用站台 banner
+  const ogImage = `${SITE_URL}/img/${p.hero && !p.hero.endsWith('.svg') ? p.hero : heroImg}`;
   fs.writeFileSync(path.join(dir, 'index.html'), layout({
     title: `${p.title} — ${SITE.name}`,
     desc: p.summary || SITE.desc,

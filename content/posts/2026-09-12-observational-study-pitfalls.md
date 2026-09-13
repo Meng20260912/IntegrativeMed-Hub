@@ -4,8 +4,9 @@ slug: observational-study-pitfalls
 author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-09-12
 summary: 健保資料庫研究報告接受中西合療的病人存活較好，風險比 0.6。這個數字可信嗎？不死時間偏差與資訊性設限機轉不同，方向卻一致，都會讓中醫顯得比實際更有保護力。
-hero: lab.jpg
-heroAlt: 研究人員在實驗室進行精密移液操作
+hero: evidence-pyramid-observational.svg
+heroAlt: 證據金字塔中標亮觀察性研究一層，旁註選擇偏誤、不死時間偏差與資訊性設限
+heroCaption: 健保資料庫研究多落在觀察性研究這一層；推論因果前，要先檢查選擇偏誤與兩個時間陷阱。
 tags: [研究方法, 實證醫學, 健保資料庫]
 ---
 
