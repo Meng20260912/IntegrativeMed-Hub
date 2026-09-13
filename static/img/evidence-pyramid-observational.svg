@@ -1,12 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" width="720" height="430" role="img" aria-labelledby="epo-t epo-d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 404" width="720" height="404" role="img" aria-labelledby="epo-t epo-d">
 <title id="epo-t">觀察性研究在證據金字塔上的位置</title>
-<desc id="epo-d">實證醫學證據金字塔，由下而上為細胞與動物實驗、個案報告與病例系列、觀察性研究、隨機對照試驗、統合分析。觀察性研究一層被標亮，其餘各層調淡。右側說明健保資料庫研究多落在這一層，除了已知的選擇偏誤，還有兩個容易略過的時間陷阱：不死時間偏差與資訊性設限，兩者機轉不同，方向一致，都讓中醫顯得比實際更有保護力。</desc>
+<desc id="epo-d">實證醫學證據金字塔，由下而上為細胞與動物實驗、個案報告與病例系列、觀察性研究、隨機對照試驗、統合分析。觀察性研究一層被標亮，其餘各層調淡，旁邊列出本篇討論的選擇偏誤、不死時間偏差、資訊性設限。</desc>
 <style>
   .ep-bg{fill:#ffffff}
   .ep-ti{font:700 15px "Noto Serif TC",serif;fill:#12395f}
   .ep-tier{font:700 13px "Noto Sans TC",sans-serif}
   .ep-note{font:12px "Noto Sans TC",sans-serif;fill:#4c5a68}
   .ep-nh{font:700 12px "Noto Sans TC",sans-serif;fill:#12395f}
+  .ep-big{font:700 17px "Noto Sans TC",sans-serif;fill:#12395f}
   .ep-hd{font:700 13px "Noto Sans TC",sans-serif;fill:#12395f}
   .ep-ax{font:11px "Noto Sans TC",sans-serif;fill:#8695a4}
   .ep-ln{stroke:#cfd9e4;stroke-width:1}
@@ -20,7 +21,7 @@
   .on-l{fill:#12395f}.on-d{fill:#ffffff}
   @media (prefers-color-scheme:dark){
     .ep-bg{fill:#151e28}
-    .ep-ti,.ep-nh,.ep-hd{fill:#8cc0e8}
+    .ep-ti,.ep-nh,.ep-hd,.ep-big{fill:#8cc0e8}
     .ep-note{fill:#b2bfcc}
     .ep-ax{fill:#7e8d9c}
     .ep-ln{stroke:#2c3a48}
@@ -34,7 +35,7 @@
     .on-d{fill:#0d1720}
   }
 </style>
-<rect class="ep-bg" width="720" height="430"/>
+<rect class="ep-bg" width="720" height="404"/>
 <text class="ep-ti" x="24" y="34">觀察性研究在證據金字塔上的位置</text>
 
 <text class="ep-ax" x="24" y="72">證據強度</text>
@@ -55,26 +56,13 @@
 <polygon class="t3 hl" points="142,260 298,260 277,200 163,200" stroke-linejoin="round"/>
 <text class="ep-tier on-d" x="220" y="236" text-anchor="middle">觀察性研究</text>
 
-<line class="ep-cn" x1="298" y1="230" x2="378" y2="230"/>
+<line class="ep-cn" x1="298" y1="230" x2="386" y2="230"/>
 <circle class="ep-dot" cx="298" cy="230" r="3.5"/>
 
-<rect class="ep-box" x="378" y="72" width="318" height="320" rx="10"/>
-<text class="ep-hd" x="398" y="102">本篇聚焦：觀察性研究</text>
-<text class="ep-note" x="398" y="126">健保資料庫研究多落在這一層。</text>
-
-<text class="ep-nh" x="398" y="160">先知道的：選擇偏誤</text>
-<text class="ep-note" x="398" y="179">有餘力看中醫的人，本來預後就較好；</text>
-<text class="ep-note" x="398" y="197">配對只能平衡有被記錄下來的變項。</text>
-
-<line class="ep-ln" x1="398" y1="216" x2="676" y2="216"/>
-<text class="ep-nh" x="398" y="242">容易略過的兩個時間陷阱</text>
-<text class="ep-note" x="398" y="266">① 不死時間偏差</text>
-<text class="ep-note" x="398" y="284">　首次中醫就診前死亡者，不會進入中醫組。</text>
-<text class="ep-note" x="398" y="308">② 資訊性設限</text>
-<text class="ep-note" x="398" y="326">　因病情變差停藥時設限，死亡被移出中醫組。</text>
-
-<text class="ep-nh" x="398" y="358">兩者機轉不同，方向一致：都讓中醫顯得</text>
-<text class="ep-nh" x="398" y="374">比實際更有保護力。</text>
-
-<text class="ep-ax" x="24" y="414">層級愈高，愈能支持因果宣稱；觀察性研究適合產生假說與偵測安全訊號。</text>
+<rect class="ep-box" x="386" y="146" width="286" height="168" rx="10"/>
+<text class="ep-big" x="414" y="196">選擇偏誤</text>
+<line class="ep-ln" x1="414" y1="214" x2="644" y2="214"/>
+<text class="ep-big" x="414" y="242">不死時間偏差</text>
+<line class="ep-ln" x1="414" y1="260" x2="644" y2="260"/>
+<text class="ep-big" x="414" y="288">資訊性設限</text>
 </svg>
