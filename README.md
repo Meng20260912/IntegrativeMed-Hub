@@ -1,6 +1,6 @@
-# IntegrativeMed-Hub
+# 讀經典，看實證 Classics & Evidence
 
-**中西醫整合醫學學習網站** · Integrative Chinese & Western Medicine Learning Hub
+**從經典、研究到臨床的中醫筆記** · drmjwei.net（GitHub repo：IntegrativeMed-Hub）
 
 純靜態網站，由零依賴的 Node 腳本建置，部署於 Cloudflare Pages。
 

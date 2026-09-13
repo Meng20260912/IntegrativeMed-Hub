@@ -2,7 +2,7 @@
   "name": "integrativemed-hub",
   "version": "1.0.0",
   "private": true,
-  "description": "中西醫整合醫學學習網站 · Integrative Chinese & Western Medicine Learning Hub",
+  "description": "讀經典，看實證 Classics & Evidence · 從經典、研究到臨床的中醫筆記",
   "type": "module",
   "scripts": {
     "build": "node build.mjs",

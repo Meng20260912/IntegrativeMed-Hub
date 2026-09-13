@@ -1,4 +1,4 @@
-// IntegrativeMed-Hub — zero-dependency static site generator
+// 讀經典，看實證 Classics & Evidence — zero-dependency static site generator
 // 執行：node build.mjs   輸出：dist/
 import fs from 'node:fs';
 import path from 'node:path';
@@ -13,18 +13,19 @@ const OUT = path.join(ROOT, 'dist');
 // 個人品牌下的兩個網站：本站（學術）與衛教部落格（大眾）
 const BLOG_URL = 'https://blog.drmjwei.net';
 const SITES = [
-  { url: '/', name: 'IntegrativeMed-Hub', sub: 'drmjwei.net',
+  { url: '/', name: '讀經典，看實證', sub: 'drmjwei.net',
     audience: '中醫學生 · 臨床同業',
-    desc: '實證回顧、研究方法學與臨床整合觀點。標示證據等級，不做療效宣稱。', here: true },
+    desc: '中醫經典心得、研究方法學與臨床整合觀點。標示證據等級，不做療效宣稱。', here: true },
   { url: BLOG_URL, name: '魏孟鈞中醫師｜中醫內科', sub: 'blog.drmjwei.net',
     audience: '一般民眾 · 病人與家屬',
     desc: '把門診常見問題寫成看得懂的衛教：胸悶、靜脈曲張、排濕、季節保養。', here: false },
 ];
 
 const SITE = {
-  name: 'IntegrativeMed-Hub',
-  tagline: '中西醫整合醫學學習網站',
-  desc: '整合傳統中醫與現代西醫的知識體系：實證回顧、臨床整合觀點與學習資源。',
+  name: '讀經典，看實證',
+  nameEn: 'Classics & Evidence',
+  tagline: '從經典、研究到臨床的中醫筆記',
+  desc: '讀中醫經典，也讀現代研究：經典心得、研究方法學解讀與中西醫整合的臨床觀點。',
   lang: 'zh-Hant',
 };
 
@@ -287,9 +288,9 @@ ${showHeader ? `<header class="site-head">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 64 64" width="34" height="34" role="img"><circle cx="32" cy="32" r="32" fill="var(--navy,#12395f)"/><path d="M8 34h18l5-16 6 30 5-14h14" fill="none" stroke="var(--surface,#fff)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
-      <span class="brand-text"><b>IntegrativeMed-Hub</b><small>中西醫整合醫學學習網站</small></span>
+      <span class="brand-text"><b>${esc(SITE.name)}<span class="brand-en">${esc(SITE.nameEn)}</span></b><small>${esc(SITE.tagline)}</small></span>
     </a>
-    <nav><a href="/">文章</a><a href="/about/">關於</a><a href="${BLOG_URL}" class="nav-blog">衛教部落格 ↗</a></nav>
+    <nav><a href="/">文章</a><a href="/about/">關於</a><a href="${BLOG_URL}" class="nav-blog"><span class="nav-long">衛教</span>部落格<span class="nav-arrow"> ↗</span></a></nav>
   </div>
 </header>` : ''}
 <main id="main">
@@ -320,7 +321,7 @@ ${SITES.map(x => `        <a class="site-card${x.here ? ' is-here' : ''}" href="
       </div>
     </section>
     <p class="disclaimer"><b>免責聲明：</b>本站內容僅供醫學教育與學術討論之用，不構成診斷或治療建議。任何用藥、停藥或療法選擇，請諮詢您的醫師或藥師。</p>
-    <p class="foot-meta">© ${new Date().getFullYear()} IntegrativeMed-Hub · <a href="https://github.com/Meng20260912/IntegrativeMed-Hub" target="_blank" rel="noopener noreferrer">原始碼於 GitHub</a></p>
+    <p class="foot-meta">© ${new Date().getFullYear()} ${esc(SITE.name)} ${esc(SITE.nameEn)} · <a href="https://github.com/Meng20260912/IntegrativeMed-Hub" target="_blank" rel="noopener noreferrer">原始碼於 GitHub</a></p>
   </div>
 </footer>
 </body>
@@ -345,8 +346,8 @@ const posts = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md')).map(f => 
   return {
     slug, file, html, toc,
     title: fm.title || slug,
-    author: fm.author || 'IntegrativeMed-Hub 編輯部',
-    authorName: (fm.author || 'IntegrativeMed-Hub 編輯部').split(/\s*[\/／]\s*/)[0],
+    author: fm.author || '魏孟鈞',
+    authorName: (fm.author || '魏孟鈞').split(/\s*[\/／]\s*/)[0],
     authorAffil: (fm.author || '').split(/\s*[\/／]\s*/).slice(1).join(' · '),
     summary: fm.summary || '',
     hero: fm.hero || '',
@@ -401,7 +402,8 @@ const indexBody = `<section class="hero">
   <div class="hero-cover"><img src="${attr(imgSrc(heroImg))}" alt="" fetchpriority="high" decoding="async"${sizeAttr(heroImg)}></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>中西醫整合醫學學習網站</h1>
+    <p class="hero-en">${esc(SITE.nameEn)}</p>
+    <h1>${esc(SITE.name)}</h1>
     <p class="hero-sub">把傳統中醫的辨證思維，放到現代實證醫學的檢驗架構下一起讀</p>
     <p class="hero-by">— 魏孟鈞</p>
     <p class="hero-updated">最近更新 ${fmtDate(latestPost.updated).replace(/-/g, '/')}｜<a href="/posts/${attr(latestPost.slug)}/">${esc(latestPost.title)}</a></p>
@@ -441,7 +443,7 @@ ${cards}
 </section>`;
 
 fs.writeFileSync(path.join(OUT, 'index.html'), layout({
-  title: `${SITE.name} — ${SITE.tagline}`,
+  title: `${SITE.name}｜${SITE.nameEn}`,
   desc: SITE.desc, canonical: SITE_URL + '/', body: indexBody, bodyClass: 'is-home',
   image: `${SITE_URL}/img/${heroImg}`,
   showHeader: false,
@@ -454,7 +456,7 @@ fs.writeFileSync(path.join(OUT, 'index.html'), layout({
         '@id': `${SITE_URL}/#website`,
         url: `${SITE_URL}/`,
         name: SITE.name,
-        alternateName: SITE.tagline,
+        alternateName: SITE.nameEn,
         description: SITE.desc,
         inLanguage: 'zh-Hant-TW',
       },
@@ -462,7 +464,7 @@ fs.writeFileSync(path.join(OUT, 'index.html'), layout({
         '@type': 'Blog',
         '@id': `${SITE_URL}/#blog`,
         url: `${SITE_URL}/`,
-        name: SITE.tagline,
+        name: SITE.name,
         isPartOf: { '@id': `${SITE_URL}/#website` },
         inLanguage: 'zh-Hant-TW',
         blogPost: posts.map(p => ({
@@ -583,7 +585,7 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 </ul>
 <p>寫給一般民眾的衛教文章，放在<a href="${BLOG_URL}" target="_blank" rel="noopener noreferrer">魏孟鈞中醫師衛教部落格</a>。</p>
 <h2>關於本站</h2>
-<p>IntegrativeMed-Hub 是一個中西醫整合醫學的學習筆記站。這裡整理兩套醫學體系在<strong>概念、證據與臨床實作</strong>上如何對話、又在哪裡衝突，不做療效宣稱。</p>
+<p>「讀經典，看實證」（Classics &amp; Evidence）是一個中醫學習筆記站，內容包含中醫經典的讀書心得、現代研究的方法學解讀，以及兩者如何落到臨床。這裡整理中西兩套醫學在<strong>概念、證據與臨床實作</strong>上如何對話、又在哪裡衝突，不做療效宣稱。</p>
 <h3>編輯原則</h3>
 <ul>
 <li>任何療效陳述都標示證據等級與來源，區分「有隨機對照試驗支持」「僅有機轉推論」「僅有傳統經驗」。</li>
@@ -616,7 +618,7 @@ fs.writeFileSync(path.join(OUT, 'feed.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>${esc(SITE.name)} — ${esc(SITE.tagline)}</title>
+  <title>${esc(SITE.name)} ${esc(SITE.nameEn)}</title>
   <link>${SITE_URL}/</link>
   <description>${esc(SITE.desc)}</description>
   <language>zh-Hant-TW</language>

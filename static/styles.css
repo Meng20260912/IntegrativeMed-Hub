@@ -1,4 +1,4 @@
-/* IntegrativeMed-Hub — 深藍主題，襯線標題，mobile-first、嚴格防破框 */
+/* 讀經典，看實證 — 深藍主題，襯線標題，mobile-first、嚴格防破框 */
 :root{
   --bg:#f4f7fa; --surface:#ffffff; --surface-2:#eef3f8;
   --ink:#16202b; --ink-2:#4c5a68; --ink-3:#8695a4;
@@ -53,6 +53,9 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .brand-text{display:flex;flex-direction:column;min-width:0}
 .brand-text b{font-family:var(--serif);font-weight:900;font-size:.95rem;line-height:1.3;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-en{margin-left:.5em;font-family:var(--sans);font-weight:600;font-size:.72rem;letter-spacing:.04em;color:var(--ink-3)}
+@media (max-width:520px){.brand-en,.brand-text small{display:none}.brand-text b{overflow:visible}.site-head nav a{padding:.4em .45em;font-size:.82rem}}
+@media (max-width:374px){.brand{gap:8px}.brand-mark{width:28px;height:28px}.brand-mark svg{width:28px;height:28px}.brand-text b{font-size:.88rem}.nav-long,.nav-arrow{display:none}}
 .brand-text small{font-size:.7rem;color:var(--ink-3);line-height:1.3;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .site-head nav{display:flex;gap:2px;flex:none}
@@ -69,6 +72,7 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
   padding:clamp(56px,13vw,120px) clamp(16px,5vw,32px) clamp(74px,11vw,120px)}
 .hero-content h1{margin:0 0 .45em;font-family:var(--serif);font-weight:900;
   font-size:clamp(1.75rem,6.4vw,2.9rem);letter-spacing:.06em;line-height:1.5;color:#fff}
+.hero-en{margin:0 0 .2em;font-size:clamp(.78rem,2.2vw,.9rem);font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .hero-sub{margin:0 auto .5em;max-width:34rem;font-size:clamp(.92rem,2.7vw,1.05rem);
   color:rgba(255,255,255,.88);line-height:1.9}
 .hero-by{margin:0 auto 1.1em;font-size:.86rem;color:rgba(255,255,255,.74)}
