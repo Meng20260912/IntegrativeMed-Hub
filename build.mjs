@@ -406,6 +406,7 @@ const indexBody = `<section class="hero">
     <h1>${esc(SITE.name)}</h1>
     <p class="hero-sub">把傳統中醫的辨證思維，放到現代實證醫學的檢驗架構下一起讀</p>
     <p class="hero-by">— 魏孟鈞</p>
+    <p class="hero-views" hidden>全站累計瀏覽 <span class="site-views">–</span> 人次</p>
     <p class="hero-updated">最近更新 ${fmtDate(latestPost.updated).replace(/-/g, '/')}｜<a href="/posts/${attr(latestPost.slug)}/">${esc(latestPost.title)}</a></p>
     ${heroCredit ? `<p class="hero-credit">主視覺：<a href="${attr(heroCredit.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.title)}</a>，${esc(heroCredit.author)}／<a href="${attr(heroCredit.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.license)}</a>。完整出處見頁尾。</p>` : `<p class="hero-credit">主視覺為情境示意圖（AI 生成），非真實臨床照片。</p>`}
   </div>
@@ -574,6 +575,7 @@ ${p.html}
 fs.mkdirSync(path.join(OUT, 'about'), { recursive: true });
 fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
   title: `關於 — ${SITE.name}`, desc: SITE.desc, canonical: SITE_URL + '/about/',
+  extraHead: `<script src="/views.js${VIEWS_V}" defer></script>`,
   body: `<div class="wrap page-logo"><img src="${attr(imgSrc('brand-logo.png'))}" alt="魏孟鈞中醫師"${sizeAttr('brand-logo.png')} fetchpriority="high" decoding="async"></div>
 <div class="wrap prose page">
 <h1>關於作者</h1>

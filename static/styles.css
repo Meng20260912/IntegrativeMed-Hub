@@ -76,6 +76,8 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .hero-sub{margin:0 auto .5em;max-width:34rem;font-size:clamp(.92rem,2.7vw,1.05rem);
   color:rgba(255,255,255,.88);line-height:1.9}
 .hero-by{margin:0 auto 1.1em;font-size:.86rem;color:rgba(255,255,255,.74)}
+.hero-views{margin:0 auto .35em;font-size:.84rem;color:rgba(255,255,255,.82);letter-spacing:.04em}
+.hero-views .site-views{font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
 .hero-updated{margin:0;font-size:.76rem;color:rgba(255,255,255,.6);line-height:1.7}
 .hero-updated a{color:rgba(255,255,255,.88)}
 .hero-credit{margin:1.5em auto 0;font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.7;max-width:40rem}
