@@ -170,6 +170,14 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .post-hero img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--shadow)}
 .post-hero figcaption{margin-top:9px;font-size:.74rem;color:var(--ink-3);line-height:1.7;overflow-wrap:break-word}
 
+/* 本文章節：與內文同寬置中 */
+.toc{max-width:var(--measure);margin-bottom:clamp(20px,4vw,32px)}
+.toc h2{margin:0 0 .5em;font-family:var(--serif);font-weight:900;font-size:1.05rem;color:var(--navy)}
+.toc ol{margin:0;padding:clamp(14px,3vw,18px) clamp(16px,3vw,22px) clamp(14px,3vw,18px) calc(clamp(16px,3vw,22px) + 1.4em);
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);line-height:1.9}
+.toc li{padding-left:.2em}
+.toc a{color:var(--ink-2);text-decoration:none}
+.toc a:hover{color:var(--navy);text-decoration:underline}
 .prose{max-width:var(--measure)}
 .prose>*{overflow-wrap:break-word;word-break:break-word}
 .prose h2{margin:2em 0 .65em;font-family:var(--serif);font-weight:900;
