@@ -8,6 +8,7 @@ hero: evidence-pyramid-observational.svg
 heroAlt: 證據金字塔中標亮觀察性研究一層，旁註選擇偏誤、不死時間偏差與資訊性設限
 heroCaption: 健保資料庫研究多落在觀察性研究這一層；推論因果前，要先檢查選擇偏誤與兩個時間陷阱。
 tags: [研究方法, 實證醫學, 健保資料庫]
+category: evidence
 ---
 
 你讀到一篇健保資料庫研究：接受中西合療的癌症病人，死亡風險比未接受者低了四成，風險比（hazard ratio）0.6，信賴區間漂亮，樣本數上萬。

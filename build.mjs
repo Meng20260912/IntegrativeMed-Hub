@@ -29,6 +29,20 @@ const SITE = {
   lang: 'zh-Hant',
 };
 
+// 文章分類（標籤頁）。每篇文章在 frontmatter 以 category: <slug> 指定一個分類；
+// 順序即導覽列順序。細部關鍵字仍用 tags。
+const CATEGORIES = [
+  { slug: 'evidence', name: '讀懂實證', desc: '研究方法學、試驗設計與證據分級。一篇研究的結論能相信到什麼程度，從方法學段落讀起。' },
+  { slug: 'medical-updates', name: '西醫新知速寫', desc: '與中西醫合療相關的現代醫學新指引、新藥與重要研究。' },
+  { slug: 'tcm-theory', name: '中醫理論新讀', desc: '臟腑、氣血、經絡等中醫理論，放到現代生理與病理的脈絡裡重新理解。' },
+  { slug: 'classics', name: '經典夜讀', desc: '中醫典籍的讀書心得，連結臨床上的觀察與思考。' },
+  { slug: 'clinic-notes', name: '診間筆記', desc: '用藥安全、針灸與中西醫合療的臨床實務，以及看診時的觀察。' },
+  { slug: 'translational', name: '轉譯研究工作坊', desc: '從實驗室到病床：生物醫學與中醫藥轉譯研究的設計、工具與經驗。' },
+  { slug: 'books-podcasts', name: '書單與 Podcast', desc: '值得推薦的醫學書籍與 Podcast。' },
+  { slug: 'beyond-white-coat', name: '白袍之外', desc: '醫療行政、中醫教育與行醫路上的雜想。' },
+];
+const CAT = Object.fromEntries(CATEGORIES.map(c => [c.slug, c]));
+
 // 正式網域。canonical / sitemap / og / RSS 一律指向這裡，
 // 避免 pages.dev 與自訂網域內容重複被搜尋引擎分散權重。
 const SITE_URL = process.env.SITE_URL || 'https://drmjwei.net';
@@ -247,8 +261,15 @@ function markdown(src) {
 // JSON-LD 安全序列化：避免內容中的 </script> 提前關閉標籤
 const jsonLd = (obj) => JSON.stringify(obj).replace(/</g, '\\u003c');
 
+// 分類導覽列：頁首下方一列，窄螢幕可左右滑動
+function catNav(current = '') {
+  return `<nav class="cat-nav" aria-label="文章分類"><div class="wrap"><ul>
+${CATEGORIES.map(c => `    <li><a href="/category/${c.slug}/"${c.slug === current ? ' aria-current="page"' : ''}>${esc(c.name)}</a></li>`).join('\n')}
+  </ul></div></nav>${current ? `<script>(function(){var a=document.querySelector('.cat-nav [aria-current]');if(!a)return;var u=a.closest('ul');u.scrollLeft=a.parentNode.offsetLeft-(u.clientWidth-a.offsetWidth)/2;})();</script>` : ''}`;
+}
+
 function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
-                  ogType = 'website', image = '', schema = null, showHeader = true }) {
+                  ogType = 'website', image = '', schema = null, showHeader = true, currentCat = '' }) {
   const img = image || `${SITE_URL}/img/banner-integrative.jpg`;
   return `<!doctype html>
 <html lang="${SITE.lang}">
@@ -292,6 +313,7 @@ ${showHeader ? `<header class="site-head">
     </a>
     <nav><a href="/">文章</a><a href="/about/">關於</a><a href="${BLOG_URL}" class="nav-blog"><span class="nav-long">衛教</span>部落格<span class="nav-arrow"> ↗</span></a></nav>
   </div>
+  ${catNav(currentCat)}
 </header>` : ''}
 <main id="main">
 ${body}
@@ -354,6 +376,7 @@ const posts = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md')).map(f => 
     heroAlt: fm.heroAlt || fm.title || '',
     heroCaption: fm.heroCaption || '',
     tags: Array.isArray(fm.tags) ? fm.tags : (fm.tags ? [fm.tags] : []),
+    category: CAT[fm.category] ? fm.category : (console.warn(`⚠ ${f}：category「${fm.category || ''}」不在分類清單中`), ''),
     published, updated, words,
     readMins: Math.max(1, Math.round(words / 450)),
     // 首頁搜尋索引：標題＋摘要＋標籤＋內文純文字（去 Markdown 標記與多餘空白）
@@ -379,13 +402,12 @@ const heroImg = 'banner-integrative.jpg';
 const heroCredit = CREDITS[heroImg];
 
 // --- 首頁：卡片直接寫進 HTML（需求 6），不靠 JS 讀 JSON ---
-const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
-const tagCount = (t) => posts.filter(p => p.tags.includes(t)).length;
+const catCount = (slug) => posts.filter(p => p.category === slug).length;
 
-const cards = posts.map(p => `      <article class="card" data-tags="${attr(p.tags.join('|'))}" data-search="${attr(p.searchText)}">
+const cardHtml = (p) => `      <article class="card" data-tags="${attr(p.tags.join('|'))}" data-search="${attr(p.searchText)}">
         ${p.hero ? `<a class="card-thumb" href="/posts/${attr(p.slug)}/" tabindex="-1" aria-hidden="true"><img src="${attr(imgSrc(p.hero))}" alt="" loading="lazy" decoding="async"></a>` : ''}
         <div class="card-body">
-          <p class="card-date"><time datetime="${attr(p.updated)}">${fmtDate(p.updated).replace(/-/g, '/')}</time> 更新</p>
+          <p class="card-date">${p.category ? `<a class="card-cat" href="/category/${p.category}/">${esc(CAT[p.category].name)}</a>` : ''}<time datetime="${attr(p.updated)}">${fmtDate(p.updated).replace(/-/g, '/')}</time> 更新</p>
           <h3><a href="/posts/${attr(p.slug)}/">${esc(p.title)}</a></h3>
           <p class="card-sum">${esc(p.summary)}</p>
           ${p.tags.length ? `<ul class="card-tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
@@ -395,7 +417,8 @@ const cards = posts.map(p => `      <article class="card" data-tags="${attr(p.ta
             <span>瀏覽 <span class="views" data-slug="${attr(p.slug)}">–</span></span>
           </div>
         </div>
-      </article>`).join('\n');
+      </article>`;
+const cards = posts.map(cardHtml).join('\n');
 
 const latestPost = posts[0];
 const indexBody = `<section class="hero">
@@ -414,9 +437,9 @@ const indexBody = `<section class="hero">
 
 <div class="wrap toolbar">
   <div class="toolbar-inner">
-    <ul class="chips" id="tagChips">
-      <li><button type="button" class="chip" data-tag="" aria-pressed="true">全部 <span class="n">${posts.length}</span></button></li>
-${allTags.map(t => `      <li><button type="button" class="chip" data-tag="${attr(t)}" aria-pressed="false">${esc(t)} <span class="n">${tagCount(t)}</span></button></li>`).join('\n')}
+    <ul class="chips" aria-label="文章分類">
+      <li><a class="chip" href="/" aria-current="page">全部 <span class="n">${posts.length}</span></a></li>
+${CATEGORIES.map(c => { const n = catCount(c.slug); return `      <li><a class="chip" href="/category/${c.slug}/">${esc(c.name)}${n ? ` <span class="n">${n}</span>` : ''}</a></li>`; }).join('\n')}
     </ul>
     <div class="toolbar-row">
       <div class="search">
@@ -440,7 +463,7 @@ ${allTags.map(t => `      <li><button type="button" class="chip" data-tag="${att
   <div class="grid" id="grid">
 ${cards}
   </div>
-  <p class="no-result" id="noResult" hidden>沒有符合的文章。試試其他關鍵字或標籤。</p>
+  <p class="no-result" id="noResult" hidden>沒有符合的文章。試試其他關鍵字，或從上方分類瀏覽。</p>
 </section>`;
 
 fs.writeFileSync(path.join(OUT, 'index.html'), layout({
@@ -488,7 +511,7 @@ for (const p of posts) {
   fs.mkdirSync(dir, { recursive: true });
   const body = `<article class="post">
   <header class="wrap post-head">
-    ${p.tags.length ? `<p class="tags">${p.tags.map(t => `<span>${esc(t)}</span>`).join('')}</p>` : ''}
+    <p class="tags">${p.category ? `<a class="post-cat" href="/category/${p.category}/">${esc(CAT[p.category].name)}</a>` : ''}${p.tags.map(t => `<span>${esc(t)}</span>`).join('')}</p>
     <h1>${esc(p.title)}</h1>
     ${p.summary ? `<p class="lede">${esc(p.summary)}</p>` : ''}
     <ul class="post-meta">
@@ -524,7 +547,7 @@ ${p.html}
     title: `${p.title} — ${SITE.name}`,
     desc: p.summary || SITE.desc,
     canonical: url,
-    body, bodyClass: 'is-post',
+    body, bodyClass: 'is-post', currentCat: p.category,
     ogType: 'article',
     image: ogImage,
     extraHead: [
@@ -549,6 +572,7 @@ ${p.html}
           inLanguage: 'zh-Hant-TW',
           wordCount: p.words,
           keywords: p.tags.join(', '),
+          ...(p.category ? { articleSection: CAT[p.category].name } : {}),
           image: [ogImage],
           author: {
             '@type': 'Person',
@@ -563,10 +587,43 @@ ${p.html}
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: '文章', item: `${SITE_URL}/` },
-            { '@type': 'ListItem', position: 2, name: p.title, item: url },
+            ...(p.category ? [{ '@type': 'ListItem', position: 2, name: CAT[p.category].name, item: `${SITE_URL}/category/${p.category}/` }] : []),
+            { '@type': 'ListItem', position: p.category ? 3 : 2, name: p.title, item: url },
           ],
         },
       ],
+    },
+  }));
+}
+
+// --- 分類頁：/category/<slug>/ ---
+for (const c of CATEGORIES) {
+  const list = posts.filter(p => p.category === c.slug);
+  const dir = path.join(OUT, 'category', c.slug);
+  fs.mkdirSync(dir, { recursive: true });
+  const body = `<section class="wrap cat-head">
+  <p class="cat-kicker">文章分類</p>
+  <h1>${esc(c.name)}</h1>
+  <p class="cat-desc">${esc(c.desc)}</p>
+</section>
+<section class="wrap posts">
+  <div class="posts-head">
+    <h2>${list.length ? `共 ${list.length} 篇` : '文章準備中'}</h2>
+    ${list.length ? '<p class="count">依最後更新時間排序</p>' : ''}
+  </div>
+  ${list.length ? `<div class="grid">
+${list.map(cardHtml).join('\n')}
+  </div>` : `<p class="cat-empty">這個分類的第一篇文章還在撰寫中，歡迎先逛逛<a href="/">其他文章</a>。</p>`}
+</section>`;
+  fs.writeFileSync(path.join(dir, 'index.html'), layout({
+    title: `${c.name} — ${SITE.name}`, desc: c.desc, canonical: `${SITE_URL}/category/${c.slug}/`,
+    body, bodyClass: 'is-cat', currentCat: c.slug,
+    extraHead: list.length ? `<script src="/views.js${VIEWS_V}" defer></script>` : '',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: c.name, description: c.desc, url: `${SITE_URL}/category/${c.slug}/`,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
     },
   }));
 }
@@ -603,7 +660,7 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 
 // --- sitemap / robots ---
 const newest = posts.length ? posts[0].updated.slice(0, 10) : new Date().toISOString().slice(0, 10);
-const urls = ['/', '/about/', ...posts.map(p => `/posts/${p.slug}/`)];
+const urls = ['/', '/about/', ...CATEGORIES.map(c => `/category/${c.slug}/`), ...posts.map(p => `/posts/${p.slug}/`)];
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   urls.map(u => {
@@ -632,7 +689,7 @@ ${posts.map(p => `  <item>
     <guid isPermaLink="true">${SITE_URL}/posts/${p.slug}/</guid>
     <pubDate>${rssDate(p.published)}</pubDate>
     <author>${esc(p.authorName)}</author>
-${p.tags.map(t => `    <category>${esc(t)}</category>`).join('\n')}
+${[...(p.category ? [CAT[p.category].name] : []), ...p.tags].map(t => `    <category>${esc(t)}</category>`).join('\n')}
     <description>${esc(p.summary)}</description>
   </item>`).join('\n')}
 </channel>

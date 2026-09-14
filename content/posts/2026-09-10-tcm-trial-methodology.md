@@ -8,6 +8,7 @@ hero: evidence-pyramid-rct.svg
 heroAlt: 證據金字塔中標亮隨機對照試驗一層，旁註固定方、證型分層與個人化處方三種設計
 heroCaption: 中醫的隨機對照試驗，常見三種設計取向；選哪一種，決定這篇研究能回答什麼問題。
 tags: [研究方法, 實證醫學, 試驗設計]
+category: evidence
 ---
 
 期刊討論會上讀到一篇中藥複方的隨機對照試驗（randomized controlled trial, RCT），結果是陰性。台下的中醫師常有同一個反應：「所有人都吃同一張方，沒有辨證，當然沒效。」

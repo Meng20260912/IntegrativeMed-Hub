@@ -7,6 +7,7 @@ summary: 有些用藥風險，西醫端再怎麼查也看不出來：複方裡�
 hero: cinchona.jpg
 heroAlt: 金雞納樹（Cinchona officinalis）的蠟葉標本
 tags: [用藥安全, 藥材品質, 臨床實務]
+category: clinic-notes
 ---
 
 談中西藥交互作用時，問題出在兩種藥彼此影響，雙方醫師只要拿到完整用藥清單，都有機會發現。

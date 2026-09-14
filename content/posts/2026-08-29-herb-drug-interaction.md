@@ -7,6 +7,7 @@ summary: 問出病人在吃中藥之後，真正的判斷才開始。卡在同�
 hero: cinchona.jpg
 heroAlt: 金雞納樹（Cinchona officinalis）的蠟葉標本
 tags: [藥物交互作用, 用藥安全, 證據分級]
+category: clinic-notes
 ---
 
 問出病人正在吃中藥，只是第一步。接下來要判斷：這個組合需不需要介入？停哪一邊？還是加強監測就好？

@@ -270,6 +270,34 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .prose a.cite:hover,.prose a.cite:focus-visible{text-decoration:underline}
 .prose .ref-list{list-style:none;padding-left:0}
 .prose .ref-item{margin:0 0 .5em -.6em;padding:.4em .6em;border-radius:8px;
-  scroll-margin-top:88px;transition:background-color .3s ease}
+  scroll-margin-top:124px;transition:background-color .3s ease}
 .prose .ref-item:target{background:var(--blue-soft)}
 .prose .ref-num{margin-right:.2em;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* ---------- 文章分類（標籤頁） ---------- */
+.cat-nav{border-top:1px solid var(--line)}
+.cat-nav ul{display:flex;gap:4px;margin:0;padding:6px 0;list-style:none;overflow-x:auto;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch}
+.cat-nav ul::-webkit-scrollbar{display:none}
+.cat-nav a{display:block;white-space:nowrap;padding:.3em .8em;border-radius:999px;font-size:.84rem;
+  text-decoration:none;color:var(--ink-2)}
+.cat-nav a:hover{background:var(--blue-soft);color:var(--navy)}
+.cat-nav a[aria-current="page"]{background:var(--navy);color:#fff}
+@media (prefers-color-scheme:dark){.cat-nav a[aria-current="page"]{color:#0b1622}}
+a.chip{text-decoration:none}
+.chip[aria-current="page"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.chip[aria-current="page"] .n{color:rgba(255,255,255,.75)}
+@media (prefers-color-scheme:dark){.chip[aria-current="page"]{color:#0b1622}}
+.card-cat{margin-right:.6em;padding:.05em .55em;border-radius:6px;background:var(--blue-soft);color:var(--navy);
+  font-weight:600;text-decoration:none}
+.card-cat:hover{text-decoration:underline}
+.post-cat{color:var(--navy)!important;font-weight:700;text-decoration:none}
+.post-cat:hover{text-decoration:underline}
+.cat-head{padding-top:clamp(28px,6vw,52px)}
+.cat-kicker{margin:0 0 .3em;font-size:.8rem;letter-spacing:.12em;color:var(--ink-3)}
+.cat-head h1{margin:0 0 .35em;font-family:var(--serif);font-weight:900;font-size:clamp(1.6rem,5vw,2.3rem)}
+.cat-desc{margin:0;max-width:var(--measure);color:var(--ink-2)}
+.cat-empty{padding:2em 0 3em;color:var(--ink-2)}
+.is-cat .posts{margin-top:clamp(20px,4vw,32px)}
+@media (max-width:760px){.cat-nav ul{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent);padding-right:24px}}
+
