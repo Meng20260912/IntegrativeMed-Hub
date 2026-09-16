@@ -75,7 +75,11 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .hero-en{margin:0 0 .2em;font-size:clamp(.78rem,2.2vw,.9rem);font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .hero-sub{margin:0 auto .5em;max-width:34rem;font-size:clamp(.92rem,2.7vw,1.05rem);
   color:rgba(255,255,255,.88);line-height:1.9}
-.hero-by{margin:0 auto 1.1em;font-size:.86rem;color:rgba(255,255,255,.74)}
+.hero-by{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:.2em .8em;
+  margin:.2em auto 1.1em;color:rgba(255,255,255,.8)}
+.hero-name{font-family:var(--serif);font-weight:900;font-size:1.05rem;letter-spacing:.12em;color:#fff}
+.hero-title{font-size:.84rem;letter-spacing:.04em}
+.hero-name::before{content:"— "}
 .hero-views{margin:0 auto .35em;font-size:.84rem;color:rgba(255,255,255,.82);letter-spacing:.04em}
 .hero-views .site-views{font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
 .hero-updated{margin:0;font-size:.76rem;color:rgba(255,255,255,.6);line-height:1.7}
@@ -308,4 +312,20 @@ a.chip{text-decoration:none}
 .cat-empty{padding:2em 0 3em;color:var(--ink-2)}
 .is-cat .posts{margin-top:clamp(20px,4vw,32px)}
 @media (max-width:760px){.cat-nav ul{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent);padding-right:24px}}
+
+/* ---------- 關於頁：學經歷與著作 ---------- */
+a.hero-name{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.45)}
+a.hero-name:hover{border-bottom-color:#fff}
+.prose h2[id],.prose h3{scroll-margin-top:124px}
+.prose .cv-list{list-style:none;padding-left:0;margin:.4em 0 1.4em}
+.prose .cv-list li{display:grid;grid-template-columns:8.6em minmax(0,1fr);gap:.2em 1em;
+  padding:.55em 0;border-bottom:1px solid var(--line);margin:0}
+.prose .cv-list li:last-child{border-bottom:0}
+.cv-when{color:var(--ink-3);font-size:.9em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cv-what{min-width:0;overflow-wrap:anywhere}
+.pub-list .cv-what{font-size:.94em;line-height:1.75}
+.cv-what .me{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+.pub-first{display:inline-block;margin-right:.5em;padding:0 .5em;border-radius:6px;font-size:.78em;
+  font-weight:700;background:var(--blue-soft);color:var(--navy);vertical-align:.1em}
+@media (max-width:560px){.prose .cv-list li{grid-template-columns:1fr;gap:0}}
 

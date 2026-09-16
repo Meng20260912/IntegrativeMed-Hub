@@ -428,7 +428,7 @@ const indexBody = `<section class="hero">
     <p class="hero-en">${esc(SITE.nameEn)}</p>
     <h1>${esc(SITE.name)}</h1>
     <p class="hero-sub">把傳統中醫的辨證思維，放到現代實證醫學的檢驗架構下一起讀</p>
-    <p class="hero-by">— 魏孟鈞</p>
+    <p class="hero-by"><a class="hero-name" href="/about/#cv">魏孟鈞</a><span class="hero-title">台北慈濟醫院中醫部　中醫內科主治醫師</span></p>
     <p class="hero-views" hidden>全站累計瀏覽 <span class="site-views">–</span> 人次</p>
     <p class="hero-updated">最近更新 ${fmtDate(latestPost.updated).replace(/-/g, '/')}｜<a href="/posts/${attr(latestPost.slug)}/">${esc(latestPost.title)}</a></p>
     ${heroCredit ? `<p class="hero-credit">主視覺：<a href="${attr(heroCredit.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.title)}</a>，${esc(heroCredit.author)}／<a href="${attr(heroCredit.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(heroCredit.license)}</a>。完整出處見頁尾。</p>` : `<p class="hero-credit">主視覺為情境示意圖（AI 生成），非真實臨床照片。</p>`}
@@ -637,12 +637,46 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 <div class="wrap prose page">
 <h1>關於作者</h1>
 <figure class="about-profile"><img src="${attr(imgSrc('about-profile.jpg'))}" alt="魏孟鈞醫師個人介紹圖：台北慈濟醫院中醫部中醫內科主治醫師，列出現職、專長領域、研究方向與醫療特色"${sizeAttr('about-profile.jpg')} decoding="async"></figure>
-<p><strong>魏孟鈞</strong>，台北慈濟醫院中醫部中醫內科主治醫師。</p>
+<p><strong>魏孟鈞</strong>（Meng-Jiun Wei），台北慈濟醫院中醫部中醫內科主治醫師。</p>
 <ul>
 <li><strong>專長領域：</strong>心血管疾病調理、周邊動脈疾病照護、重症與術後整合照護、安寧緩和醫療、代謝與內分泌失調</li>
 <li><strong>研究方向：</strong>中西醫整合醫療、雷射針灸與循環改善、中藥抗發炎機轉研究、心血管保護與重症照護</li>
 </ul>
 <p>寫給一般民眾的衛教文章，放在<a href="${BLOG_URL}" target="_blank" rel="noopener noreferrer">魏孟鈞中醫師衛教部落格</a>。</p>
+<h2 id="cv">學經歷</h2>
+<h3>現職</h3>
+<ul class="cv-list">
+<li><span class="cv-when">2026/01 起</span><span class="cv-what">台北慈濟醫院中醫部　中醫內科主治醫師</span></li>
+</ul>
+<h3>學歷</h3>
+<ul class="cv-list">
+<li><span class="cv-when">2025/09 起</span><span class="cv-what">國立陽明交通大學　傳統醫藥研究所博士班（就讀中）</span></li>
+<li><span class="cv-when">2016/09–2021/06</span><span class="cv-what">中國醫藥大學　學士後中醫學系（醫學士）</span></li>
+<li><span class="cv-when">2007/09–2011/06</span><span class="cv-what">長庚大學　生物醫學系（理學士）</span></li>
+</ul>
+<h3>經歷</h3>
+<ul class="cv-list">
+<li><span class="cv-when">2024/05–2025/08</span><span class="cv-what">台北慈濟醫院中醫部　行政總醫師</span></li>
+<li><span class="cv-when">2023/07–2025/08</span><span class="cv-what">台北慈濟醫院中醫部　教學總醫師</span></li>
+<li><span class="cv-when">2022/11 起</span><span class="cv-what">台北慈濟醫院中醫部　中醫內科總醫師</span></li>
+<li><span class="cv-when">2021/11–2025/12</span><span class="cv-what">台北慈濟醫院中醫部　住院醫師</span></li>
+<li><span class="cv-when">2012/08–2016/08</span><span class="cv-what">衛生福利部雙和醫院腎臟內科　研究助理</span></li>
+</ul>
+<h2 id="publications">著作與發表</h2>
+<h3>期刊論文</h3>
+<ul class="cv-list pub-list">
+<li><span class="cv-when">2026</span><span class="cv-what">Huang KL, Yang MC, Wu YK, <b class="me">Wei MJ</b>, Kang HF, Liu GT, Kuo CY, Tzeng IS, Hsieh PC, Lan CC. Anti-inflammatory and polarization-modulating effects of <i>Houttuynia cordata</i> in LPS-stimulated RAW264.7 macrophages. <i>J Tradit Complement Med</i>. 2026;16(2):200–209. <a href="https://pubmed.ncbi.nlm.nih.gov/41788166/" target="_blank" rel="noopener noreferrer">PMID 41788166</a></span></li>
+<li><span class="cv-when">2024</span><span class="cv-what"><span class="pub-first">第一作者</span><b class="me">Wei MJ</b>, Huang KL, Kang HF, Liu GT, Kuo CY, Tzeng IS, Hsieh PC, Lan CC. Jing Si Herbal Tea modulates macrophage polarization and inflammatory signaling in LPS-induced inflammation. <i>Int J Med Sci</i>. 2024;21(15):3046–3057. <a href="https://pubmed.ncbi.nlm.nih.gov/39628684/" target="_blank" rel="noopener noreferrer">PMID 39628684</a></span></li>
+<li><span class="cv-when">2021</span><span class="cv-what">Lu PH, Yu MC, <b class="me">Wei MJ</b>, Kuo KL. The therapeutic strategies for uremic toxins control in chronic kidney disease. <i>Toxins (Basel)</i>. 2021;13(8):573. <a href="https://pubmed.ncbi.nlm.nih.gov/34437444/" target="_blank" rel="noopener noreferrer">PMID 34437444</a></span></li>
+<li><span class="cv-when">2017</span><span class="cv-what">Chen CH, Chen TH, Wu MY, Chou TC, Chen JR, <b class="me">Wei MJ</b>, Lee SL, Hong LY, Zheng CM, Chiu IJ, Lin YF, Hsu CM, Hsu YH. Far-infrared protects vascular endothelial cells from advanced glycation end products-induced injury via PLZF-mediated autophagy in diabetic mice. <i>Sci Rep</i>. 2017;7:40442. <a href="https://pubmed.ncbi.nlm.nih.gov/28071754/" target="_blank" rel="noopener noreferrer">PMID 28071754</a></span></li>
+</ul>
+<h3>中文論文與臨床案例</h3>
+<ul class="cv-list pub-list">
+<li><span class="cv-when">已接受</span><span class="cv-what"><b class="me">魏孟鈞</b>、謝伯駿、游志勤。柴胡劑合併針灸治療改善良性攝護腺增生致頻尿、夜尿之病例報告。《中醫藥研究論叢》。</span></li>
+<li><span class="cv-when">2025</span><span class="cv-what"><b class="me">魏孟鈞</b>、謝伯駿。慢性阻塞性肺病急性發作之中西醫整合治療顯效醫案。《中醫臨床顯效案例彙編（十五）》。</span></li>
+<li><span class="cv-when">2024</span><span class="cv-what"><b class="me">魏孟鈞</b>、謝伯駿。中西醫共同照護成功脫離呼吸器顯效醫案。《中醫臨床顯效案例彙編（十四）》。</span></li>
+<li><span class="cv-when">2024</span><span class="cv-what"><b class="me">魏孟鈞</b>、謝伯駿。中西醫整合照護外傷後氣胸顯效醫案。《中醫臨床顯效案例彙編（十四）》。</span></li>
+</ul>
 <h2>關於本站</h2>
 <p>「讀經典，看實證」（Classics &amp; Evidence）是一個中醫學習筆記站，內容包含中醫經典的讀書心得、現代研究的方法學解讀，以及兩者如何落到臨床。這裡整理中西兩套醫學在<strong>概念、證據與臨床實作</strong>上如何對話、又在哪裡衝突，不做療效宣稱。</p>
 <h3>編輯原則</h3>
