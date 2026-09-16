@@ -658,8 +658,10 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 <ul class="cv-list">
 <li><span class="cv-when">2024/05–2025/08</span><span class="cv-what">台北慈濟醫院中醫部　行政總醫師</span></li>
 <li><span class="cv-when">2023/07–2025/08</span><span class="cv-what">台北慈濟醫院中醫部　教學總醫師</span></li>
-<li><span class="cv-when">2022/11 起</span><span class="cv-what">台北慈濟醫院中醫部　中醫內科總醫師</span></li>
+<li><span class="cv-when">2022/11–2025/12</span><span class="cv-what">台北慈濟醫院中醫部　中醫內科總醫師</span></li>
 <li><span class="cv-when">2021/11–2025/12</span><span class="cv-what">台北慈濟醫院中醫部　住院醫師</span></li>
+<li><span class="cv-when">醫學生時期</span><span class="cv-what">台北慈濟醫院中醫部　實習醫師</span></li>
+<li><span class="cv-when">醫學生時期</span><span class="cv-what">亞東紀念醫院　見習醫師</span></li>
 <li><span class="cv-when">2012/08–2016/08</span><span class="cv-what">衛生福利部雙和醫院腎臟內科　研究助理</span></li>
 </ul>
 <h2 id="publications">著作與發表</h2>
@@ -672,10 +674,10 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 </ul>
 <h3>中文論文與臨床案例</h3>
 <ul class="cv-list pub-list">
-<li><span class="cv-when">已接受</span><span class="cv-what"><b class="me">魏孟鈞</b>、謝伯駿、游志勤。柴胡劑合併針灸治療改善良性攝護腺增生致頻尿、夜尿之病例報告。《中醫藥研究論叢》。</span></li>
-<li><span class="cv-when">2025</span><span class="cv-what"><b class="me">魏孟鈞</b>、謝伯駿。慢性阻塞性肺病急性發作之中西醫整合治療顯效醫案。《中醫臨床顯效案例彙編（十五）》。</span></li>
-<li><span class="cv-when">2024</span><span class="cv-what"><b class="me">魏孟鈞</b>、謝伯駿。中西醫共同照護成功脫離呼吸器顯效醫案。《中醫臨床顯效案例彙編（十四）》。</span></li>
-<li><span class="cv-when">2024</span><span class="cv-what"><b class="me">魏孟鈞</b>、謝伯駿。中西醫整合照護外傷後氣胸顯效醫案。《中醫臨床顯效案例彙編（十四）》。</span></li>
+<li><span class="cv-when">2026</span><span class="cv-what"><span class="pub-first">第一作者</span><b class="me">魏孟鈞</b>、謝伯駿、游志勤。柴胡劑合併針灸治療改善良性攝護腺增生致頻尿、夜尿之病例報告。《中醫藥研究論叢》。2026;29(1):163–182。<a href="https://doi.org/10.6516/TJTCM.202603_29(1).0012" target="_blank" rel="noopener noreferrer">DOI</a></span></li>
+<li><span class="cv-when">2025</span><span class="cv-what"><span class="pub-first">第一作者</span><b class="me">魏孟鈞</b>、謝伯駿。慢性阻塞性肺病急性發作之中西醫整合治療顯效醫案。《中醫臨床顯效案例彙編（十五）》。</span></li>
+<li><span class="cv-when">2024</span><span class="cv-what"><span class="pub-first">第一作者</span><b class="me">魏孟鈞</b>、謝伯駿。中西醫共同照護成功脫離呼吸器顯效醫案。《中醫臨床顯效案例彙編（十四）》。</span></li>
+<li><span class="cv-when">2024</span><span class="cv-what"><span class="pub-first">第一作者</span><b class="me">魏孟鈞</b>、謝伯駿。中西醫整合照護外傷後氣胸顯效醫案。《中醫臨床顯效案例彙編（十四）》。</span></li>
 </ul>
 <h2>關於本站</h2>
 <p>「讀經典，看實證」（Classics &amp; Evidence）是一個中醫學習筆記站，內容包含中醫經典的讀書心得、現代研究的方法學解讀，以及兩者如何落到臨床。這裡整理中西兩套醫學在<strong>概念、證據與臨床實作</strong>上如何對話、又在哪裡衝突，不做療效宣稱。</p>
