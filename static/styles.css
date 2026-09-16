@@ -327,5 +327,6 @@ a.hero-name:hover{border-bottom-color:#fff}
 .cv-what .me{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
 .pub-first{display:inline-block;margin-right:.5em;padding:0 .5em;border-radius:6px;font-size:.78em;
   font-weight:700;background:var(--blue-soft);color:var(--navy);vertical-align:.1em}
+.prose .cv-now li{grid-template-columns:1fr}
 @media (max-width:560px){.prose .cv-list li{grid-template-columns:1fr;gap:0}}
 

@@ -645,9 +645,9 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 <p>寫給一般民眾的衛教文章，放在<a href="${BLOG_URL}" target="_blank" rel="noopener noreferrer">魏孟鈞中醫師衛教部落格</a>。</p>
 <h2 id="cv">學經歷</h2>
 <h3>現職</h3>
-<ul class="cv-list">
-<li><span class="cv-when">2026/01 起</span><span class="cv-what">台北慈濟醫院中醫部　中醫內科主治醫師</span></li>
-<li><span class="cv-when">現任</span><span class="cv-what">台灣福爾摩沙經方中醫學會　理事</span></li>
+<ul class="cv-list cv-now">
+<li><span class="cv-what">台北慈濟醫院中醫部　中醫內科主治醫師</span></li>
+<li><span class="cv-what">台灣福爾摩沙經方中醫學會　理事</span></li>
 </ul>
 <h3>學歷</h3>
 <ul class="cv-list">
