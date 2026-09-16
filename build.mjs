@@ -650,21 +650,21 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 <li><span class="cv-what">台灣福爾摩沙經方中醫學會　理事</span></li>
 </ul>
 <h3>學歷</h3>
-<ul class="cv-list">
-<li><span class="cv-when">2025/09 起</span><span class="cv-what">國立陽明交通大學　傳統醫藥研究所博士班（就讀中）</span></li>
-<li><span class="cv-when">2016/09–2021/06</span><span class="cv-what">中國醫藥大學　學士後中醫學系（醫學士）</span></li>
-<li><span class="cv-when">2007/09–2011/06</span><span class="cv-what">長庚大學　生物醫學系（理學士）</span></li>
+<ul class="cv-list cv-now">
+<li><span class="cv-what">國立陽明交通大學　傳統醫藥研究所博士班（就讀中）</span></li>
+<li><span class="cv-what">中國醫藥大學　學士後中醫學系（醫學士）</span></li>
+<li><span class="cv-what">長庚大學　生物醫學系（理學士）</span></li>
 </ul>
 <h3>經歷</h3>
-<ul class="cv-list">
-<li><span class="cv-when">專科資格</span><span class="cv-what">中醫內科專科醫師</span></li>
-<li><span class="cv-when">2024/05–2025/08</span><span class="cv-what">台北慈濟醫院中醫部　行政總醫師</span></li>
-<li><span class="cv-when">2023/07–2025/08</span><span class="cv-what">台北慈濟醫院中醫部　教學總醫師</span></li>
-<li><span class="cv-when">2022/11–2025/12</span><span class="cv-what">台北慈濟醫院中醫部　中醫內科總醫師</span></li>
-<li><span class="cv-when">2021/11–2025/12</span><span class="cv-what">台北慈濟醫院中醫部　住院醫師</span></li>
-<li><span class="cv-when">2020/06–2021/04</span><span class="cv-what">台北慈濟醫院中醫部　實習醫師</span></li>
-<li><span class="cv-when">2019/09–2020/04</span><span class="cv-what">亞東紀念醫院　見習醫師</span></li>
-<li><span class="cv-when">2012/08–2016/08</span><span class="cv-what">衛生福利部雙和醫院腎臟內科　研究助理</span></li>
+<ul class="cv-list cv-now">
+<li><span class="cv-what">中醫內科專科醫師</span></li>
+<li><span class="cv-what">台北慈濟醫院中醫部　行政總醫師</span></li>
+<li><span class="cv-what">台北慈濟醫院中醫部　教學總醫師</span></li>
+<li><span class="cv-what">台北慈濟醫院中醫部　中醫內科總醫師</span></li>
+<li><span class="cv-what">台北慈濟醫院中醫部　住院醫師</span></li>
+<li><span class="cv-what">台北慈濟醫院中醫部　實習醫師</span></li>
+<li><span class="cv-what">亞東紀念醫院　見習醫師</span></li>
+<li><span class="cv-what">衛生福利部雙和醫院腎臟內科　研究助理</span></li>
 </ul>
 <h2 id="publications">著作與發表</h2>
 <h3>期刊論文</h3>
