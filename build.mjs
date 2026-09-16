@@ -647,6 +647,7 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 <h3>現職</h3>
 <ul class="cv-list">
 <li><span class="cv-when">2026/01 起</span><span class="cv-what">台北慈濟醫院中醫部　中醫內科主治醫師</span></li>
+<li><span class="cv-when">現任</span><span class="cv-what">台灣福爾摩沙經方中醫學會　理事</span></li>
 </ul>
 <h3>學歷</h3>
 <ul class="cv-list">
@@ -656,6 +657,7 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 </ul>
 <h3>經歷</h3>
 <ul class="cv-list">
+<li><span class="cv-when">專科資格</span><span class="cv-what">中醫內科專科醫師</span></li>
 <li><span class="cv-when">2024/05–2025/08</span><span class="cv-what">台北慈濟醫院中醫部　行政總醫師</span></li>
 <li><span class="cv-when">2023/07–2025/08</span><span class="cv-what">台北慈濟醫院中醫部　教學總醫師</span></li>
 <li><span class="cv-when">2022/11–2025/12</span><span class="cv-what">台北慈濟醫院中醫部　中醫內科總醫師</span></li>
