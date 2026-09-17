@@ -618,7 +618,8 @@ ${list.map(cardHtml).join('\n')}
   fs.writeFileSync(path.join(dir, 'index.html'), layout({
     title: `${c.name} — ${SITE.name}`, desc: c.desc, canonical: `${SITE_URL}/category/${c.slug}/`,
     body, bodyClass: 'is-cat', currentCat: c.slug,
-    extraHead: list.length ? `<script src="/views.js${VIEWS_V}" defer></script>` : '',
+    // 空分類先不讓搜尋引擎收錄，避免被判定為內容稀少的頁面；有文章後自動解除
+    extraHead: list.length ? `<script src="/views.js${VIEWS_V}" defer></script>` : '<meta name="robots" content="noindex, follow">',
     schema: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
@@ -698,7 +699,7 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 
 // --- sitemap / robots ---
 const newest = posts.length ? posts[0].updated.slice(0, 10) : new Date().toISOString().slice(0, 10);
-const urls = ['/', '/about/', ...CATEGORIES.map(c => `/category/${c.slug}/`), ...posts.map(p => `/posts/${p.slug}/`)];
+const urls = ['/', '/about/', ...CATEGORIES.filter(c => posts.some(p => p.category === c.slug)).map(c => `/category/${c.slug}/`), ...posts.map(p => `/posts/${p.slug}/`)];
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   urls.map(u => {
