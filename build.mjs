@@ -12,6 +12,13 @@ const OUT = path.join(ROOT, 'dist');
 
 // 個人品牌下的兩個網站：本站（學術）與衛教部落格（大眾）
 const BLOG_URL = 'https://blog.drmjwei.net';
+const TOOLS_URL = 'https://tools.drmjwei.net';
+// 給中醫住院醫師的線上工具（免登入、免費、資料不離開瀏覽器）
+const TOOLS = [
+  { url: TOOLS_URL, name: '病因病機圖工作台', host: 'tools.drmjwei.net',
+    audience: '中醫住院醫師 · 實習醫師',
+    desc: '貼上病例報告的理法病機分析，產生可編輯的病因病機圖與檢核清單，並匯出 PowerPoint。' },
+];
 const SITES = [
   { url: '/', name: '讀經典，看實證', sub: 'drmjwei.net',
     audience: '中醫學生 · 臨床同業',
@@ -311,7 +318,7 @@ ${showHeader ? `<header class="site-head">
       </span>
       <span class="brand-text"><b>${esc(SITE.name)}<span class="brand-en">${esc(SITE.nameEn)}</span></b><small>${esc(SITE.tagline)}</small></span>
     </a>
-    <nav><a href="/">文章</a><a href="/about/">關於</a><a href="${BLOG_URL}" class="nav-blog"><span class="nav-long">衛教</span>部落格<span class="nav-arrow"> ↗</span></a></nav>
+    <nav><a href="/">文章</a><a href="/about/">關於</a><a href="${TOOLS_URL}" class="nav-tool" target="_blank" rel="noopener noreferrer"><span class="nav-long">教學</span>工具<span class="nav-arrow"> ↗</span></a><a href="${BLOG_URL}" class="nav-blog"><span class="nav-long">衛教</span>部落格<span class="nav-arrow"> ↗</span></a></nav>
   </div>
   ${catNav(currentCat)}
 </header>` : ''}
@@ -338,6 +345,18 @@ ${SITES.map(x => `        <a class="site-card${x.here ? ' is-here' : ''}" href="
           <span class="site-aud">${esc(x.audience)}</span>
           <b>${esc(x.name)}</b>
           <span class="site-host">${esc(x.sub)}${x.here ? '（目前所在）' : ' ↗'}</span>
+          <span class="site-desc">${esc(x.desc)}</span>
+        </a>`).join('\n')}
+      </div>
+    </section>
+    <section class="sites tools">
+      <h2>給住院醫師的工具</h2>
+      <p class="sites-note">寫病例報告時用得上的小工具，免登入、免費，貼上的內容不會離開你的瀏覽器。</p>
+      <div class="sites-grid">
+${TOOLS.map(x => `        <a class="site-card" href="${attr(x.url)}" target="_blank" rel="noopener noreferrer">
+          <span class="site-aud">${esc(x.audience)}</span>
+          <b>${esc(x.name)}</b>
+          <span class="site-host">${esc(x.host)} ↗</span>
           <span class="site-desc">${esc(x.desc)}</span>
         </a>`).join('\n')}
       </div>
@@ -447,6 +466,7 @@ ${CATEGORIES.map(c => { const n = catCount(c.slug); return `      <li><a class="
         <input type="search" id="q" placeholder="搜尋標題、摘要或標籤…" autocomplete="off">
       </div>
       <div class="toolbar-links">
+        <a href="${TOOLS_URL}" class="btn-blog" target="_blank" rel="noopener noreferrer">病因病機圖工作台 ↗</a>
         <a href="${BLOG_URL}" class="btn-blog">衛教部落格 ↗</a>
         <a href="/about/">關於本站</a>
         <a href="/feed.xml">RSS</a>

@@ -237,8 +237,8 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto}}
 
 /* ---------- 個人品牌：兩個網站 ---------- */
-.site-head nav .nav-blog{color:var(--navy);font-weight:500}
-.site-head nav .nav-blog:hover{background:var(--blue-soft)}
+.site-head nav .nav-blog,.site-head nav .nav-tool{color:var(--navy);font-weight:500}
+.site-head nav .nav-blog:hover,.site-head nav .nav-tool:hover{background:var(--blue-soft)}
 .toolbar-links .btn-blog{background:var(--surface-2);color:var(--navy);border:1px solid var(--line)}
 .toolbar-links .btn-blog:hover{background:var(--blue-soft);color:var(--navy);border-color:var(--blue)}
 .sites{margin:0 0 1.6em}
@@ -258,7 +258,7 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 @media (max-width:520px){
   .site-head nav{gap:0}
   .site-head nav a{padding:.4em .55em;font-size:.9rem}
-  .site-head nav .nav-blog{font-size:.88rem}
+  .site-head nav .nav-blog,.site-head nav .nav-tool{font-size:.88rem}
 }
 
 /* ---------- 個人品牌 logo ---------- */
