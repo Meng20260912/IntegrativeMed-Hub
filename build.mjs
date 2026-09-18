@@ -68,6 +68,23 @@ const assetVer = (rel) => {
 // 圖片也加內容雜湊版本號：換圖後瀏覽器與 CDN 會立刻取得新檔，不會沿用舊快取
 const imgSrc = (name) => `/img/${name}${assetVer(path.join('img', name))}`;
 
+// 響應式圖片：若 static/img/resp/ 有 scripts/make-images.mjs 產生的 WebP，
+// 輸出 <picture>，讓手機下載小尺寸；沒有就退回原圖。
+const RESP_DIR = path.join(STATIC_DIR, 'img', 'resp');
+const RESP_FILES = fs.existsSync(RESP_DIR) ? fs.readdirSync(RESP_DIR) : [];
+function respSrcset(name) {
+  const base = name.replace(/\.[^.]+$/, '');
+  const re = new RegExp('^' + base.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '-(\\d+)\\.webp$');
+  return RESP_FILES.map(f => { const m = f.match(re); return m ? [Number(m[1]), f] : null; })
+    .filter(Boolean).sort((a, b) => a[0] - b[0])
+    .map(([w, f]) => `/img/resp/${f}${assetVer(path.join('img', 'resp', f))} ${w}w`).join(', ');
+}
+function picture(name, imgAttrs, sizes) {
+  const img = `<img src="${attr(imgSrc(name))}"${imgAttrs}>`;
+  const ss = /\.svg$/i.test(name) ? '' : respSrcset(name);
+  return ss ? `<picture><source type="image/webp" srcset="${attr(ss)}" sizes="${sizes}">${img}</picture>` : img;
+}
+
 // 讀取 JPEG/PNG 實際尺寸，讓 width/height 屬性正確保留版面空間，避免圖片載入時跳動
 function imgSize(name) {
   try {
@@ -304,7 +321,9 @@ function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
 <link rel="alternate" type="application/rss+xml" title="${attr(SITE.name)}" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<!-- 內文用系統內建中文字型；只有標題載入襯線字，且非同步載入、不阻擋畫面顯示 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&display=swap"></noscript>
 <link rel="stylesheet" href="/styles.css${CSS_V}">
 ${schema ? `<script type="application/ld+json">${jsonLd(schema)}</script>\n` : ''}${extraHead}
 </head>
@@ -424,7 +443,7 @@ const heroCredit = CREDITS[heroImg];
 const catCount = (slug) => posts.filter(p => p.category === slug).length;
 
 const cardHtml = (p) => `      <article class="card" data-tags="${attr(p.tags.join('|'))}" data-search="${attr(p.searchText)}">
-        ${p.hero ? `<a class="card-thumb" href="/posts/${attr(p.slug)}/" tabindex="-1" aria-hidden="true"><img src="${attr(imgSrc(p.hero))}" alt="" loading="lazy" decoding="async"></a>` : ''}
+        ${p.hero ? `<a class="card-thumb" href="/posts/${attr(p.slug)}/" tabindex="-1" aria-hidden="true">${picture(p.hero, ' alt="" loading="lazy" decoding="async"', '(min-width: 1100px) 360px, (min-width: 700px) 50vw, 100vw')}</a>` : ''}
         <div class="card-body">
           <p class="card-date">${p.category ? `<a class="card-cat" href="/category/${p.category}/">${esc(CAT[p.category].name)}</a>` : ''}<time datetime="${attr(p.updated)}">${fmtDate(p.updated).replace(/-/g, '/')}</time> 更新</p>
           <h3><a href="/posts/${attr(p.slug)}/">${esc(p.title)}</a></h3>
@@ -441,7 +460,7 @@ const cards = posts.map(cardHtml).join('\n');
 
 const latestPost = posts[0];
 const indexBody = `<section class="hero">
-  <div class="hero-cover"><img src="${attr(imgSrc(heroImg))}" alt="" fetchpriority="high" decoding="async"${sizeAttr(heroImg)}></div>
+  <div class="hero-cover">${picture(heroImg, ` alt="" fetchpriority="high" decoding="async"${sizeAttr(heroImg)}`, '100vw')}</div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-en">${esc(SITE.nameEn)}</p>
@@ -543,7 +562,7 @@ for (const p of posts) {
     </ul>
   </header>
   ${p.hero ? `<figure class="post-hero">
-    <img src="${attr(imgSrc(p.hero))}" alt="${attr(p.heroAlt)}" decoding="async" fetchpriority="high"${sizeAttr(p.hero)}>
+    ${picture(p.hero, ` alt="${attr(p.heroAlt)}" decoding="async" fetchpriority="high"${sizeAttr(p.hero)}`, '(min-width: 960px) 880px, 100vw')}
     ${c ? `<figcaption>圖：<a href="${attr(c.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a>，${esc(c.author)}／<a href="${attr(c.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.license)}</a></figcaption>` : (p.heroCaption ? `<figcaption>${esc(p.heroCaption)}</figcaption>` : '')}
   </figure>` : ''}
   ${p.toc.length >= 4 ? `<nav class="wrap toc" aria-label="本文章節">
@@ -657,7 +676,7 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
   body: `<div class="wrap page-logo"><img src="${attr(imgSrc('brand-logo.png'))}" alt="魏孟鈞中醫師"${sizeAttr('brand-logo.png')} fetchpriority="high" decoding="async"></div>
 <div class="wrap prose page">
 <h1>關於作者</h1>
-<figure class="about-profile"><img src="${attr(imgSrc('about-profile.jpg'))}" alt="魏孟鈞醫師個人介紹圖：台北慈濟醫院中醫部中醫內科主治醫師，列出現職、專長領域、研究方向與醫療特色"${sizeAttr('about-profile.jpg')} decoding="async"></figure>
+<figure class="about-profile">${picture('about-profile.jpg', ` alt="魏孟鈞醫師個人介紹圖：台北慈濟醫院中醫部中醫內科主治醫師，列出現職、專長領域、研究方向與醫療特色"${sizeAttr('about-profile.jpg')} decoding="async"`, '(min-width: 600px) 520px, 100vw')}</figure>
 <p><strong>魏孟鈞</strong>（Meng-Jiun Wei），台北慈濟醫院中醫部中醫內科主治醫師。</p>
 <ul>
 <li><strong>專長領域：</strong>心血管疾病調理、周邊動脈疾病照護、重症與術後整合照護、安寧緩和醫療、代謝與內分泌失調</li>

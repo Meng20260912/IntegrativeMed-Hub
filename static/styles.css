@@ -1,7 +1,7 @@
 /* 讀經典，看實證 — 深藍主題，襯線標題，mobile-first、嚴格防破框 */
 :root{
   --bg:#f4f7fa; --surface:#ffffff; --surface-2:#eef3f8;
-  --ink:#16202b; --ink-2:#4c5a68; --ink-3:#8695a4;
+  --ink:#16202b; --ink-2:#4c5a68; --ink-3:#5f6f80;
   --line:#e0e7ef;
   --navy:#12395f;        /* 主色：深藍 */
   --navy-deep:#0b2540;   /* 更深，用於 hero 遮罩 */
@@ -13,7 +13,7 @@
   --shadow:0 2px 8px rgba(18,57,95,.05), 0 8px 28px rgba(18,57,95,.05);
   --shadow-lg:0 4px 14px rgba(18,57,95,.09), 0 18px 44px -12px rgba(18,57,95,.20);
   --serif:"Noto Serif TC","Songti TC","PingFang TC",Georgia,serif;
-  --sans:"Noto Sans TC","PingFang TC","Hiragino Sans TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+  --sans:"PingFang TC","Hiragino Sans TC","Microsoft JhengHei","Noto Sans CJK TC","Noto Sans TC",system-ui,-apple-system,sans-serif;
 }
 @media (prefers-color-scheme:dark){
   :root{
@@ -36,6 +36,7 @@ body{
   overflow-x:hidden;
 }
 img,svg,video{max-width:100%;height:auto;display:block}
+picture{display:contents}
 a{color:var(--blue);text-underline-offset:.18em;text-decoration-thickness:.08em}
 a:hover{color:var(--navy)}
 h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
@@ -56,11 +57,11 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .brand-text b{font-family:var(--serif);font-weight:900;font-size:.95rem;line-height:1.3;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .brand-en{margin-left:.5em;font-family:var(--sans);font-weight:600;font-size:.84rem;letter-spacing:.04em;color:var(--ink-3)}
-@media (max-width:520px){.brand-en,.brand-text small{display:none}.brand-text b{overflow:visible;font-size:15px}.site-head nav a{padding:.4em .45em;font-size:14px}}
-@media (max-width:430px){.nav-long{display:none}.brand{gap:8px}.brand-mark{width:28px;height:28px}.brand-mark svg{width:28px;height:28px}}
-@media (max-width:374px){.site-head nav a[href="/"]{display:none}}
-@media (max-width:760px){.brand-en{display:none}}
-@media (max-width:374px){.brand{gap:8px}.brand-mark{width:28px;height:28px}.brand-mark svg{width:28px;height:28px}.brand-text b{font-size:13px}.site-head nav a{font-size:13px;padding:.4em .3em}.nav-arrow{display:none}}
+@media (max-width:520px){.brand-en,.brand-text small{display:none}.brand-text b{overflow:visible;font-size:15px}.site-head nav{gap:0}.site-head nav a,.site-head nav .nav-blog,.site-head nav .nav-tool{padding:.4em .45em;font-size:14px}.nav-arrow{display:none}}
+@media (max-width:600px){.nav-long{display:none}.site-head nav a[href="/"]{display:none}}
+@media (max-width:430px){.brand{gap:8px}.brand-mark{width:28px;height:28px}.brand-mark svg{width:28px;height:28px}}
+@media (max-width:1100px){.brand-en{display:none}}
+@media (max-width:374px){.brand{gap:8px}.brand-mark{width:28px;height:28px}.brand-mark svg{width:28px;height:28px}.brand-text b{font-size:13px}.site-head nav a,.site-head nav .nav-blog,.site-head nav .nav-tool{font-size:13px;padding:.4em .3em}.nav-arrow{display:none}}
 .brand-text small{font-size:.84rem;color:var(--ink-3);line-height:1.3;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .site-head nav{display:flex;gap:2px;flex:none}
@@ -255,11 +256,6 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .site-card b{font-size:.92rem;font-weight:700;color:var(--navy);line-height:1.5;overflow-wrap:anywhere}
 .site-host{font-size:.85rem;color:var(--ink-3);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}
 .site-desc{margin-top:4px;font-size:.88rem;color:var(--ink-2);line-height:1.75}
-@media (max-width:520px){
-  .site-head nav{gap:0}
-  .site-head nav a{padding:.4em .55em;font-size:.9rem}
-  .site-head nav .nav-blog,.site-head nav .nav-tool{font-size:.88rem}
-}
 
 /* ---------- 個人品牌 logo ---------- */
 /* logo 為深綠＋金色的透明去背 PNG，在深色模式下對比不足，
