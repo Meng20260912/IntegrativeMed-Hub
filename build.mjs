@@ -50,9 +50,31 @@ const CATEGORIES = [
 ];
 const CAT = Object.fromEntries(CATEGORIES.map(c => [c.slug, c]));
 
+// 作者（Person）結構化資料：讓搜尋引擎把文章作者連到同一個人與其學經歷、粉專、部落格
+const FB_URL = 'https://www.facebook.com/profile.php?id=61557561663928';
+
 // 正式網域。canonical / sitemap / og / RSS 一律指向這裡，
 // 避免 pages.dev 與自訂網域內容重複被搜尋引擎分散權重。
 const SITE_URL = process.env.SITE_URL || 'https://drmjwei.net';
+const AUTHOR_ID = `${SITE_URL}/about/#person`;
+const AUTHOR_REF = { '@type': 'Person', '@id': AUTHOR_ID, name: '魏孟鈞', url: `${SITE_URL}/about/` };
+const PERSON = {
+  '@type': 'Person',
+  '@id': AUTHOR_ID,
+  name: '魏孟鈞',
+  alternateName: 'Meng-Jiun Wei',
+  url: `${SITE_URL}/about/`,
+  image: `${SITE_URL}/img/about-profile.jpg`,
+  jobTitle: '中醫內科主治醫師',
+  worksFor: { '@type': 'Hospital', name: '佛教慈濟醫療財團法人台北慈濟醫院', url: 'https://taipei.tzuchi.com.tw/' },
+  memberOf: { '@type': 'Organization', name: '台灣福爾摩沙經方中醫學會', url: 'https://sites.google.com/view/twformosajingfang/' },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: '中國醫藥大學' },
+    { '@type': 'CollegeOrUniversity', name: '長庚大學' },
+  ],
+  knowsAbout: ['中醫內科', '中西醫整合醫療', '心血管疾病', '周邊動脈疾病', '中醫藥轉譯醫學'],
+  sameAs: [FB_URL, BLOG_URL],
+};
 
 const CREDITS = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'credits.json'), 'utf8'));
 
@@ -536,7 +558,7 @@ fs.writeFileSync(path.join(OUT, 'index.html'), layout({
           url: `${SITE_URL}/posts/${p.slug}/`,
           datePublished: p.published,
           dateModified: p.updated,
-          author: { '@type': 'Person', name: p.authorName },
+          author: AUTHOR_REF,
         })),
       },
     ],
@@ -614,11 +636,10 @@ ${p.html}
           ...(p.category ? { articleSection: CAT[p.category].name } : {}),
           image: [ogImage],
           author: {
-            '@type': 'Person',
-            name: p.authorName,
+            ...AUTHOR_REF,
             ...(p.authorAffil ? { affiliation: { '@type': 'Organization', name: p.authorAffil } } : {}),
           },
-          publisher: { '@type': 'Organization', name: SITE.name, url: `${SITE_URL}/` },
+          publisher: AUTHOR_REF,
           isPartOf: { '@id': `${SITE_URL}/#blog` },
           license: 'https://creativecommons.org/licenses/by/4.0/',
         },
@@ -673,6 +694,13 @@ fs.mkdirSync(path.join(OUT, 'about'), { recursive: true });
 fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
   title: `關於 — ${SITE.name}`, desc: SITE.desc, canonical: SITE_URL + '/about/',
   extraHead: `<script src="/views.js${VIEWS_V}" defer></script>`,
+  schema: {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    url: `${SITE_URL}/about/`,
+    name: `關於作者 — ${SITE.name}`,
+    mainEntity: PERSON,
+  },
   body: `<div class="wrap page-logo"><img src="${attr(imgSrc('brand-logo.png'))}" alt="魏孟鈞中醫師"${sizeAttr('brand-logo.png')} fetchpriority="high" decoding="async"></div>
 <div class="wrap prose page">
 <h1>關於作者</h1>
@@ -682,7 +710,7 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 <li><strong>專長領域：</strong>心血管疾病調理、周邊動脈疾病照護、重症與術後整合照護、安寧緩和醫療、代謝與內分泌失調</li>
 <li><strong>研究方向：</strong>中西醫整合醫療、雷射針灸與循環改善、中藥抗發炎機轉研究、心血管保護與重症照護</li>
 </ul>
-<p>寫給一般民眾的衛教文章，放在<a href="${BLOG_URL}" target="_blank" rel="noopener noreferrer">魏孟鈞中醫師衛教部落格</a>。</p>
+<p>寫給一般民眾的衛教文章，放在<a href="${BLOG_URL}" target="_blank" rel="noopener noreferrer me">魏孟鈞中醫師衛教部落格</a>；日常衛教與門診消息，請見<a href="${FB_URL}" target="_blank" rel="noopener noreferrer me">臉書粉絲專頁</a>。</p>
 <h2 id="cv">學經歷</h2>
 <h3>現職</h3>
 <ul class="cv-list cv-now">
