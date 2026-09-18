@@ -252,6 +252,7 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
   text-decoration:none;color:inherit;transition:border-color .18s,transform .18s}
 .site-card:hover{border-color:var(--blue);transform:translateY(-2px);color:inherit}
 .site-card.is-here{border-color:var(--navy);background:var(--blue-soft)}
+.site-card.is-here .site-aud,.site-card.is-here .site-host{color:var(--ink-2)}
 .site-aud{font-size:.84rem;color:var(--ink-3);letter-spacing:.04em}
 .site-card b{font-size:.92rem;font-weight:700;color:var(--navy);line-height:1.5;overflow-wrap:anywhere}
 .site-host{font-size:.85rem;color:var(--ink-3);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}
