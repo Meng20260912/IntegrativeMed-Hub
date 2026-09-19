@@ -15,7 +15,7 @@ const BLOG_URL = 'https://blog.drmjwei.net';
 const TOOLS_URL = 'https://tools.drmjwei.net';
 // 給中醫住院醫師的線上工具（免登入、免費、資料不離開瀏覽器）
 const TOOLS = [
-  { url: TOOLS_URL, name: '病因病機圖工作台', host: 'tools.drmjwei.net',
+  { url: TOOLS_URL + '/?src=footer', name: '病因病機圖工作台', host: 'tools.drmjwei.net',
     audience: '中醫住院醫師 · 實習醫師',
     desc: '貼上病例報告的理法病機分析，產生可編輯的病因病機圖與檢核清單，並匯出 PowerPoint。' },
 ];
@@ -377,7 +377,7 @@ ${showHeader ? `<header class="site-head">
       </span>
       <span class="brand-text"><b>${esc(SITE.name)}<span class="brand-en">${esc(SITE.nameEn)}</span></b><small>${esc(SITE.tagline)}</small></span>
     </a>
-    <nav><a href="/">文章</a><a href="/about/">關於</a><a href="${TOOLS_URL}" class="nav-tool" target="_blank" rel="noopener noreferrer"><span class="nav-long">教學</span>工具<span class="nav-arrow"> ↗</span></a><a href="${BLOG_URL}" class="nav-blog"><span class="nav-long">衛教</span>部落格<span class="nav-arrow"> ↗</span></a></nav>
+    <nav><a href="/">文章</a><a href="/about/">關於</a><a href="${TOOLS_URL}/?src=nav" class="nav-tool" target="_blank" rel="noopener noreferrer"><span class="nav-long">教學</span>工具<span class="nav-arrow"> ↗</span></a><a href="${BLOG_URL}" class="nav-blog"><span class="nav-long">衛教</span>部落格<span class="nav-arrow"> ↗</span></a></nav>
   </div>
   ${catNav(currentCat)}
 </header>` : ''}
@@ -525,7 +525,7 @@ ${CATEGORIES.map(c => { const n = catCount(c.slug); return `      <li><a class="
         <input type="search" id="q" placeholder="搜尋標題、摘要或標籤…" autocomplete="off">
       </div>
       <div class="toolbar-links">
-        <a href="${TOOLS_URL}" class="btn-blog" target="_blank" rel="noopener noreferrer">病因病機圖工作台 ↗</a>
+        <a href="${TOOLS_URL}/?src=home" class="btn-blog" target="_blank" rel="noopener noreferrer">病因病機圖工作台 ↗</a>
         <a href="${BLOG_URL}" class="btn-blog">衛教部落格 ↗</a>
         <a href="/about/">關於本站</a>
         <a href="/feed.xml">RSS</a>
