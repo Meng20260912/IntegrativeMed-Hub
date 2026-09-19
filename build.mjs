@@ -356,8 +356,8 @@ function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
 <meta name="twitter:title" content="${attr(title)}">
 <meta name="twitter:description" content="${attr(desc)}">
 <meta name="twitter:image" content="${attr(img)}">
-<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="icon" href="${imgSrc('favicon.svg')}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="${imgSrc('apple-touch-icon.png')}">
 <link rel="alternate" type="application/rss+xml" title="${attr(SITE.name)}" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
