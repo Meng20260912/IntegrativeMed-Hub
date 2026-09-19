@@ -314,10 +314,28 @@ ${CATEGORIES.map(c => `    <li><a href="/category/${c.slug}/"${c.slug === curren
   </ul></div></nav>${current ? `<script>(function(){var a=document.querySelector('.cat-nav [aria-current]');if(!a)return;var u=a.closest('ul');u.scrollLeft=a.parentNode.offsetLeft-(u.clientWidth-a.offsetWidth)/2;})();</script>` : ''}`;
 }
 
+// 標題襯線字只下載本頁標題實際用到的字（Google Fonts text= 子集），
+// 避免整套 Noto Serif TC 被切成十幾個分片、手機上拖慢首次繪製。
+// 收字範圍對應 styles.css 裡用 var(--serif) 的元素：h1、h2、網站名稱、首頁作者名。
+const SERIF_FONT_PLACEHOLDER = '%%SERIF_FONT_URL%%';
+function subsetSerifFont(html) {
+  const chunks = [];
+  for (const m of html.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)) chunks.push(m[1]);
+  for (const m of html.matchAll(/<span class="brand-text"><b>([\s\S]*?)<span class="brand-en">/g)) chunks.push(m[1]);
+  for (const m of html.matchAll(/class="hero-name"[^>]*>([\s\S]*?)<\/a>/g)) chunks.push(m[1]);
+  const text = chunks.join('')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&(amp|lt|gt|quot|#39);/g, (_, e) => ({ amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'" })[e])
+    .replace(/\s+/g, '');
+  const chars = [...new Set([...text])].sort().join('');
+  const url = `https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&display=swap&text=${encodeURIComponent(chars)}`;
+  return html.replaceAll(SERIF_FONT_PLACEHOLDER, attr(url));
+}
+
 function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
                   ogType = 'website', image = '', schema = null, showHeader = true, currentCat = '' }) {
   const img = image || `${SITE_URL}/img/banner-integrative.jpg`;
-  return `<!doctype html>
+  return subsetSerifFont(`<!doctype html>
 <html lang="${SITE.lang}">
 <head>
 <meta charset="utf-8">
@@ -344,8 +362,8 @@ function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- 內文用系統內建中文字型；只有標題載入襯線字，且非同步載入、不阻擋畫面顯示 -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&display=swap"></noscript>
+<link rel="preload" as="style" href="${SERIF_FONT_PLACEHOLDER}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="${SERIF_FONT_PLACEHOLDER}"></noscript>
 <link rel="stylesheet" href="/styles.css${CSS_V}">
 ${schema ? `<script type="application/ld+json">${jsonLd(schema)}</script>\n` : ''}${extraHead}
 </head>
@@ -407,7 +425,7 @@ ${TOOLS.map(x => `        <a class="site-card" href="${attr(x.url)}" target="_bl
   </div>
 </footer>
 </body>
-</html>`;
+</html>`);
 }
 
 /* ---------- 讀取文章 ---------- */
