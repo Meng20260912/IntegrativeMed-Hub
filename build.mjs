@@ -201,6 +201,7 @@ function inline(s) {
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) =>
       `<a href="${attr(u)}"${/^https?:/.test(u) ? ' target="_blank" rel="noopener noreferrer"' : ''}>${t}</a>`)
     .replace(CITE, (m, n) => REFS.has(n) ? `<a class="cite" href="#ref-${n}" aria-label="參考文獻 ${n}">[${n}]</a>` : m)
+    .replace(/==([^=\n]+)==/g, '<mark>$1</mark>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
 }
@@ -267,7 +268,11 @@ function markdown(src) {
     if (/^&gt;\s?/.test(line)) {
       const buf = [];
       while (i < lines.length && /^&gt;\s?/.test(lines[i])) buf.push(lines[i++].replace(/^&gt;\s?/, ''));
-      out.push(`<blockquote>${markdown(buf.join('\n').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&')).html}</blockquote>`);
+      // 首行寫 [!重點] 時，輸出「診間重點」色塊，與引用原文區分
+      const callout = /^\[!重點\]\s*$/.test((buf[0] || '').trim());
+      if (callout) buf.shift();
+      const cls = callout ? ' class="callout"' : '';
+      out.push(`<blockquote${cls}>${markdown(buf.join('\n').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&')).html}</blockquote>`);
       continue;
     }
     // 清單

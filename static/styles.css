@@ -8,6 +8,8 @@
   --blue:#1d6fa5;        /* 連結／互動 */
   --blue-soft:#e9f0f7;
   --accent-warn:#b4553f;
+  --hl:#efdca6;          /* 重點螢光筆：土黃 */
+  --hl-bg:#fbf4df; --hl-line:#c2a052; --hl-ink:#8a6a24;   /* 診間重點色塊 */
   --radius:20px; --radius-sm:12px;
   --wrap:1120px; --measure:44rem;
   --shadow:0 2px 8px rgba(18,57,95,.05), 0 8px 28px rgba(18,57,95,.05);
@@ -22,6 +24,8 @@
     --line:#26323f;
     --navy:#8cc0e8; --navy-deep:#050d16; --blue:#a5d4f2; --blue-soft:#172230;
     --accent-warn:#d98570;
+    --hl:#6d5c2f;
+    --hl-bg:#241f13; --hl-line:#8a7238; --hl-ink:#dcc389;
     --shadow:0 2px 8px rgba(0,0,0,.34), 0 8px 28px rgba(0,0,0,.34);
     --shadow-lg:0 4px 14px rgba(0,0,0,.45), 0 18px 44px -12px rgba(0,0,0,.6);
   }
@@ -201,6 +205,11 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .prose blockquote{margin:1.5em 0;padding:1em 1.2em;border-left:4px solid var(--navy);
   background:var(--blue-soft);border-radius:0 var(--radius-sm) var(--radius-sm) 0;color:var(--ink-2)}
 .prose blockquote p:last-child{margin-bottom:0}
+.prose mark{background:var(--hl);color:inherit;padding:.06em .24em;border-radius:4px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.prose blockquote.callout{background:var(--hl-bg);border-left-color:var(--hl-line);color:var(--ink)}
+.prose blockquote.callout::before{content:"診間重點";display:block;margin-bottom:.35em;
+  font-weight:700;font-size:.9em;letter-spacing:.06em;color:var(--hl-ink)}
 .prose code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;
   background:var(--blue-soft);color:var(--navy);padding:.15em .42em;border-radius:5px;overflow-wrap:break-word}
 .prose pre{margin:1.4em 0;padding:1em;background:var(--surface);border:1px solid var(--line);
