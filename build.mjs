@@ -361,6 +361,7 @@ function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
 <meta name="twitter:title" content="${attr(title)}">
 <meta name="twitter:description" content="${attr(desc)}">
 <meta name="twitter:image" content="${attr(img)}">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="${imgSrc('favicon.svg')}" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${imgSrc('apple-touch-icon.png')}">
 <link rel="alternate" type="application/rss+xml" title="${attr(SITE.name)}" href="/feed.xml">
