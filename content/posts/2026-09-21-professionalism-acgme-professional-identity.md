@@ -8,7 +8,7 @@ hero: professionalism-medical-education.jpg
 heroAlt: 臨床教師在討論室傾聽住院醫師說明自己的臨床判斷
 heroCaption: 情境示意圖（AI 生成），非真實臨床照片。
 tags: [醫學教育, 專業素養, ACGME, 專業身分形成]
-category: evidence
+category: beyond-white-coat
 ---
 
 查房結束後，老師問住院醫師：「你剛才為什麼做這個決定？」
