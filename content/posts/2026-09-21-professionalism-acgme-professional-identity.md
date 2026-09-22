@@ -13,7 +13,7 @@ category: beyond-white-coat
 
 查房結束後，老師問住院醫師：「你剛才為什麼做這個決定？」
 
-如果住院醫師能把臨床判斷與決策過程和邏輯講清楚，我們通常會覺得他的能力正在。但提到 **專業素養（Professionalism）**，就變得複雜許多：尊重病人、誠實、負責、知道何時求助，這些事情都很重要，可是臨床教師究竟要怎麼「教」？
+如果住院醫師能把臨床判斷與決策過程和邏輯講清楚，我們通常會覺得他的能力正在成熟。但提到 **專業素養（Professionalism）**，就變得複雜許多：尊重病人、誠實、負責、知道何時求助，這些事情都很重要，可是臨床教師究竟要怎麼「教」？
 
 美國畢業後醫學教育評鑑委員會（Accreditation Council for Graduate Medical Education, ACGME）長期以六大核心能力作為住院醫師訓練架構：醫學知識（Medical Knowledge）、病人照護（Patient Care）、人際關係及溝通技巧（Interpersonal and Communication Skills）、從工作中學習及成長（Practice-Based Learning and Improvement）、專業素養，以及制度下之臨床工作（Systems-Based Practice）。[1] 2026 年的共同訓練計畫要求（Common Program Requirements）仍要求所有訓練計畫把這些能力整合進課程，並明確要求訓練計畫主持人（program director）成為住院醫師的專業典範（role model）。[1]
 
@@ -40,7 +40,7 @@ category: beyond-white-coat
 | 當責與盡責 | 交班、病歷、追蹤與承諾是否完成 | 直接指出具體行為與後果，追蹤改善 |
 | 自我覺察與求助 | 能否辨認自己的能力界線、適時求助 | 老師自己也示範「不知道」與求助，降低求助的羞恥感 |
 
-專業素養不只在「出事」時才需要談。每天的大小Chart round、病歷撰寫、回饋與求助，本來就是教學素材。
+專業素養不只在「出事」時才需要談。每天的大小 Chart round、病歷撰寫、回饋與求助，本來就是教學素材。
 
 ## 知道終點在哪裡，仍然沒有回答「怎麼教」
 
