@@ -18,9 +18,94 @@ category: clinic-notes
 
 2024 年 ACC/AHA 等十一個學會共同發表的下肢 PAD 指引，把病人分成無症狀、慢性有症狀、CLTI 與急性肢體缺血（acute limb ischemia, ALI）四群。指引指出，只有約三分之一的病人以典型間歇性跛行表現，多數是其他形式的活動時腿部不適；經檢查證實的 PAD 病人中，20% 至 59% 沒有任何腿部症狀，功能受限的程度卻與跛行病人相當 [1]。
 
+<figure class="diagram">
+<svg viewBox="0 0 600 232" style="min-width:0" role="img" aria-labelledby="pads-t pads-d" xmlns="http://www.w3.org/2000/svg">
+<title id="pads-t">PAD 病人腿部症狀表現的比例範圍</title>
+<desc id="pads-d">範圍條形圖，橫軸為病人比例 0% 到 100%。典型間歇性跛行 10% 至 30%；非典型腿部症狀 40% 至 50%；活動時沒有腿部症狀 20% 至 50%。</desc>
+<style>
+.pads-lb{font:600 19px var(--sans,sans-serif);fill:var(--ink,#16202b)}
+.pads-val{font:600 18px var(--sans,sans-serif);fill:var(--ink-2,#4c5a68)}
+.pads-ax{font:16px var(--sans,sans-serif);fill:var(--ink-3,#5f6f80)}
+.pads-grid{stroke:var(--line,#e0e7ef);stroke-width:1}
+.pads-bar{fill:var(--navy,#12395f)}
+.pads-hit{fill:transparent}
+</style>
+<line class="pads-grid" x1="184" y1="16" x2="184" y2="188"/>
+<text class="pads-ax" x="184" y="214" text-anchor="start">0%</text>
+<line class="pads-grid" x1="279" y1="16" x2="279" y2="188"/>
+<text class="pads-ax" x="279" y="214" text-anchor="middle">25%</text>
+<line class="pads-grid" x1="374" y1="16" x2="374" y2="188"/>
+<text class="pads-ax" x="374" y="214" text-anchor="middle">50%</text>
+<line class="pads-grid" x1="469" y1="16" x2="469" y2="188"/>
+<text class="pads-ax" x="469" y="214" text-anchor="middle">75%</text>
+<line class="pads-grid" x1="564" y1="16" x2="564" y2="188"/>
+<text class="pads-ax" x="564" y="214" text-anchor="end">100%</text>
+<g><title>典型間歇性跛行：10–30%</title>
+<rect class="pads-hit" x="0" y="18" width="600" height="52"/>
+<text class="pads-lb" x="170" y="51" text-anchor="end">典型間歇性跛行</text>
+<rect class="pads-bar" x="222" y="30" width="76" height="28" rx="4"/>
+<text class="pads-val" x="306" y="50">10–30%</text></g>
+<g><title>非典型腿部症狀：40–50%</title>
+<rect class="pads-hit" x="0" y="76" width="600" height="52"/>
+<text class="pads-lb" x="170" y="109" text-anchor="end">非典型腿部症狀</text>
+<rect class="pads-bar" x="336" y="88" width="38" height="28" rx="4"/>
+<text class="pads-val" x="382" y="108">40–50%</text></g>
+<g><title>活動時沒有症狀：20–50%</title>
+<rect class="pads-hit" x="0" y="134" width="600" height="52"/>
+<text class="pads-lb" x="170" y="167" text-anchor="end">活動時沒有症狀</text>
+<rect class="pads-bar" x="260" y="146" width="114" height="28" rx="4"/>
+<text class="pads-val" x="382" y="166">20–50%</text></g>
+</svg>
+<figcaption>圖 1：經檢查證實的 PAD 病人中，各類腿部症狀表現所占的比例範圍。比例隨族群與評估方式而不同，三類的範圍加起來不是 100%。資料來源：美國心臟學會流行病學聲明 <a class="cite" href="#ref-2" aria-label="參考文獻 2">[2]</a>。</figcaption>
+</figure>
+
 這對中醫門診有直接的意義。「走不遠」「腳冷腳麻」常被歸入痺證或氣血不足，高齡、糖尿病、抽菸、慢性腎臟病的病人若有這類主訴，中醫師在診間就能觸摸足背動脈與脛後動脈，比較兩側搏動強弱。踝肱指數（ankle-brachial index, ABI）在健保規範中屬於西醫心臟內科的檢查項目，中醫師無法開立；觸診或病史讓人起疑時，應轉介心臟內科安排。病人帶著報告回診時，也要看得懂數字：指引對靜止 ABI 的判讀為 ≤0.90 異常、0.91–0.99 邊界、1.00–1.40 正常；>1.40 代表血管硬化到無法壓縮，需改測趾肱指數 [1]。
 
 ABI 反映的也不只是腿。美國心臟學會的流行病學聲明整理 16 個世代研究，ABI 介於 0.81 與 0.90 者總死亡率加倍，≤0.70 者增為四倍 [2]。PAD 病人要同時防範重大心血管事件（MACE）與重大肢體事件（MALE），治療從一開始就是兩條線。
+
+<figure class="diagram">
+<svg viewBox="0 0 600 316" style="min-width:0" role="img" aria-labelledby="padm-t padm-d" xmlns="http://www.w3.org/2000/svg">
+<title id="padm-t">ABI 與總死亡率的關係</title>
+<desc id="padm-d">長條圖，縱軸為相對總死亡率。以 ABI 1.11 至 1.40 為參考組，設為 1；ABI 0.81 至 0.90 約為 2 倍；ABI 0.70 以下約為 4 倍。</desc>
+<style>
+.padm-lb{font:600 18px var(--sans,sans-serif);fill:var(--ink,#16202b)}
+.padm-val{font:600 19px var(--sans,sans-serif);fill:var(--ink,#16202b)}
+.padm-ax{font:16px var(--sans,sans-serif);fill:var(--ink-3,#5f6f80)}
+.padm-grid{stroke:var(--line,#e0e7ef);stroke-width:1}
+.padm-base{stroke:var(--ink-3,#5f6f80);stroke-width:1}
+.padm-bar{fill:var(--navy,#12395f)}
+.padm-ref{fill:#8a9aab}
+.padm-hit{fill:transparent}
+@media (prefers-color-scheme:dark){.padm-ref{fill:#6b7a8a}}
+</style>
+<text class="padm-ax" x="16" y="24">總死亡率（倍）</text>
+<line class="padm-grid" x1="56" y1="216" x2="590" y2="216"/>
+<text class="padm-ax" x="44" y="221" text-anchor="end">1</text>
+<line class="padm-grid" x1="56" y1="170" x2="590" y2="170"/>
+<text class="padm-ax" x="44" y="175" text-anchor="end">2</text>
+<line class="padm-grid" x1="56" y1="124" x2="590" y2="124"/>
+<text class="padm-ax" x="44" y="129" text-anchor="end">3</text>
+<line class="padm-grid" x1="56" y1="78" x2="590" y2="78"/>
+<text class="padm-ax" x="44" y="83" text-anchor="end">4</text>
+<line class="padm-base" x1="56" y1="262" x2="590" y2="262"/>
+<g><title>ABI 1.11–1.40：1（參考組）</title>
+<rect class="padm-hit" x="65" y="40" width="170" height="222"/>
+<path class="padm-ref" d="M98,262 V220 Q98,216 102,216 H198 Q202,216 202,220 V262 Z"/>
+<text class="padm-val" x="150" y="206" text-anchor="middle">1（參考組）</text>
+<text class="padm-lb" x="150" y="292" text-anchor="middle">ABI 1.11–1.40</text></g>
+<g><title>ABI 0.81–0.90：約 2 倍</title>
+<rect class="padm-hit" x="240" y="40" width="170" height="222"/>
+<path class="padm-bar" d="M273,262 V174 Q273,170 277,170 H373 Q377,170 377,174 V262 Z"/>
+<text class="padm-val" x="325" y="160" text-anchor="middle">約 2 倍</text>
+<text class="padm-lb" x="325" y="292" text-anchor="middle">ABI 0.81–0.90</text></g>
+<g><title>ABI ≤0.70：約 4 倍</title>
+<rect class="padm-hit" x="415" y="40" width="170" height="222"/>
+<path class="padm-bar" d="M448,262 V82 Q448,78 452,78 H548 Q552,78 552,82 V262 Z"/>
+<text class="padm-val" x="500" y="68" text-anchor="middle">約 4 倍</text>
+<text class="padm-lb" x="500" y="292" text-anchor="middle">ABI ≤0.70</text></g>
+</svg>
+<figcaption>圖 2：ABI 與總死亡率。原始統合分析以 ABI 1.11–1.40 為低風險參考組 <a class="cite" href="#ref-13" aria-label="參考文獻 13">[13]</a>；圖中只列出正文提到的兩個區間，其他區間未列出。資料來源：美國心臟學會流行病學聲明 <a class="cite" href="#ref-2" aria-label="參考文獻 2">[2]</a>。</figcaption>
+</figure>
 
 ## 指引的治療順序
 
@@ -94,3 +179,4 @@ ABI 反映的也不只是腿。美國心臟學會的流行病學聲明整理 16 
 - [10] Koon CM, Cheung DWS, Wong PH, Wat E, et al. Salviae miltiorrhizae radix and puerariae lobatae radix herbal formula improves circulation, vascularization and gait function in a peripheral arterial disease rat model. *J Ethnopharmacol*. 2021;264:113235. [PMID 32777518](https://pubmed.ncbi.nlm.nih.gov/32777518/)
 - [11] Brown T, Forster RB, Cleanthis M, Mikhailidis DP, et al. Cilostazol for intermittent claudication. *Cochrane Database Syst Rev*. 2021;6(6):CD003748. [PMID 34192807](https://pubmed.ncbi.nlm.nih.gov/34192807/)
 - [12] Lin SK, Liu JM, Wang PH, Hung SP, et al. Incidence of cellulitis following acupuncture treatments in Taiwan. *Int J Environ Res Public Health*. 2019;16(20):3831. [PMID 31614442](https://pubmed.ncbi.nlm.nih.gov/31614442/)
+- [13] Fowkes FG, Murray GD, Butcher I, Heald CL, et al. Ankle brachial index combined with Framingham Risk Score to predict cardiovascular events and mortality: a meta-analysis. *JAMA*. 2008;300(2):197–208. [PMID 18612117](https://pubmed.ncbi.nlm.nih.gov/18612117/)
