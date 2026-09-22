@@ -113,6 +113,7 @@ Cruess 等人提醒，role modelling 同時包含有意識與無意識的學習�
 延伸閱讀
 
 - 〈[專業素養要怎麼教？從 ACGME 六大核心能力到專業身分形成](/posts/professionalism-acgme-professional-identity/)〉：從第一篇的典範反思，進一步看專業素養如何被教、被觀察與逐漸內化。
+- 〈[住院醫師到底是來工作，還是來學習？當 AI 開始接手臨床工作之後](/posts/residency-work-learning-ai/)〉：當 AI 能接手部分工作，住院醫師訓練時間應該留下什麼？
 - [Cruess 等人的 BMJ 文章：Role modelling—making the most of a powerful teaching strategy](https://www.bmj.com/content/336/7646/718)：一篇很適合臨床教師閱讀的短篇評論。
 - [Wykurz 與 Kelly：Developing the role of patients as teachers](https://pubmed.ncbi.nlm.nih.gov/12376445/)：回顧病人如何直接參與醫學教育。
 
