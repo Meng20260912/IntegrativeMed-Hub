@@ -101,6 +101,7 @@ Cruess 等人把醫學生到住院醫師的歷程視為一種社會化（sociali
 
 - 〈[學生就是老師的影子：教師節前，談談醫學教育裡的 role model](/posts/students-are-teachers-shadow-role-model/)〉：從教師節反思進入 role modelling 與潛在課程。
 - 〈[住院醫師到底是來工作，還是來學習？當 AI 開始接手臨床工作之後](/posts/residency-work-learning-ai/)〉：當 AI 能接手部分工作，住院醫師訓練時間應該留下什麼？
+- 〈[我們到底想找什麼樣的醫師？當成績成為選才的捷徑](/posts/grades-as-shortcut-in-resident-selection/)〉：住院醫師選才時，成績能告訴我們多少，又漏掉了什麼？
 - [ACGME Common Program Requirements](https://www.acgme.org/programs-and-institutions/programs/common-program-requirements/)：住院醫師訓練的官方共同要求。
 
 **參考資料**

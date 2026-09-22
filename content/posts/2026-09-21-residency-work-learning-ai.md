@@ -93,6 +93,7 @@ AI 讓這個問題變得更迫切。
 
 - 〈[學生就是老師的影子：教師節前，談談醫學教育裡的 role model](/posts/students-are-teachers-shadow-role-model/)〉：從教師節反思進入 role modelling 與潛在課程。
 - 〈[專業素養要怎麼教？從 ACGME 六大核心能力到專業身分形成](/posts/professionalism-acgme-professional-identity/)〉：住院醫師訓練真正要形成哪些專業能力？
+- 〈[我們到底想找什麼樣的醫師？當成績成為選才的捷徑](/posts/grades-as-shortcut-in-resident-selection/)〉：住院醫師選才時，成績能告訴我們多少，又漏掉了什麼？
 - [ACGME Common Program Requirements](https://www.acgme.org/programs-and-institutions/programs/common-program-requirements/)：住院醫師訓練與漸進責任的官方架構。
 - [衛生福利部評鑑基準專區](https://dep.mohw.gov.tw/DOMA/lp-948-106.html)：台灣教學醫院評鑑基準官方資料。
 
