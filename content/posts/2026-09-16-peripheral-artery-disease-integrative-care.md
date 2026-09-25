@@ -30,31 +30,31 @@ category: clinic-notes
 .pads-bar{fill:var(--navy,#12395f)}
 .pads-hit{fill:transparent}
 </style>
-<line class="pads-grid" x1="184" y1="16" x2="184" y2="188"/>
-<text class="pads-ax" x="184" y="214" text-anchor="start">0%</text>
-<line class="pads-grid" x1="279" y1="16" x2="279" y2="188"/>
-<text class="pads-ax" x="279" y="214" text-anchor="middle">25%</text>
-<line class="pads-grid" x1="374" y1="16" x2="374" y2="188"/>
-<text class="pads-ax" x="374" y="214" text-anchor="middle">50%</text>
-<line class="pads-grid" x1="469" y1="16" x2="469" y2="188"/>
-<text class="pads-ax" x="469" y="214" text-anchor="middle">75%</text>
-<line class="pads-grid" x1="564" y1="16" x2="564" y2="188"/>
-<text class="pads-ax" x="564" y="214" text-anchor="end">100%</text>
+<line class="pads-grid" x1="184" y1="16" x2="184" y2="188" stroke="#e0e7ef" stroke-width="1"/>
+<text class="pads-ax" x="184" y="214" text-anchor="start" fill="#5f6f80" font-size="16" font-family="sans-serif">0%</text>
+<line class="pads-grid" x1="279" y1="16" x2="279" y2="188" stroke="#e0e7ef" stroke-width="1"/>
+<text class="pads-ax" x="279" y="214" text-anchor="middle" fill="#5f6f80" font-size="16" font-family="sans-serif">25%</text>
+<line class="pads-grid" x1="374" y1="16" x2="374" y2="188" stroke="#e0e7ef" stroke-width="1"/>
+<text class="pads-ax" x="374" y="214" text-anchor="middle" fill="#5f6f80" font-size="16" font-family="sans-serif">50%</text>
+<line class="pads-grid" x1="469" y1="16" x2="469" y2="188" stroke="#e0e7ef" stroke-width="1"/>
+<text class="pads-ax" x="469" y="214" text-anchor="middle" fill="#5f6f80" font-size="16" font-family="sans-serif">75%</text>
+<line class="pads-grid" x1="564" y1="16" x2="564" y2="188" stroke="#e0e7ef" stroke-width="1"/>
+<text class="pads-ax" x="564" y="214" text-anchor="end" fill="#5f6f80" font-size="16" font-family="sans-serif">100%</text>
 <g><title>典型間歇性跛行：10–30%</title>
-<rect class="pads-hit" x="0" y="18" width="600" height="52"/>
-<text class="pads-lb" x="170" y="51" text-anchor="end">典型間歇性跛行</text>
-<rect class="pads-bar" x="222" y="30" width="76" height="28" rx="4"/>
-<text class="pads-val" x="306" y="50">10–30%</text></g>
+<rect class="pads-hit" x="0" y="18" width="600" height="52" fill="transparent"/>
+<text class="pads-lb" x="170" y="51" text-anchor="end" fill="#16202b" font-weight="600" font-size="19" font-family="sans-serif">典型間歇性跛行</text>
+<rect class="pads-bar" x="222" y="30" width="76" height="28" rx="4" fill="#12395f"/>
+<text class="pads-val" x="306" y="50" fill="#4c5a68" font-weight="600" font-size="18" font-family="sans-serif">10–30%</text></g>
 <g><title>非典型腿部症狀：40–50%</title>
-<rect class="pads-hit" x="0" y="76" width="600" height="52"/>
-<text class="pads-lb" x="170" y="109" text-anchor="end">非典型腿部症狀</text>
-<rect class="pads-bar" x="336" y="88" width="38" height="28" rx="4"/>
-<text class="pads-val" x="382" y="108">40–50%</text></g>
+<rect class="pads-hit" x="0" y="76" width="600" height="52" fill="transparent"/>
+<text class="pads-lb" x="170" y="109" text-anchor="end" fill="#16202b" font-weight="600" font-size="19" font-family="sans-serif">非典型腿部症狀</text>
+<rect class="pads-bar" x="336" y="88" width="38" height="28" rx="4" fill="#12395f"/>
+<text class="pads-val" x="382" y="108" fill="#4c5a68" font-weight="600" font-size="18" font-family="sans-serif">40–50%</text></g>
 <g><title>活動時沒有症狀：20–50%</title>
-<rect class="pads-hit" x="0" y="134" width="600" height="52"/>
-<text class="pads-lb" x="170" y="167" text-anchor="end">活動時沒有症狀</text>
-<rect class="pads-bar" x="260" y="146" width="114" height="28" rx="4"/>
-<text class="pads-val" x="382" y="166">20–50%</text></g>
+<rect class="pads-hit" x="0" y="134" width="600" height="52" fill="transparent"/>
+<text class="pads-lb" x="170" y="167" text-anchor="end" fill="#16202b" font-weight="600" font-size="19" font-family="sans-serif">活動時沒有症狀</text>
+<rect class="pads-bar" x="260" y="146" width="114" height="28" rx="4" fill="#12395f"/>
+<text class="pads-val" x="382" y="166" fill="#4c5a68" font-weight="600" font-size="18" font-family="sans-serif">20–50%</text></g>
 </svg>
 <figcaption>圖 1：經檢查證實的 PAD 病人中，各類腿部症狀表現所占的比例範圍。比例隨族群與評估方式而不同，三類的範圍加起來不是 100%。資料來源：美國心臟學會流行病學聲明 <a class="cite" href="#ref-2" aria-label="參考文獻 2">[2]</a>。</figcaption>
 </figure>
@@ -78,31 +78,31 @@ ABI 反映的也不只是腿。美國心臟學會的流行病學聲明整理 16 
 .padm-hit{fill:transparent}
 @media (prefers-color-scheme:dark){.padm-ref{fill:#6b7a8a}}
 </style>
-<text class="padm-ax" x="16" y="24">總死亡率（倍）</text>
-<line class="padm-grid" x1="56" y1="216" x2="590" y2="216"/>
-<text class="padm-ax" x="44" y="221" text-anchor="end">1</text>
-<line class="padm-grid" x1="56" y1="170" x2="590" y2="170"/>
-<text class="padm-ax" x="44" y="175" text-anchor="end">2</text>
-<line class="padm-grid" x1="56" y1="124" x2="590" y2="124"/>
-<text class="padm-ax" x="44" y="129" text-anchor="end">3</text>
-<line class="padm-grid" x1="56" y1="78" x2="590" y2="78"/>
-<text class="padm-ax" x="44" y="83" text-anchor="end">4</text>
-<line class="padm-base" x1="56" y1="262" x2="590" y2="262"/>
+<text class="padm-ax" x="16" y="24" fill="#5f6f80" font-size="16" font-family="sans-serif">總死亡率（倍）</text>
+<line class="padm-grid" x1="56" y1="216" x2="590" y2="216" stroke="#e0e7ef" stroke-width="1"/>
+<text class="padm-ax" x="44" y="221" text-anchor="end" fill="#5f6f80" font-size="16" font-family="sans-serif">1</text>
+<line class="padm-grid" x1="56" y1="170" x2="590" y2="170" stroke="#e0e7ef" stroke-width="1"/>
+<text class="padm-ax" x="44" y="175" text-anchor="end" fill="#5f6f80" font-size="16" font-family="sans-serif">2</text>
+<line class="padm-grid" x1="56" y1="124" x2="590" y2="124" stroke="#e0e7ef" stroke-width="1"/>
+<text class="padm-ax" x="44" y="129" text-anchor="end" fill="#5f6f80" font-size="16" font-family="sans-serif">3</text>
+<line class="padm-grid" x1="56" y1="78" x2="590" y2="78" stroke="#e0e7ef" stroke-width="1"/>
+<text class="padm-ax" x="44" y="83" text-anchor="end" fill="#5f6f80" font-size="16" font-family="sans-serif">4</text>
+<line class="padm-base" x1="56" y1="262" x2="590" y2="262" stroke="#5f6f80" stroke-width="1"/>
 <g><title>ABI 1.11–1.40：1（參考組）</title>
-<rect class="padm-hit" x="65" y="40" width="170" height="222"/>
-<path class="padm-ref" d="M98,262 V220 Q98,216 102,216 H198 Q202,216 202,220 V262 Z"/>
-<text class="padm-val" x="150" y="206" text-anchor="middle">1（參考組）</text>
-<text class="padm-lb" x="150" y="292" text-anchor="middle">ABI 1.11–1.40</text></g>
+<rect class="padm-hit" x="65" y="40" width="170" height="222" fill="transparent"/>
+<path class="padm-ref" d="M98,262 V220 Q98,216 102,216 H198 Q202,216 202,220 V262 Z" fill="#8a9aab"/>
+<text class="padm-val" x="150" y="206" text-anchor="middle" fill="#16202b" font-weight="600" font-size="19" font-family="sans-serif">1（參考組）</text>
+<text class="padm-lb" x="150" y="292" text-anchor="middle" fill="#16202b" font-weight="600" font-size="18" font-family="sans-serif">ABI 1.11–1.40</text></g>
 <g><title>ABI 0.81–0.90：約 2 倍</title>
-<rect class="padm-hit" x="240" y="40" width="170" height="222"/>
-<path class="padm-bar" d="M273,262 V174 Q273,170 277,170 H373 Q377,170 377,174 V262 Z"/>
-<text class="padm-val" x="325" y="160" text-anchor="middle">約 2 倍</text>
-<text class="padm-lb" x="325" y="292" text-anchor="middle">ABI 0.81–0.90</text></g>
+<rect class="padm-hit" x="240" y="40" width="170" height="222" fill="transparent"/>
+<path class="padm-bar" d="M273,262 V174 Q273,170 277,170 H373 Q377,170 377,174 V262 Z" fill="#12395f"/>
+<text class="padm-val" x="325" y="160" text-anchor="middle" fill="#16202b" font-weight="600" font-size="19" font-family="sans-serif">約 2 倍</text>
+<text class="padm-lb" x="325" y="292" text-anchor="middle" fill="#16202b" font-weight="600" font-size="18" font-family="sans-serif">ABI 0.81–0.90</text></g>
 <g><title>ABI ≤0.70：約 4 倍</title>
-<rect class="padm-hit" x="415" y="40" width="170" height="222"/>
-<path class="padm-bar" d="M448,262 V82 Q448,78 452,78 H548 Q552,78 552,82 V262 Z"/>
-<text class="padm-val" x="500" y="68" text-anchor="middle">約 4 倍</text>
-<text class="padm-lb" x="500" y="292" text-anchor="middle">ABI ≤0.70</text></g>
+<rect class="padm-hit" x="415" y="40" width="170" height="222" fill="transparent"/>
+<path class="padm-bar" d="M448,262 V82 Q448,78 452,78 H548 Q552,78 552,82 V262 Z" fill="#12395f"/>
+<text class="padm-val" x="500" y="68" text-anchor="middle" fill="#16202b" font-weight="600" font-size="19" font-family="sans-serif">約 4 倍</text>
+<text class="padm-lb" x="500" y="292" text-anchor="middle" fill="#16202b" font-weight="600" font-size="18" font-family="sans-serif">ABI ≤0.70</text></g>
 </svg>
 <figcaption>圖 2：ABI 與總死亡率。原始統合分析以 ABI 1.11–1.40 為低風險參考組 <a class="cite" href="#ref-13" aria-label="參考文獻 13">[13]</a>；圖中只列出正文提到的兩個區間，其他區間未列出。資料來源：美國心臟學會流行病學聲明 <a class="cite" href="#ref-2" aria-label="參考文獻 2">[2]</a>。</figcaption>
 </figure>

@@ -63,34 +63,34 @@ MACCE 指的是四種事件：心因性死亡、再次心肌梗塞、緊急重�
 .txl-ref{fill:#8a9aab}
 @media (prefers-color-scheme:dark){.txl-ref{fill:#6b7a8a}}
 </style>
-<rect class="txl-bar" x="330" y="10" width="16" height="16" rx="3"/>
-<text class="txl-ax" x="352" y="24">通心絡</text>
-<rect class="txl-ref" x="440" y="10" width="16" height="16" rx="3"/>
-<text class="txl-ax" x="462" y="24">安慰劑</text>
-<line class="txl-grid" x1="72" y1="40" x2="590" y2="40"/>
-<text class="txl-ax" x="62" y="45" text-anchor="end">10%</text>
-<line class="txl-grid" x1="72" y1="140" x2="590" y2="140"/>
-<text class="txl-ax" x="62" y="145" text-anchor="end">5%</text>
-<line class="txl-base" x1="72" y1="240" x2="590" y2="240"/>
-<text class="txl-ax" x="62" y="245" text-anchor="end">0</text>
+<rect class="txl-bar" x="330" y="10" width="16" height="16" rx="3" fill="#12395f"/>
+<text class="txl-ax" x="352" y="24" fill="#5f6f80" font-size="16" font-family="sans-serif">通心絡</text>
+<rect class="txl-ref" x="440" y="10" width="16" height="16" rx="3" fill="#8a9aab"/>
+<text class="txl-ax" x="462" y="24" fill="#5f6f80" font-size="16" font-family="sans-serif">安慰劑</text>
+<line class="txl-grid" x1="72" y1="40" x2="590" y2="40" stroke="#e0e7ef" stroke-width="1"/>
+<text class="txl-ax" x="62" y="45" text-anchor="end" fill="#5f6f80" font-size="16" font-family="sans-serif">10%</text>
+<line class="txl-grid" x1="72" y1="140" x2="590" y2="140" stroke="#e0e7ef" stroke-width="1"/>
+<text class="txl-ax" x="62" y="145" text-anchor="end" fill="#5f6f80" font-size="16" font-family="sans-serif">5%</text>
+<line class="txl-base" x1="72" y1="240" x2="590" y2="240" stroke="#5f6f80" stroke-width="1"/>
+<text class="txl-ax" x="62" y="245" text-anchor="end" fill="#5f6f80" font-size="16" font-family="sans-serif">0</text>
 <g><title>30 天 MACCE：通心絡 3.4%，安慰劑 5.2%</title>
-<rect class="txl-bar" x="112" y="172" width="56" height="68" rx="3"/>
-<text class="txl-val" x="140" y="164" text-anchor="middle">3.4%</text>
-<rect class="txl-ref" x="176" y="136" width="56" height="104" rx="3"/>
-<text class="txl-val" x="204" y="128" text-anchor="middle">5.2%</text>
-<text class="txl-lb" x="172" y="272" text-anchor="middle">30 天 MACCE</text></g>
+<rect class="txl-bar" x="112" y="172" width="56" height="68" rx="3" fill="#12395f"/>
+<text class="txl-val" x="140" y="164" text-anchor="middle" fill="#16202b" font-weight="600" font-size="17" font-family="sans-serif">3.4%</text>
+<rect class="txl-ref" x="176" y="136" width="56" height="104" rx="3" fill="#8a9aab"/>
+<text class="txl-val" x="204" y="128" text-anchor="middle" fill="#16202b" font-weight="600" font-size="17" font-family="sans-serif">5.2%</text>
+<text class="txl-lb" x="172" y="272" text-anchor="middle" fill="#16202b" font-weight="600" font-size="18" font-family="sans-serif">30 天 MACCE</text></g>
 <g><title>1 年 MACCE：通心絡 5.3%，安慰劑 8.3%</title>
-<rect class="txl-bar" x="277" y="134" width="56" height="106" rx="3"/>
-<text class="txl-val" x="305" y="126" text-anchor="middle">5.3%</text>
-<rect class="txl-ref" x="341" y="74" width="56" height="166" rx="3"/>
-<text class="txl-val" x="369" y="66" text-anchor="middle">8.3%</text>
-<text class="txl-lb" x="337" y="272" text-anchor="middle">1 年 MACCE</text></g>
+<rect class="txl-bar" x="277" y="134" width="56" height="106" rx="3" fill="#12395f"/>
+<text class="txl-val" x="305" y="126" text-anchor="middle" fill="#16202b" font-weight="600" font-size="17" font-family="sans-serif">5.3%</text>
+<rect class="txl-ref" x="341" y="74" width="56" height="166" rx="3" fill="#8a9aab"/>
+<text class="txl-val" x="369" y="66" text-anchor="middle" fill="#16202b" font-weight="600" font-size="17" font-family="sans-serif">8.3%</text>
+<text class="txl-lb" x="337" y="272" text-anchor="middle" fill="#16202b" font-weight="600" font-size="18" font-family="sans-serif">1 年 MACCE</text></g>
 <g><title>1 年心因性死亡：通心絡 4.5%，安慰劑 6.1%</title>
-<rect class="txl-bar" x="442" y="150" width="56" height="90" rx="3"/>
-<text class="txl-val" x="470" y="142" text-anchor="middle">4.5%</text>
-<rect class="txl-ref" x="506" y="118" width="56" height="122" rx="3"/>
-<text class="txl-val" x="534" y="110" text-anchor="middle">6.1%</text>
-<text class="txl-lb" x="502" y="272" text-anchor="middle">1 年心因性死亡</text></g>
+<rect class="txl-bar" x="442" y="150" width="56" height="90" rx="3" fill="#12395f"/>
+<text class="txl-val" x="470" y="142" text-anchor="middle" fill="#16202b" font-weight="600" font-size="17" font-family="sans-serif">4.5%</text>
+<rect class="txl-ref" x="506" y="118" width="56" height="122" rx="3" fill="#8a9aab"/>
+<text class="txl-val" x="534" y="110" text-anchor="middle" fill="#16202b" font-weight="600" font-size="17" font-family="sans-serif">6.1%</text>
+<text class="txl-lb" x="502" y="272" text-anchor="middle" fill="#16202b" font-weight="600" font-size="18" font-family="sans-serif">1 年心因性死亡</text></g>
 </svg>
 <figcaption>圖 1：CTS-AMI 的主要結果。三項差異皆達統計顯著；1 年全死因死亡為 5.1% 對 6.6%，未達統計顯著。資料來源：<a class="cite" href="#ref-1" aria-label="參考文獻 1">[1]</a>。</figcaption>
 </figure>

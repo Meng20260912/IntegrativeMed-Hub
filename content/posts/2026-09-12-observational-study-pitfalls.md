@@ -44,52 +44,52 @@ category: evidence
 </pattern>
 </defs>
 
-<text class="itb-hd" x="8" y="18">一、不死時間偏差（immortal time bias）</text>
-<line class="itb-tick" x1="180" y1="52" x2="180" y2="250"/>
-<line class="itb-tick" x1="400" y1="52" x2="400" y2="250" stroke-dasharray="4 4"/>
-<text class="itb-sm" x="180" y="44" text-anchor="middle">診斷日</text>
-<text class="itb-sm" x="400" y="44" text-anchor="middle">首次中醫就診</text>
-<text class="itb-sm" x="714" y="44" text-anchor="end">追蹤結束</text>
+<text class="itb-hd" x="8" y="18" fill="#12395f" font-weight="700" font-size="13" font-family="sans-serif">一、不死時間偏差（immortal time bias）</text>
+<line class="itb-tick" x1="180" y1="52" x2="180" y2="250" stroke="#8695a4" stroke-width="1.5"/>
+<line class="itb-tick" x1="400" y1="52" x2="400" y2="250" stroke-dasharray="4 4" stroke="#8695a4" stroke-width="1.5"/>
+<text class="itb-sm" x="180" y="44" text-anchor="middle" fill="#8695a4" font-size="12" font-family="sans-serif">診斷日</text>
+<text class="itb-sm" x="400" y="44" text-anchor="middle" fill="#8695a4" font-size="12" font-family="sans-serif">首次中醫就診</text>
+<text class="itb-sm" x="714" y="44" text-anchor="end" fill="#8695a4" font-size="12" font-family="sans-serif">追蹤結束</text>
 
-<text class="itb-lb" x="8" y="82">錯誤分析</text>
-<text class="itb-sm" x="8" y="100">整段算中醫組</text>
+<text class="itb-lb" x="8" y="82" fill="#16202b" font-weight="600" font-size="13" font-family="sans-serif">錯誤分析</text>
+<text class="itb-sm" x="8" y="100" fill="#8695a4" font-size="12" font-family="sans-serif">整段算中醫組</text>
 <rect x="180" y="64" width="480" height="32" rx="6" fill="var(--navy,#12395f)" opacity=".9"/>
 <rect x="180" y="64" width="220" height="32" rx="6" fill="url(#itbHatch)"/>
-<text class="itb-tag" x="290" y="85" text-anchor="middle" fill="#fff">不死時間</text>
-<text class="itb-tag" x="530" y="85" text-anchor="middle" fill="#fff">實際接受中醫</text>
-<text class="itb-sm" x="290" y="118" text-anchor="middle">死亡者依定義不會被歸入中醫組</text>
+<text class="itb-tag" x="290" y="85" text-anchor="middle" fill="#fff" font-weight="600" font-size="12" font-family="sans-serif">不死時間</text>
+<text class="itb-tag" x="530" y="85" text-anchor="middle" fill="#fff" font-weight="600" font-size="12" font-family="sans-serif">實際接受中醫</text>
+<text class="itb-sm" x="290" y="118" text-anchor="middle" fill="#8695a4" font-size="12" font-family="sans-serif">死亡者依定義不會被歸入中醫組</text>
 
-<text class="itb-lb" x="8" y="168">正確處理</text>
-<text class="itb-sm" x="8" y="186">時間相依變項</text>
+<text class="itb-lb" x="8" y="168" fill="#16202b" font-weight="600" font-size="13" font-family="sans-serif">正確處理</text>
+<text class="itb-sm" x="8" y="186" fill="#8695a4" font-size="12" font-family="sans-serif">時間相依變項</text>
 <rect x="180" y="150" width="220" height="32" rx="6" fill="var(--surface-2,#eef3f8)" stroke="var(--line,#e0e7ef)"/>
-<text class="itb-tag" x="290" y="171" text-anchor="middle" fill="var(--ink-2,#4c5a68)">計為未暴露</text>
+<text class="itb-tag" x="290" y="171" text-anchor="middle" fill="var(--ink-2,#4c5a68)" font-weight="600" font-size="12" font-family="sans-serif">計為未暴露</text>
 <rect x="400" y="150" width="260" height="32" rx="6" fill="var(--navy,#12395f)" opacity=".9"/>
-<text class="itb-tag" x="530" y="171" text-anchor="middle" fill="#fff">計為中醫組</text>
-<text class="itb-sm" x="290" y="204" text-anchor="middle">時間零點對齊，兩組起點相同</text>
+<text class="itb-tag" x="530" y="171" text-anchor="middle" fill="#fff" font-weight="600" font-size="12" font-family="sans-serif">計為中醫組</text>
+<text class="itb-sm" x="290" y="204" text-anchor="middle" fill="#8695a4" font-size="12" font-family="sans-serif">時間零點對齊，兩組起點相同</text>
 
-<line class="itb-ax" x1="8" y1="246" x2="712" y2="246"/>
+<line class="itb-ax" x1="8" y1="246" x2="712" y2="246" stroke="#e0e7ef" stroke-width="1"/>
 
-<text class="itb-hd" x="8" y="278">二、資訊性設限（informative censoring）</text>
-<line class="itb-tick" x1="180" y1="312" x2="180" y2="430"/>
-<line class="itb-tick" x1="330" y1="312" x2="330" y2="430" stroke-dasharray="4 4"/>
-<line class="itb-tick" x1="520" y1="312" x2="520" y2="430" stroke-dasharray="4 4"/>
-<text class="itb-sm" x="180" y="304" text-anchor="middle">診斷日</text>
-<text class="itb-sm" x="330" y="304" text-anchor="middle">開始中醫</text>
-<text class="itb-sm" x="520" y="304" text-anchor="middle">因併發症停用中藥</text>
-<text class="itb-sm" x="640" y="304" text-anchor="middle">死亡</text>
+<text class="itb-hd" x="8" y="278" fill="#12395f" font-weight="700" font-size="13" font-family="sans-serif">二、資訊性設限（informative censoring）</text>
+<line class="itb-tick" x1="180" y1="312" x2="180" y2="430" stroke="#8695a4" stroke-width="1.5"/>
+<line class="itb-tick" x1="330" y1="312" x2="330" y2="430" stroke-dasharray="4 4" stroke="#8695a4" stroke-width="1.5"/>
+<line class="itb-tick" x1="520" y1="312" x2="520" y2="430" stroke-dasharray="4 4" stroke="#8695a4" stroke-width="1.5"/>
+<text class="itb-sm" x="180" y="304" text-anchor="middle" fill="#8695a4" font-size="12" font-family="sans-serif">診斷日</text>
+<text class="itb-sm" x="330" y="304" text-anchor="middle" fill="#8695a4" font-size="12" font-family="sans-serif">開始中醫</text>
+<text class="itb-sm" x="520" y="304" text-anchor="middle" fill="#8695a4" font-size="12" font-family="sans-serif">因併發症停用中藥</text>
+<text class="itb-sm" x="640" y="304" text-anchor="middle" fill="#8695a4" font-size="12" font-family="sans-serif">死亡</text>
 
 <rect x="180" y="324" width="150" height="32" rx="6" fill="var(--surface-2,#eef3f8)" stroke="var(--line,#e0e7ef)"/>
-<text class="itb-tag" x="255" y="345" text-anchor="middle" fill="var(--ink-2,#4c5a68)">未暴露</text>
+<text class="itb-tag" x="255" y="345" text-anchor="middle" fill="var(--ink-2,#4c5a68)" font-weight="600" font-size="12" font-family="sans-serif">未暴露</text>
 <rect x="330" y="324" width="190" height="32" rx="6" fill="var(--navy,#12395f)" opacity=".9"/>
-<text class="itb-tag" x="425" y="345" text-anchor="middle" fill="#fff">接受中醫</text>
+<text class="itb-tag" x="425" y="345" text-anchor="middle" fill="#fff" font-weight="600" font-size="12" font-family="sans-serif">接受中醫</text>
 <rect x="520" y="324" width="120" height="32" rx="6" fill="var(--accent-warn,#b4553f)" opacity=".85"/>
-<text class="itb-tag" x="580" y="345" text-anchor="middle" fill="#fff">停藥後惡化</text>
+<text class="itb-tag" x="580" y="345" text-anchor="middle" fill="#fff" font-weight="600" font-size="12" font-family="sans-serif">停藥後惡化</text>
 <circle cx="640" cy="340" r="7" fill="var(--ink,#16202b)"/>
-<text class="itb-sm" x="580" y="378" text-anchor="middle">病人可能死亡，也確實死亡</text>
-<text class="itb-sm" x="580" y="396" text-anchor="middle">因此不屬於不死時間</text>
-<text class="itb-sm" x="8" y="424">若在停藥處設限，這個死亡事件就被移出中醫組——停藥的原因是病情變差，並非隨機。</text>
+<text class="itb-sm" x="580" y="378" text-anchor="middle" fill="#8695a4" font-size="12" font-family="sans-serif">病人可能死亡，也確實死亡</text>
+<text class="itb-sm" x="580" y="396" text-anchor="middle" fill="#8695a4" font-size="12" font-family="sans-serif">因此不屬於不死時間</text>
+<text class="itb-sm" x="8" y="424" fill="#8695a4" font-size="12" font-family="sans-serif">若在停藥處設限，這個死亡事件就被移出中醫組——停藥的原因是病情變差，並非隨機。</text>
 
-<text class="itb-sm" x="8" y="458">兩種偏差機轉不同，方向一致：都讓中醫看起來比實際更有保護力，但解法不同。</text>
+<text class="itb-sm" x="8" y="458" fill="#8695a4" font-size="12" font-family="sans-serif">兩種偏差機轉不同，方向一致：都讓中醫看起來比實際更有保護力，但解法不同。</text>
 </svg>
 <figcaption>上為不死時間偏差，下為資訊性設限。前者靠時間相依變項或地標分析處理，後者需避免以治療中止作為設限點。</figcaption>
 </figure>
