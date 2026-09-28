@@ -222,6 +222,14 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .table-wrap th,.table-wrap td{padding:.65em .9em;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
 .table-wrap th{background:var(--blue-soft);color:var(--navy);font-weight:700;white-space:nowrap}
 .table-wrap tr:last-child td{border-bottom:0}
+/* build.mjs 會在每張表後面輸出 .table-hint；表格 min-width 26rem，
+   只有窄螢幕真的需要橫向捲動，所以提示只在窄螢幕顯示 */
+.table-hint{display:none}
+@media (max-width:30rem){
+  .table-wrap{margin-bottom:.4em}
+  .table-hint{display:block;margin:0 0 1.5em;font-size:.75rem;color:var(--ink-3);text-align:right}
+  .table-hint::after{content:" ↔";font-size:.9em}
+}
 
 .post-foot{max-width:var(--measure);padding-block:clamp(26px,5vw,46px)}
 .updated-note{margin:0 0 16px;padding:.75em 1em;font-size:.88rem;color:var(--ink-3);line-height:1.8;
