@@ -94,6 +94,7 @@ category: beyond-white-coat
 
 **延伸閱讀**
 
+- 〈[中醫專科訓練值得嗎？（下）讓評量與資源跟上臨床成長](/posts/tcm-specialty-training-reform/)〉：討論紙本作業、過渡資格與教學支持。
 - [115 年度中醫專科醫師訓練試辦計畫公告](https://www.mohw.gov.tw/cp-18-84617-1.html)：查看正式計畫與申請文件。
 
 **參考資料**
