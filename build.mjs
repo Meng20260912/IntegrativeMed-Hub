@@ -31,7 +31,7 @@ const SITES = [
 const SITE = {
   name: '讀經典，看實證',
   nameEn: 'Classics & Evidence',
-  tagline: '從經典、研究到臨床的中醫筆記',
+  tagline: '讀中醫經典與現代研究，也寫臨床與教育的觀點',
   desc: '讀中醫經典，也讀現代研究：經典心得、研究方法學解讀與中西醫整合的臨床觀點。',
   lang: 'zh-Hant',
 };
