@@ -18,7 +18,9 @@ date: 2026-09-12        # 發布日期
 summary: 一到兩句摘要，會顯示在首頁卡片
 hero: pharmacy.jpg      # static/img/ 底下的檔名（可省略）
 heroAlt: 圖片替代文字
+heroCaption: 圖說      # 可省略
 tags: [標籤一, 標籤二]
+category: evidence      # 分類代號，見下方；跨兩類寫 [classics, clinic-notes]
 ---
 
 正文（Markdown）…
@@ -27,6 +29,19 @@ tags: [標籤一, 標籤二]
 3. `git commit` 並 `git push`
 
 Cloudflare Pages 會自動重跑 `node build.mjs`，首頁**自動長出新卡片**、**重新依最後更新時間排序**（最新的在前）。不需要手動改任何 HTML。
+
+## 分類
+
+分類代號定義在 `build.mjs` 的 `CATEGORIES`：`evidence` 讀懂實證、`medical-updates` 西醫新知速寫、`tcm-theory` 中醫理論新讀、`classics` 經典夜讀、`clinic-notes` 診間筆記、`translational` 轉譯研究工作坊、`books-podcasts` 書單與 Podcast、`beyond-white-coat` 白袍之外。
+
+- 一篇文章可以跨兩類（2026-10-05 起，PR #2）：`category: [classics, clinic-notes]`。**排第一個的是主分類**，用於文章頁導覽列高亮、麵包屑與首頁卡片標籤；分類頁收錄、分類計數、sitemap、結構化資料 `articleSection`、RSS 則列出全部分類。
+- 寫錯的代號會跳警告並略過；漏填 `category` 時文章不會出現在任何分類頁。
+- 空的分類頁會加 `noindex`，有文章後自動解除並進 sitemap。
+
+## 閱讀時間與引用編號
+
+- 閱讀時間只計讀者實際要讀的文字：不計內嵌 `<svg>`、連結網址、圖片、引用標號、參考文獻條目與 Markdown 標記；圖說、表格文字、延伸閱讀照算。中文每分鐘約 450 字，英文單字或數字以 2 字計。
+- 正文引用 `[n]` 會變成連到參考文獻的連結，**只認單一數字**。同一處引兩篇請寫 `[6][10]`；寫成 `[6,10]` 會顯示為純文字，若某篇文獻只出現在合併引用裡，建置會警告「未在正文中被引用」。
 
 ## 日期是怎麼來的
 
