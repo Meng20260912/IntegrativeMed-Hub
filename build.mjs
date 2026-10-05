@@ -186,14 +186,32 @@ function parseFrontmatter(raw) {
 // 參考文獻：文末清單中以「- [n] 」開頭的條目視為文獻，正文的 [n] 會連到對應條目。
 // 只有清單中確實存在的編號才會轉成連結，避免產生指向不存在錨點的死連結。
 const REF_LINE = /^\s*[-*]\s+\[(\d{1,3})\]\s/;
-const CITE = /\[(\d{1,3})\](?!\()/g;
+// 也支援合併引用：[6,10]、[1–3]、[2,5-7]（逗號可全形，範圍號可用 – 或 -）。
+const CITE = /\[(\d{1,3}(?:\s*[,，–-]\s*\d{1,3})*)\](?!\()/g;
+function citeIds(spec) {
+  const ids = [];
+  for (const part of spec.split(/\s*[,，]\s*/)) {
+    const r = part.split(/\s*[–-]\s*/).map(Number);
+    if (r.length === 2 && r[0] < r[1] && r[1] - r[0] <= 50) for (let n = r[0]; n <= r[1]; n++) ids.push(String(n));
+    else ids.push(...r.map(String));
+  }
+  return ids;
+}
+function citeHtml(m, spec) {
+  if (!/[,，–-]/.test(spec)) return REFS.has(spec) ? `<a class="cite" href="#ref-${spec}" aria-label="參考文獻 ${spec}">[${spec}]</a>` : m;
+  // 合併引用：逐一連結，保留原本的逗號與範圍寫法
+  const parts = spec.split(/(\s*[,，–-]\s*)/);
+  if (!citeIds(spec).some(n => REFS.has(n))) return m;
+  return '<span class="cite-group">[' + parts.map(t => /^\d+$/.test(t) && REFS.has(t)
+    ? `<a class="cite" href="#ref-${t}" aria-label="參考文獻 ${t}">${t}</a>` : t.replace(/\s+/g, '')).join('') + ']</span>';
+}
 let REFS = new Set();
 function collectRefs(src) {
   return new Set(src.split(/\r?\n/).map(l => (l.match(REF_LINE) || [])[1]).filter(Boolean));
 }
 function citedIds(src) {
   const text = src.split(/\r?\n/).filter(l => !REF_LINE.test(l)).join('\n');
-  return new Set([...text.matchAll(CITE)].map(m => m[1]));
+  return new Set([...text.matchAll(CITE)].flatMap(m => citeIds(m[1])));
 }
 
 function inline(s) {
@@ -202,7 +220,7 @@ function inline(s) {
     .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, (_, a, u) => `<img src="${attr(u)}" alt="${attr(a)}" loading="lazy">`)
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) =>
       `<a href="${attr(u)}"${/^https?:/.test(u) ? ' target="_blank" rel="noopener noreferrer"' : ''}>${t}</a>`)
-    .replace(CITE, (m, n) => REFS.has(n) ? `<a class="cite" href="#ref-${n}" aria-label="參考文獻 ${n}">[${n}]</a>` : m)
+    .replace(CITE, citeHtml)
     .replace(/==([^=\n]+)==/g, '<mark>$1</mark>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
