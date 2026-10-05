@@ -36,7 +36,9 @@ const SITE = {
   lang: 'zh-Hant',
 };
 
-// 文章分類（標籤頁）。每篇文章在 frontmatter 以 category: <slug> 指定一個分類；
+// 文章分類（標籤頁）。每篇文章在 frontmatter 以 category: <slug> 指定分類；
+// 跨兩類的文章寫 category: [classics, clinic-notes]，列在第一個的是「主分類」：
+// 文章頁導覽列高亮、麵包屑、首頁卡片標籤都用主分類，其餘分類只多出現在對應的分類頁與文章頁標籤。
 // 順序即導覽列順序。細部關鍵字仍用 tags。
 const CATEGORIES = [
   { slug: 'evidence', name: '讀懂實證', desc: '研究方法學、試驗設計與證據分級。一篇研究的結論能相信到什麼程度，從方法學段落讀起。' },
@@ -434,7 +436,49 @@ ${TOOLS.map(x => `        <a class="site-card" href="${attr(x.url)}" target="_bl
 </html>`);
 }
 
+/* ---------- 閱讀時間 ---------- */
+// 只計讀者真正要讀的文字：
+// - 內嵌 <svg>…</svg> 整段不算（座標、樣式、<title>/<desc> 都是給螢幕閱讀器的），圖說 <figcaption> 照算
+// - 其他 HTML 標籤去掉、保留標籤內文字
+// - Markdown 連結只算連結文字、不算網址；圖片整個不算
+// - 參考文獻條目（「- [n] 」開頭）不算；正文的引用標號 [n] 不算
+// - 表格保留儲存格文字，去掉 | 與分隔列；#、*、> 等標記不算
+// 計數方式：中文字（含全形標點）每字 1 單位；英文單字或數字每個 1 單位、閱讀時以 2 個中文字計
+// （中文每分鐘約 450 字，英文約 200 字，一個英文字約等於兩個中文字的閱讀時間）。
+function readingStats(md) {
+  const text = md
+    .replace(/<svg[\s\S]*?<\/svg>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z]+;|&#\d+;/gi, ' ')
+    .split(/\r?\n/).filter(l => !REF_LINE.test(l))
+    .filter(l => !/^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?\s*$/.test(l))   // 表格分隔列
+    .join('\n')
+    .replace(/```[^\n]*\n/g, '\n')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/https?:\/\/\S+/g, ' ')
+    .replace(/\[\d{1,3}(?:\s*[,，–-]\s*\d{1,3})*\]/g, ' ');
+  const latin = (text.match(/[A-Za-z0-9]+(?:[.'’][A-Za-z0-9]+)*/g) || []).length;
+  const cjk = text
+    .replace(/[A-Za-z0-9]+(?:[.'’][A-Za-z0-9]+)*/g, ' ')
+    .replace(/[\x00-\x7F]/g, '')       // ASCII 標點與 Markdown 標記
+    .replace(/\s+/g, '').length;
+  return { words: cjk + latin, readMins: Math.max(1, Math.round((cjk + latin * 2) / 450)) };
+}
+
 /* ---------- 讀取文章 ---------- */
+// category 可寫單一 slug 或 [slug, slug]；第一個有效的為主分類（category），全部有效的為 categories
+function parseCategories(f, v) {
+  const raw = (Array.isArray(v) ? v : [v || '']).map(s => String(s).trim());
+  const valid = [];
+  for (const s of raw) {
+    if (!CAT[s]) console.warn(`⚠ ${f}：category「${s}」不在分類清單中`);
+    else if (!valid.includes(s)) valid.push(s);
+  }
+  return { category: valid[0] || '', categories: valid };
+}
+
 fs.mkdirSync(POSTS_DIR, { recursive: true });
 const posts = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md')).map(f => {
   const file = path.join(POSTS_DIR, f);
@@ -448,7 +492,7 @@ const posts = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md')).map(f => 
   const { html, toc } = markdown(body);
   const updated = lastUpdated(path.relative(ROOT, file), fm);
   const published = fm.date ? new Date(fm.date).toISOString() : updated;
-  const words = body.replace(/\s+/g, '').length;
+  const { words, readMins } = readingStats(body);
   return {
     slug, file, html, toc,
     title: fm.title || slug,
@@ -460,9 +504,9 @@ const posts = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md')).map(f => 
     heroAlt: fm.heroAlt || fm.title || '',
     heroCaption: fm.heroCaption || '',
     tags: Array.isArray(fm.tags) ? fm.tags : (fm.tags ? [fm.tags] : []),
-    category: CAT[fm.category] ? fm.category : (console.warn(`⚠ ${f}：category「${fm.category || ''}」不在分類清單中`), ''),
+    ...parseCategories(f, fm.category),
     published, updated, words,
-    readMins: Math.max(1, Math.round(words / 450)),
+    readMins,
     // 首頁搜尋索引：標題＋摘要＋標籤＋內文純文字（去 Markdown 標記與多餘空白）
     searchText: (
       (fm.title || '') + ' ' + (fm.summary || '') + ' ' +
@@ -486,12 +530,13 @@ const heroImg = 'banner-integrative.jpg';
 const heroCredit = CREDITS[heroImg];
 
 // --- 首頁：卡片直接寫進 HTML（需求 6），不靠 JS 讀 JSON ---
-const catCount = (slug) => posts.filter(p => p.category === slug).length;
+const catCount = (slug) => posts.filter(p => p.categories.includes(slug)).length;
 
-const cardHtml = (p) => `      <article class="card" data-tags="${attr(p.tags.join('|'))}" data-search="${attr(p.searchText)}">
+// 卡片上的分類標籤：首頁用主分類；分類頁傳入目前分類，跨類文章在各分類頁顯示該頁的分類
+const cardHtml = (p, cat = p.category) => `      <article class="card" data-tags="${attr(p.tags.join('|'))}" data-search="${attr(p.searchText)}">
         ${p.hero ? `<a class="card-thumb" href="/posts/${attr(p.slug)}/" tabindex="-1" aria-hidden="true">${picture(p.hero, ' alt="" loading="lazy" decoding="async"', '(min-width: 1100px) 360px, (min-width: 700px) 50vw, 100vw')}</a>` : ''}
         <div class="card-body">
-          <p class="card-date">${p.category ? `<a class="card-cat" href="/category/${p.category}/">${esc(CAT[p.category].name)}</a>` : ''}<time datetime="${attr(p.updated)}">${fmtDate(p.updated).replace(/-/g, '/')}</time> 更新</p>
+          <p class="card-date">${cat ? `<a class="card-cat" href="/category/${cat}/">${esc(CAT[cat].name)}</a>` : ''}<time datetime="${attr(p.updated)}">${fmtDate(p.updated).replace(/-/g, '/')}</time> 更新</p>
           <h3><a href="/posts/${attr(p.slug)}/">${esc(p.title)}</a></h3>
           <p class="card-sum">${esc(p.summary)}</p>
           ${p.tags.length ? `<ul class="card-tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
@@ -502,7 +547,7 @@ const cardHtml = (p) => `      <article class="card" data-tags="${attr(p.tags.jo
           </div>
         </div>
       </article>`;
-const cards = posts.map(cardHtml).join('\n');
+const cards = posts.map(p => cardHtml(p)).join('\n');
 
 const latestPost = posts[0];
 const indexBody = `<section class="hero">
@@ -596,7 +641,7 @@ for (const p of posts) {
   fs.mkdirSync(dir, { recursive: true });
   const body = `<article class="post">
   <header class="wrap post-head">
-    <p class="tags">${p.category ? `<a class="post-cat" href="/category/${p.category}/">${esc(CAT[p.category].name)}</a>` : ''}${p.tags.map(t => `<span>${esc(t)}</span>`).join('')}</p>
+    <p class="tags">${p.categories.map(c => `<a class="post-cat" href="/category/${c}/">${esc(CAT[c].name)}</a>`).join('')}${p.tags.map(t => `<span>${esc(t)}</span>`).join('')}</p>
     <h1>${esc(p.title)}</h1>
     ${p.summary ? `<p class="lede">${esc(p.summary)}</p>` : ''}
     <ul class="post-meta">
@@ -657,7 +702,7 @@ ${p.html}
           inLanguage: 'zh-Hant-TW',
           wordCount: p.words,
           keywords: p.tags.join(', '),
-          ...(p.category ? { articleSection: CAT[p.category].name } : {}),
+          ...(p.categories.length ? { articleSection: p.categories.length > 1 ? p.categories.map(c => CAT[c].name) : CAT[p.category].name } : {}),
           image: [ogImage],
           author: {
             ...AUTHOR_REF,
@@ -682,7 +727,7 @@ ${p.html}
 
 // --- 分類頁：/category/<slug>/ ---
 for (const c of CATEGORIES) {
-  const list = posts.filter(p => p.category === c.slug);
+  const list = posts.filter(p => p.categories.includes(c.slug));
   const dir = path.join(OUT, 'category', c.slug);
   fs.mkdirSync(dir, { recursive: true });
   const body = `<section class="wrap cat-head">
@@ -696,7 +741,7 @@ for (const c of CATEGORIES) {
     ${list.length ? '<p class="count">依最後更新時間排序</p>' : ''}
   </div>
   ${list.length ? `<div class="grid">
-${list.map(cardHtml).join('\n')}
+${list.map(p => cardHtml(p, c.slug)).join('\n')}
   </div>` : `<p class="cat-empty">這個分類的第一篇文章還在撰寫中，歡迎先逛逛<a href="/">其他文章</a>。</p>`}
 </section>`;
   fs.writeFileSync(path.join(dir, 'index.html'), layout({
@@ -790,7 +835,7 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 
 // --- sitemap / robots ---
 const newest = posts.length ? posts[0].updated.slice(0, 10) : new Date().toISOString().slice(0, 10);
-const urls = ['/', '/about/', ...CATEGORIES.filter(c => posts.some(p => p.category === c.slug)).map(c => `/category/${c.slug}/`), ...posts.map(p => `/posts/${p.slug}/`)];
+const urls = ['/', '/about/', ...CATEGORIES.filter(c => posts.some(p => p.categories.includes(c.slug))).map(c => `/category/${c.slug}/`), ...posts.map(p => `/posts/${p.slug}/`)];
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   urls.map(u => {
@@ -819,7 +864,7 @@ ${posts.map(p => `  <item>
     <guid isPermaLink="true">${SITE_URL}/posts/${p.slug}/</guid>
     <pubDate>${rssDate(p.published)}</pubDate>
     <author>${esc(p.authorName)}</author>
-${[...(p.category ? [CAT[p.category].name] : []), ...p.tags].map(t => `    <category>${esc(t)}</category>`).join('\n')}
+${[...p.categories.map(c => CAT[c].name), ...p.tags].map(t => `    <category>${esc(t)}</category>`).join('\n')}
     <description>${esc(p.summary)}</description>
   </item>`).join('\n')}
 </channel>
