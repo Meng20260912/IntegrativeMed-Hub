@@ -22,7 +22,7 @@ export async function onRequestPost({ request, env, params }) {
 
   if (!env.QUIZ_DB) return new Response(null, { status: 204 });
 
-  const day = new Date().toISOString().slice(0, 10);
+  const day = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10); // 台灣日期
   await env.QUIZ_DB.prepare(
     'INSERT INTO responses (quiz, version, day, answers, motives, result, score, mbti) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
   ).bind(params.id, b.v, day, JSON.stringify(b.a), JSON.stringify(b.m), b.t, b.s, b.mbti).run();
