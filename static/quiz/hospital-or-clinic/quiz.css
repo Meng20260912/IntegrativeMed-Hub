@@ -176,3 +176,9 @@ main{flex:1;width:100%;max-width:40rem;margin:0 auto;padding:8px 16px 32px}
 
 .foot{text-align:center;padding:18px 16px 28px;font-size:.85rem}
 .foot a{color:var(--ink-2)}
+
+.read-more{display:block;margin:26px 0;padding:16px 20px;border-radius:var(--radius);text-decoration:none;color:var(--ink);
+  background:linear-gradient(135deg,var(--h-soft),var(--c-soft));border:2px solid var(--line);transition:transform .15s}
+.read-more:hover{transform:translateY(-2px)}
+.read-more span{display:block;font-size:.85rem;color:var(--ink-2)}
+.read-more b{display:block;margin-top:.2em;font-family:var(--serif);font-size:1rem;line-height:1.6;color:var(--h-deep)}

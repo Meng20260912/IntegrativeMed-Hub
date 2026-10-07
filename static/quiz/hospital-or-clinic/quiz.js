@@ -1,7 +1,7 @@
 import {
   QUIZ_ID, QUIZ_VERSION, DIMENSIONS, QUESTIONS, MOTIVES, SUMMARY, RESULTS,
   ESCAPE_NOTES, NEAR_TIE_NOTE, ASK_LIST, OTHER_ROUTES, AUTHOR_NOTE, MBTI_TYPES, MBTI_NOTES,
-} from './quiz-data.js?v=2';
+} from './quiz-data.js?v=3';
 
 const $ = (id) => document.getElementById(id);
 const KEYS = ['A', 'B', 'C', 'D'];
