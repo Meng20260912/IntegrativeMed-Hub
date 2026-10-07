@@ -63,6 +63,12 @@ Cloudflare Pages 會自動重跑 `node build.mjs`，首頁**自動長出新卡�
 
 儲存在 Cloudflare KV（binding `VIEWS`，設定於 `wrangler.toml`）。**不需要註冊第三方帳號、程式碼中不含任何 API 金鑰**，也不使用 Cookie 或追蹤腳本。
 
+## 小測驗
+
+- 測驗頁放在 `static/quiz/<名稱>/`（整個資料夾原樣複製到網站），會自動列入 sitemap。目前有 `/quiz/hospital-or-clinic/`（醫院型還是診所型）。
+- 題目與結果文字都在該資料夾的 `quiz-data.js`，改內容只改這個檔；改完把 `index.html` 和 `quiz.js` 裡的 `?v=` 版本號加一，避免讀者看到快取的舊版。
+- 匿名作答統計：`functions/api/quiz/[id].js` 寫入 Cloudflare D1（binding `QUIZ_DB`，資料庫 `quiz-stats`，資料表見 `scripts/quiz-schema.sql`）。只存選項、結果、選填的 MBTI 與日期，不存 IP 或任何個人資料；沒有對外的讀取端點，統計結果只在 D1 查詢。
+
 ## 本機開發
 
 ```bash

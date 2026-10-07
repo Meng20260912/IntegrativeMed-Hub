@@ -853,7 +853,12 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 
 // --- sitemap / robots ---
 const newest = posts.length ? posts[0].updated.slice(0, 10) : new Date().toISOString().slice(0, 10);
-const urls = ['/', '/about/', ...CATEGORIES.filter(c => posts.some(p => p.categories.includes(c.slug))).map(c => `/category/${c.slug}/`), ...posts.map(p => `/posts/${p.slug}/`)];
+// static/quiz/<名稱>/index.html 的小測驗頁也列入 sitemap
+const QUIZ_DIR = path.join(STATIC_DIR, 'quiz');
+const quizUrls = fs.existsSync(QUIZ_DIR)
+  ? fs.readdirSync(QUIZ_DIR).filter(d => fs.existsSync(path.join(QUIZ_DIR, d, 'index.html'))).map(d => `/quiz/${d}/`)
+  : [];
+const urls = ['/', '/about/', ...quizUrls, ...CATEGORIES.filter(c => posts.some(p => p.categories.includes(c.slug))).map(c => `/category/${c.slug}/`), ...posts.map(p => `/posts/${p.slug}/`)];
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   urls.map(u => {
