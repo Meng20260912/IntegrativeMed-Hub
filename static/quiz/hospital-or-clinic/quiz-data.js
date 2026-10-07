@@ -3,7 +3,7 @@
 // 內容依魏孟鈞醫師 2026-10-07 口述整理；醫院訓練細節以作者服務的醫院為例。
 
 export const QUIZ_ID = 'hospital-or-clinic';
-export const QUIZ_VERSION = '2026-10-07';
+export const QUIZ_VERSION = '2026-10-08';
 
 export const DIMENSIONS = [
   { key: 'learn',    name: '學習與成長',   icon: '📚', left: '有課程、有人帶', right: '自己摸索' },
@@ -175,7 +175,7 @@ export const NEAR_TIE_NOTE = '你的總分很接近中間，兩邊你都有機�
 
 export const ASK_LIST = [
   '第一年有沒有門診？之後每年增加幾診？每診限幾號？',
-  '會不會分派初診病人給負責醫師學員？',
+  '負責醫師學員的門診，初診病人多不多？',
   '第二年以後要擔任哪些總醫師職務？大概占掉多少時間？',
   '有幾位主治醫師可以帶？遇到問題時，多久能討論一次？',
   '核心課程、期刊討論會和外賓演講，實際上多久一次？',
