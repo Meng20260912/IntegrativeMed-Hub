@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>選配前先測一下：你是醫院型還是診所型？｜中醫實習醫學生小測驗</title>
+<meta name="description" content="16 題情境題，約 3 分鐘。從學習資源、看診節奏、病人族群、收入、生活、人際與自我經營七個面向，看看你比較適合在醫院還是診所開始執業。由台北慈濟醫院中醫部魏孟鈞醫師設計。">
+<meta name="author" content="魏孟鈞">
+<meta name="theme-color" content="#12395f" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://drmjwei.net/quiz/hospital-or-clinic/">
+<meta property="og:site_name" content="讀經典，看實證">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:type" content="website">
+<meta property="og:title" content="選配前先測一下：你是醫院型還是診所型？">
+<meta property="og:description" content="給中醫實習醫學生的執業場域小測驗：16 題情境題，約 3 分鐘，從七個面向看看你比較適合在醫院還是診所開始執業。">
+<meta property="og:url" content="https://drmjwei.net/quiz/hospital-or-clinic/">
+<meta property="og:image" content="https://drmjwei.net/quiz/hospital-or-clinic/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="插畫：一位女中醫師站在分岔路口，左邊通往大型醫院，右邊通往街角中醫診所">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://drmjwei.net/quiz/hospital-or-clinic/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap">
+<link rel="stylesheet" href="quiz.css?v=1">
+<script type="module" src="quiz.js?v=1"></script>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/">
+    <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="var(--navy)"/><path d="M8 34h18l5-16 6 30 5-14h14" fill="none" stroke="var(--surface)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>讀經典，看實證</span>
+  </a>
+  <span class="bar-tag">小測驗</span>
+</header>
+
+<main id="app">
+  <!-- 開始畫面 -->
+  <section class="screen is-active" id="s-start" aria-labelledby="t-start">
+    <div class="vs" aria-hidden="true">
+      <div class="vs-side vs-h">
+        <svg viewBox="0 0 120 100"><rect x="20" y="28" width="80" height="62" rx="6" fill="var(--h)"/><rect x="44" y="12" width="32" height="22" rx="4" fill="var(--h)"/><path d="M60 15v16M52 23h16" stroke="#fff" stroke-width="5" stroke-linecap="round"/><g fill="#fff" opacity=".9"><rect x="30" y="40" width="12" height="10" rx="2"/><rect x="54" y="40" width="12" height="10" rx="2"/><rect x="78" y="40" width="12" height="10" rx="2"/><rect x="30" y="58" width="12" height="10" rx="2"/><rect x="78" y="58" width="12" height="10" rx="2"/></g><rect x="52" y="64" width="16" height="26" rx="3" fill="#fff"/></svg>
+        <b>醫院</b>
+      </div>
+      <span class="vs-mid">or</span>
+      <div class="vs-side vs-c">
+        <svg viewBox="0 0 120 100"><rect x="22" y="40" width="76" height="50" rx="6" fill="var(--c)"/><path d="M16 42l10-22h68l10 22z" fill="var(--c-deep)"/><path d="M16 42h88" stroke="#fff" stroke-width="3"/><g fill="#fff" opacity=".9"><path d="M26 42a8 8 0 0 0 16 0M42 42a8 8 0 0 0 16 0M58 42a8 8 0 0 0 16 0M74 42a8 8 0 0 0 16 0" opacity=".55"/><rect x="32" y="58" width="24" height="18" rx="3"/></g><rect x="66" y="58" width="20" height="32" rx="3" fill="#fff"/><circle cx="44" cy="67" r="4" fill="var(--c)"/></svg>
+        <b>診所</b>
+      </div>
+    </div>
+    <p class="kicker">給準備選配的中醫實習醫學生</p>
+    <h1 id="t-start"><span class="pre">選配前先測一下</span>你是醫院型<br>還是診所型？</h1>
+    <ul class="chips">
+      <li>📝 16 題情境題</li><li>⏱️ 約 3 分鐘</li><li>🧭 七個面向分析</li>
+    </ul>
+    <button class="btn-primary" id="btn-start" type="button">開始測驗 →</button>
+    <label class="consent"><input type="checkbox" id="consent" checked> 同意匿名提供作答，用於了解學生的整體傾向（不記錄姓名、email 或 IP，結果不公開）</label>
+    <p class="fine">醫院的訓練細節以作者服務的醫院為例，各訓練醫院做法不同。測驗只供自我探索，不代表能力高低。</p>
+  </section>
+
+  <!-- 作答畫面 -->
+  <section class="screen" id="s-quiz" aria-live="polite">
+    <div class="progress">
+      <div class="progress-top"><span id="p-dim"></span><span id="p-count"></span></div>
+      <div class="progress-track"><div class="progress-fill" id="p-fill"></div></div>
+    </div>
+    <div class="card" id="q-card">
+      <h2 id="q-text"></h2>
+      <div class="opts" id="q-opts" role="group"></div>
+    </div>
+    <button class="btn-back" id="btn-back" type="button">← 上一題</button>
+  </section>
+
+  <!-- MBTI（選填） -->
+  <section class="screen" id="s-mbti" aria-labelledby="t-mbti">
+    <div class="card">
+      <p class="kicker">最後一步（選填，不計分）</p>
+      <h2 id="t-mbti">你知道自己的 MBTI 類型嗎？</h2>
+      <p class="muted">選了之後，結果頁會多一段依你的類型寫的補充。</p>
+      <div class="mbti-grid" id="mbti-grid"></div>
+      <button class="btn-ghost" id="btn-mbti-skip" type="button">不知道／不想填，直接看結果</button>
+    </div>
+    <button class="btn-back" id="btn-back-mbti" type="button">← 上一題</button>
+  </section>
+
+  <!-- 結果畫面 -->
+  <section class="screen" id="s-result" aria-labelledby="r-name">
+    <div class="r-hero" id="r-hero">
+      <p class="kicker">你的測驗結果</p>
+      <div class="r-badge" id="r-badge"></div>
+      <h1 id="r-name"></h1>
+      <p class="r-tagline" id="r-tagline"></p>
+      <p class="r-tie" id="r-tie" hidden></p>
+    </div>
+
+    <blockquote class="r-summary" id="r-summary"></blockquote>
+
+    <section class="block">
+      <h2>七個面向，你落在哪裡</h2>
+      <p class="muted">越靠左越偏醫院，越靠右越偏診所。</p>
+      <div class="spectra" id="r-spectra"></div>
+    </section>
+
+    <section class="block" id="r-escape-wrap" hidden>
+      <div class="callout" id="r-escape"></div>
+    </section>
+
+    <section class="block">
+      <h2>👍 你可能會適應得不錯的地方</h2>
+      <ul class="list good" id="r-good"></ul>
+    </section>
+
+    <section class="block">
+      <h2>⚠️ 要先有心理準備的地方</h2>
+      <ul class="list prepare" id="r-prepare"></ul>
+    </section>
+
+    <section class="block" id="r-mbti-wrap" hidden>
+      <h2>🔤 給 <span id="r-mbti-type"></span> 的補充</h2>
+      <ul class="list mbti" id="r-mbti"></ul>
+      <p class="fine">MBTI 只是自我探索的參考。有研究指出，同一個人隔幾週重測，類型就可能改變；這一段不計入測驗分數。</p>
+    </section>
+
+    <section class="block">
+      <h2>📋 選配時可以問的問題</h2>
+      <ul class="checklist" id="r-ask"></ul>
+    </section>
+
+    <section class="block author">
+      <div class="author-head">
+        <img src="/img/author-badge.png" alt="魏孟鈞中醫師徽章" width="80" height="80" loading="lazy">
+        <div><b>魏孟鈞醫師想對你說</b><small>台北慈濟醫院中醫部<br>中醫內科主治醫師</small></div>
+      </div>
+      <div id="r-author"></div>
+    </section>
+
+    <section class="block">
+      <h2>🛤️ 其他路線</h2>
+      <p class="muted">結果只分兩型，實際的路不只兩條。</p>
+      <div class="routes" id="r-routes"></div>
+    </section>
+
+    <div class="actions">
+      <button class="btn-primary" id="btn-share" type="button">分享給同學</button>
+      <button class="btn-ghost" id="btn-retry" type="button">再測一次</button>
+    </div>
+    <p class="share-msg" id="share-msg" role="status"></p>
+    <p class="fine center">醫院的訓練細節以作者服務的醫院為例，各訓練醫院做法不同，選配前可以直接詢問。<br>測驗只供自我探索，不代表能力高低。</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <a href="/">← 回到「讀經典，看實證」</a>
+</footer>
+</body>
+</html>

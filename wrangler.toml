@@ -7,3 +7,9 @@ pages_build_output_dir = "dist"
 [[kv_namespaces]]
 binding = "VIEWS"
 id = "0da24863268b486093a1d84647c04569"
+
+# 小測驗匿名作答統計（只存選項與日期，不存個人資料）。資料表見 scripts/quiz-schema.sql
+[[d1_databases]]
+binding = "QUIZ_DB"
+database_name = "quiz-stats"
+database_id = "2daa9cfc-a2f2-4737-95e4-a1d078ecd0b5"
