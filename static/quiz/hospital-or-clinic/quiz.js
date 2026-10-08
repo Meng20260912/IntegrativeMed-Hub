@@ -1,7 +1,7 @@
 import {
   QUIZ_ID, QUIZ_VERSION, DIMENSIONS, QUESTIONS, MOTIVES, SUMMARY, RESULTS,
-  ESCAPE_NOTES, NEAR_TIE_NOTE, ASK_LIST, OTHER_ROUTES, AUTHOR_NOTE, MBTI_TYPES, MBTI_NOTES,
-} from './quiz-data.js?v=2';
+  ESCAPE_NOTES, NEAR_TIE_NOTE, ASK_LIST, OTHER_ROUTES, AUTHOR_NOTE, MBTI_NOTES,
+} from './quiz-data.js?v=12';
 
 const $ = (id) => document.getElementById(id);
 const KEYS = ['A', 'B', 'C', 'D'];
@@ -169,20 +169,50 @@ function submit(type, total) {
   } catch { /* 統計失敗不影響測驗 */ }
 }
 
-// MBTI 選單
-MBTI_TYPES.forEach((t) => {
-  const b = document.createElement('button');
-  b.type = 'button'; b.textContent = t;
-  b.addEventListener('click', () => { mbti = t; renderResult(); });
-  $('mbti-grid').appendChild(b);
+// MBTI：四組字母分別選，比一次從 16 型裡挑更不容易選錯
+const MBTI_PAIRS = [
+  [['E', '外向'], ['I', '內向']],
+  [['S', '實感'], ['N', '直覺']],
+  [['T', '思考'], ['F', '情感']],
+  [['J', '判斷'], ['P', '知覺']],
+];
+const mbtiSel = [null, null, null, null];
+function renderMbtiCode() {
+  $('mbti-code').textContent = mbtiSel.map((x) => x || '＿').join(' ');
+  $('btn-mbti-go').disabled = mbtiSel.some((x) => !x);
+}
+MBTI_PAIRS.forEach((pair, i) => {
+  const row = document.createElement('div');
+  row.className = 'mbti-row';
+  row.setAttribute('role', 'radiogroup');
+  pair.forEach(([k, name]) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('role', 'radio');
+    b.setAttribute('aria-checked', 'false');
+    b.innerHTML = `<b>${k}</b><span>${name}</span>`;
+    b.addEventListener('click', () => {
+      mbtiSel[i] = k;
+      row.querySelectorAll('button').forEach((x) => { const on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-checked', String(on)); });
+      renderMbtiCode();
+    });
+    row.appendChild(b);
+  });
+  $('mbti-pairs').appendChild(row);
 });
+$('btn-mbti-go').addEventListener('click', () => { if (mbtiSel.every(Boolean)) { mbti = mbtiSel.join(''); renderResult(); } });
+function resetMbti() {
+  mbtiSel.fill(null);
+  document.querySelectorAll('.mbti-row button').forEach((x) => { x.classList.remove('is-on'); x.setAttribute('aria-checked', 'false'); });
+  renderMbtiCode();
+}
 $('btn-mbti-skip').addEventListener('click', () => { mbti = null; renderResult(); });
 $('btn-back-mbti').addEventListener('click', () => { step = TOTAL - 1; show('s-quiz'); renderStep(); });
 
 $('btn-start').addEventListener('click', () => { step = 0; show('s-quiz'); renderStep(); });
 $('btn-back').addEventListener('click', () => { if (step > 0) { step--; renderStep(); } });
 $('btn-retry').addEventListener('click', () => {
-  answers.fill(null); motives.fill(null); mbti = null; sent = false; step = 0; newPerms();
+  answers.fill(null); motives.fill(null); mbti = null; sent = false; step = 0; newPerms(); resetMbti();
   $('share-msg').textContent = '';
   show('s-start');
 });

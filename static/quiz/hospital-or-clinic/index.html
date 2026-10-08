@@ -27,8 +27,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap">
-<link rel="stylesheet" href="quiz.css?v=2">
-<script type="module" src="quiz.js?v=2"></script>
+<link rel="stylesheet" href="quiz.css?v=12">
+<script type="module" src="quiz.js?v=12"></script>
 </head>
 <body>
 <header class="bar">
@@ -81,8 +81,10 @@
     <div class="card">
       <p class="kicker">最後一步（選填，不計分）</p>
       <h2 id="t-mbti">你知道自己的 MBTI 類型嗎？</h2>
-      <p class="muted">選了之後，結果頁會多一段依你的類型寫的補充。</p>
-      <div class="mbti-grid" id="mbti-grid"></div>
+      <p class="muted">四組各選一個字母，結果頁會多一段依你的類型寫的補充。</p>
+      <div class="mbti-pairs" id="mbti-pairs"></div>
+      <p class="mbti-code" id="mbti-code" aria-live="polite">＿ ＿ ＿ ＿</p>
+      <button class="btn-primary mbti-go" id="btn-mbti-go" type="button" disabled>看結果 →</button>
       <button class="btn-ghost" id="btn-mbti-skip" type="button">不知道／不想填，直接看結果</button>
     </div>
     <button class="btn-back" id="btn-back-mbti" type="button">← 上一題</button>
@@ -138,6 +140,11 @@
       </div>
       <div id="r-author"></div>
     </section>
+
+    <a class="read-more" href="/posts/hospital-or-clinic-before-matching/">
+      <span>📖 想多了解兩種場域每天過的日子？</span>
+      <b>讀〈醫院還是診所？選配前，先看看兩邊每天過的日子〉→</b>
+    </a>
 
     <section class="block">
       <h2>🛤️ 其他路線</h2>
