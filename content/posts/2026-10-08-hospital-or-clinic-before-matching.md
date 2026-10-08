@@ -139,16 +139,16 @@ category: beyond-white-coat
 
 <figure class="compare-table" style="margin:1.5em 0">
 <div class="table-wrap"><table style="table-layout:fixed">
-<colgroup><col style="width:20%"><col style="width:40%"><col style="width:40%"></colgroup>
+<colgroup><col style="width:23%"><col style="width:38.5%"><col style="width:38.5%"></colgroup>
 <thead><tr><th>面向</th><th>醫院</th><th>診所</th></tr></thead>
 <tbody>
-<tr><th scope="row" style="white-space:normal">門診量與節奏</th><td>第一年以會診為主，之後門診逐年增加；對訓練學員的門診業績沒有要求</td><td>一開始就有大量個案，節奏影響業績</td></tr>
-<tr><th scope="row" style="white-space:normal">臨床實力</th><td>有時間慢慢問、有回饋，但病例較少</td><td>經驗累積快，但思路不熟時容易套公式</td></tr>
-<tr><th scope="row" style="white-space:normal">學習資源</th><td>課程、教學、研究多，有人討論</td><td>多半自己摸索，少數有讀書會</td></tr>
-<tr><th scope="row" style="white-space:normal">病人族群</th><td>急重症、多重共病、癌症、術後、中西醫共照</td><td>病況較單純，針灸、婦科調理常見，重視自費</td></tr>
-<tr><th scope="row" style="white-space:normal">收入</th><td>升主治前固定薪，比診所低一點</td><td>保障薪約半年到一年，之後抽成</td></tr>
-<tr><th scope="row" style="white-space:normal">行政與作息</th><td>擔任教學、行政總醫師；作息有固定制度</td><td>行政有專人處理，醫師顧好自己的事</td></tr>
-<tr><th scope="row" style="white-space:normal">人際與自主</th><td>住院醫師之間有革命情感，但多半聽主治醫師的；辦公室政治常牽涉不同單位</td><td>為自己的病人負責；人際圍繞在老闆、櫃檯與診助、醫師之間</td></tr>
+<tr><th scope="row">門診量<br>與節奏</th><td>第一年以會診為主，之後門診逐年增加；對訓練學員的門診業績沒有要求</td><td>一開始就有大量個案，節奏影響業績</td></tr>
+<tr><th scope="row">臨床實力</th><td>有時間慢慢問、有回饋，但病例較少</td><td>經驗累積快，但思路不熟時容易套公式</td></tr>
+<tr><th scope="row">學習資源</th><td>課程、教學、研究多，有人討論</td><td>多半自己摸索，少數有讀書會</td></tr>
+<tr><th scope="row">病人族群</th><td>急重症、多重共病、癌症、術後、中西醫共照</td><td>病況較單純，針灸、婦科調理常見，重視自費</td></tr>
+<tr><th scope="row">收入</th><td>升主治前固定薪，比診所低一點</td><td>保障薪約半年到一年，之後抽成</td></tr>
+<tr><th scope="row">行政<br>與作息</th><td>擔任教學、行政總醫師；作息有固定制度</td><td>行政有專人處理，醫師顧好自己的事</td></tr>
+<tr><th scope="row">人際<br>與自主</th><td>住院醫師之間有革命情感，但多半聽主治醫師的；辦公室政治常牽涉不同單位</td><td>為自己的病人負責；人際圍繞在老闆、櫃檯與診助、醫師之間</td></tr>
 </tbody></table></div>
 <figcaption>表 1：醫院與診所的差別整理。醫院欄以作者服務的醫院為例。</figcaption>
 </figure>
