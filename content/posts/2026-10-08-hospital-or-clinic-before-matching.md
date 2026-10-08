@@ -88,10 +88,12 @@ category: beyond-white-coat
 
 如果要用一句話說兩邊的差別，我會這樣說：在醫院，你是大團隊裡的一員，除了看病，還要分擔行政、和不同科別合作；在診所，你比較像在經營自己的小店，除了看診，還得是自己的業務、行銷團隊和經紀人。
 
+把前面談到的差別放在一起，大致是這樣。
+
 <figure class="diagram">
-<svg viewBox="0 0 600 400" style="min-width:0" role="img" aria-labelledby="bal-t bal-d" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 600 520" style="min-width:0" role="img" aria-labelledby="bal-t bal-d" xmlns="http://www.w3.org/2000/svg">
 <title id="bal-t">醫院與診所的優勢天平</title>
-<desc id="bal-d">一座保持水平的天平。左邊秤盤是醫院，放著學習資源與團隊後盾；右邊秤盤是診所，放著自主權與收入上限。兩邊各有分量，沒有哪一邊比較重。</desc>
+<desc id="bal-d">一座保持水平的天平。左邊秤盤是醫院，放著學習資源、團隊後盾、複雜病例、跨科合作；右邊秤盤是診所，放著大量病例、收入上限、自主權、行政單純。兩邊各有分量，沒有哪一邊比較重。</desc>
 <style>
 .bal-frame{fill:var(--navy,#12395f)}
 .bal-chain{stroke:var(--ink-3,#5f6f80);stroke-width:3;fill:none}
@@ -104,43 +106,55 @@ category: beyond-white-coat
 .bal-lc{font:800 34px var(--sans,sans-serif);fill:#b4553f}
 @media (prefers-color-scheme:dark){.bal-panh{fill:#16283a;stroke:#5aa6dc}.bal-panc{fill:#33201a;stroke:#ee8a6a}.bal-h{fill:#3f86bf}.bal-c{fill:#c9654a}.bal-lh{fill:#8cc0e8}.bal-lc{fill:#ee8a6a}}
 </style>
-<rect class="bal-frame" x="240" y="350" width="120" height="18" rx="9" fill="#12395f"/>
-<rect class="bal-frame" x="292" y="60" width="16" height="292" fill="#12395f"/>
+<rect class="bal-frame" x="240" y="470" width="120" height="18" rx="9" fill="#12395f"/>
+<rect class="bal-frame" x="292" y="60" width="16" height="412" fill="#12395f"/>
 <rect class="bal-frame" x="100" y="64" width="400" height="13" rx="6" fill="#12395f"/>
 <circle class="bal-frame" cx="300" cy="60" r="16" fill="#12395f"/>
 <circle class="bal-frame" cx="120" cy="70" r="9" fill="#12395f"/>
 <circle class="bal-frame" cx="480" cy="70" r="9" fill="#12395f"/>
-<path class="bal-chain" d="M120,78 L22,270 M120,78 L218,270 M480,78 L382,270 M480,78 L578,270" fill="none" stroke="#5f6f80" stroke-width="3"/>
-<path class="bal-panh" d="M12,270 Q120,318 228,270 Z" fill="#e6f0f8" stroke="#1d6fa5" stroke-width="3"/>
-<path class="bal-panc" d="M372,270 Q480,318 588,270 Z" fill="#fcebe4" stroke="#e0714f" stroke-width="3"/>
-<rect class="bal-h" x="30" y="148" width="180" height="56" rx="28" fill="#1d6fa5"/>
-<text class="bal-w" x="120" y="186" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">團隊後盾</text>
-<rect class="bal-h" x="30" y="210" width="180" height="56" rx="28" fill="#1d6fa5"/>
-<text class="bal-w" x="120" y="248" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">學習資源</text>
-<rect class="bal-c" x="390" y="148" width="180" height="56" rx="28" fill="#e0714f"/>
-<text class="bal-w" x="480" y="186" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">收入上限</text>
-<rect class="bal-c" x="390" y="210" width="180" height="56" rx="28" fill="#e0714f"/>
-<text class="bal-w" x="480" y="248" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">自主權</text>
-<text class="bal-lh" x="120" y="360" text-anchor="middle" fill="#1d6fa5" font-weight="800" font-size="34" font-family="sans-serif">醫院</text>
-<text class="bal-lc" x="480" y="360" text-anchor="middle" fill="#b4553f" font-weight="800" font-size="34" font-family="sans-serif">診所</text>
+<path class="bal-chain" d="M120,78 L22,390 M120,78 L218,390 M480,78 L382,390 M480,78 L578,390" fill="none" stroke="#5f6f80" stroke-width="3"/>
+<path class="bal-panh" d="M12,390 Q120,438 228,390 Z" fill="#e6f0f8" stroke="#1d6fa5" stroke-width="3"/>
+<path class="bal-panc" d="M372,390 Q480,438 588,390 Z" fill="#fcebe4" stroke="#e0714f" stroke-width="3"/>
+<rect class="bal-h" x="30" y="134" width="180" height="56" rx="28" fill="#1d6fa5"/>
+<text class="bal-w" x="120" y="172" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">學習資源</text>
+<rect class="bal-h" x="30" y="196" width="180" height="56" rx="28" fill="#1d6fa5"/>
+<text class="bal-w" x="120" y="234" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">團隊後盾</text>
+<rect class="bal-h" x="30" y="258" width="180" height="56" rx="28" fill="#1d6fa5"/>
+<text class="bal-w" x="120" y="296" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">複雜病例</text>
+<rect class="bal-h" x="30" y="320" width="180" height="56" rx="28" fill="#1d6fa5"/>
+<text class="bal-w" x="120" y="358" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">跨科合作</text>
+<rect class="bal-c" x="390" y="134" width="180" height="56" rx="28" fill="#e0714f"/>
+<text class="bal-w" x="480" y="172" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">大量病例</text>
+<rect class="bal-c" x="390" y="196" width="180" height="56" rx="28" fill="#e0714f"/>
+<text class="bal-w" x="480" y="234" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">收入上限</text>
+<rect class="bal-c" x="390" y="258" width="180" height="56" rx="28" fill="#e0714f"/>
+<text class="bal-w" x="480" y="296" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">自主權</text>
+<rect class="bal-c" x="390" y="320" width="180" height="56" rx="28" fill="#e0714f"/>
+<text class="bal-w" x="480" y="358" text-anchor="middle" fill="#fff" font-weight="700" font-size="27" font-family="sans-serif">行政單純</text>
+<text class="bal-lh" x="120" y="486" text-anchor="middle" fill="#1d6fa5" font-weight="800" font-size="34" font-family="sans-serif">醫院</text>
+<text class="bal-lc" x="480" y="486" text-anchor="middle" fill="#b4553f" font-weight="800" font-size="34" font-family="sans-serif">診所</text>
 </svg>
 <figcaption>圖 1：醫院與診所各自的優勢。兩邊各有分量，要看你更在意哪一邊。</figcaption>
 </figure>
 
+<figure class="compare-table" style="margin:1.5em 0">
+<div class="table-wrap"><table style="table-layout:fixed">
+<colgroup><col style="width:20%"><col style="width:40%"><col style="width:40%"></colgroup>
+<thead><tr><th>面向</th><th>醫院</th><th>診所</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="white-space:normal">門診量與節奏</th><td>第一年以會診為主，之後門診逐年增加；對訓練學員的門診業績沒有要求</td><td>一開始就有大量個案，節奏影響業績</td></tr>
+<tr><th scope="row" style="white-space:normal">臨床實力</th><td>有時間慢慢問、有回饋，但病例較少</td><td>經驗累積快，但思路不熟時容易套公式</td></tr>
+<tr><th scope="row" style="white-space:normal">學習資源</th><td>課程、教學、研究多，有人討論</td><td>多半自己摸索，少數有讀書會</td></tr>
+<tr><th scope="row" style="white-space:normal">病人族群</th><td>急重症、多重共病、癌症、術後、中西醫共照</td><td>病況較單純，針灸、婦科調理常見，重視自費</td></tr>
+<tr><th scope="row" style="white-space:normal">收入</th><td>升主治前固定薪，比診所低一點</td><td>保障薪約半年到一年，之後抽成</td></tr>
+<tr><th scope="row" style="white-space:normal">行政與作息</th><td>擔任教學、行政總醫師；作息有固定制度</td><td>行政有專人處理，醫師顧好自己的事</td></tr>
+<tr><th scope="row" style="white-space:normal">人際與自主</th><td>住院醫師之間有革命情感，但多半聽主治醫師的；辦公室政治常牽涉不同單位</td><td>為自己的病人負責；人際圍繞在老闆、櫃檯與診助、醫師之間</td></tr>
+</tbody></table></div>
+<figcaption>表 1：醫院與診所的差別整理。醫院欄以作者服務的醫院為例。</figcaption>
+</figure>
+
 > [!重點]
 > 醫院拿收入和自主，換學習資源與團隊後盾；診所把自主權和收入的上限交給你。
-
-把前面談到的差別放在一起，大致是這樣：
-
-| 面向 | 醫院（以作者服務的醫院為例） | 診所 |
-|---|---|---|
-| 門診量與節奏 | 第一年以會診為主，之後門診逐年增加；對訓練學員的門診業績沒有要求 | 一開始就有大量個案，節奏影響業績 |
-| 臨床實力 | 有時間慢慢問、有回饋，但病例較少 | 經驗累積快，但思路不熟時容易套公式 |
-| 學習資源 | 課程、教學、研究多，有人討論 | 多半自己摸索，少數有讀書會 |
-| 病人族群 | 急重症、多重共病、癌症、術後、中西醫共照 | 病況較單純，針灸、婦科調理常見，重視自費 |
-| 收入 | 升主治前固定薪，比診所低一點 | 保障薪約半年到一年，之後抽成 |
-| 行政與作息 | 擔任教學、行政總醫師；作息有固定制度 | 行政有專人處理，醫師顧好自己的事 |
-| 人際與自主 | 住院醫師之間有革命情感，但多半聽主治醫師的；辦公室政治常牽涉不同單位 | 為自己的病人負責；人際圍繞在老闆、櫃檯與診助、醫師之間 |
 
 ## 進來之後，有人決定不留下來
 
