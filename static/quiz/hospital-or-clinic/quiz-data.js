@@ -125,7 +125,7 @@ export const MOTIVES = [
   ]},
 ];
 
-export const SUMMARY = '在醫院，你的角色比較單純，專心當醫師就好，工作節奏有點像公務員。在診所，除了看診，你還得是自己的業務、行銷團隊和經紀人。';
+export const SUMMARY = '在醫院，你是大團隊裡的一員，除了看病，還要分擔行政、和不同科別合作；在診所，你比較像在經營自己的小店，除了看診，還得是自己的業務、行銷團隊和經紀人。';
 
 export const RESULTS = {
   hospital: {
