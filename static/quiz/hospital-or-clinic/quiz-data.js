@@ -8,7 +8,7 @@ export const QUIZ_VERSION = '2026-10-08b';
 export const DIMENSIONS = [
   { key: 'learn',    name: '學習與成長',   icon: '📚', left: '有課程、有人帶', right: '自己摸索' },
   { key: 'think',    name: '臨床實力怎麼練', icon: '🧠', left: '一個病例想透', right: '大量個案累積' },
-  { key: 'patient',  name: '病人族群',     icon: '🩺', left: '急重症、複雜共照', right: '單純病痛、調理' },
+  { key: 'patient',  name: '病人族群',     icon: '🩺', left: '急重症、複雜共照', right: '常見問題、調理' },
   { key: 'income',   name: '收入結構',     icon: '💰', left: '固定薪、穩定', right: '保障薪後抽成' },
   { key: 'life',     name: '生活與行政',   icon: '🗓️', left: '正常作息、兼行政', right: '彈性時段、少行政' },
   { key: 'people',   name: '人際與自主',   icon: '🤝', left: '團隊情感、聽上級', right: '自己作主' },
