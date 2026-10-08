@@ -181,14 +181,7 @@ category: beyond-white-coat
 
 我自己測出來是 INFJ，也就是內向（introversion, I）、直覺（intuition, N）、情感（feeling, F）、判斷（judging, J）。有趣的是，INFJ 常被說是最少見的類型，可是我身邊有不少同事和學弟妹也是 INFJ；其次是 INFP，也就是最後一個字母換成知覺（perceiving, P）。
 
-網路上常見的 16Personalities 測驗，還替十六種類型取了名字，分成四大類。[3]
-
-| 類群 | 類型 |
-|---|---|
-| 分析家 | INTJ 架構師、INTP 邏輯學家、ENTJ 指揮官、ENTP 辯論家 |
-| 外交家 | INFJ 提倡者、INFP 調停者、ENFJ 主人公、ENFP 活動家 |
-| 守衛者 | ISTJ 物流師、ISFJ 守護者、ESTJ 管理者、ESFJ 執政官 |
-| 探索者 | ISTP 鑑賞家、ISFP 冒險家、ESTP 企業家、ESFP 表演者 |
+網路上常見的 16Personalities 測驗，還替十六種類型各取了名字，例如 INFJ 叫做「提倡者」，有興趣可以到它的[繁體中文官網](https://www.16personalities.com/tw/%E6%80%A7%E6%A0%BC%E9%A1%9E%E5%9E%8B)看看。
 
 人格和選科有沒有關係？國外很早就有人研究。2000 年一篇整理美國 12 所醫學院、3,987 名學生資料的研究發現，偏內向、偏情感的學生比較常選基層醫療，偏外向、偏思考（thinking, T）的男性比較常選外科。[1] 2022 年印度一所醫學院調查 200 名學生，用的是網路上常見的 16 型人格測驗，INFJ 是最常見的類型。[2]
 
@@ -226,4 +219,3 @@ category: beyond-white-coat
 
 - [1] Stilwell NA, Wallick MM, Thal SE, Burleson JA. Myers-Briggs type and medical specialty choice: a new look at an old question. *Teach Learn Med*. 2000;12(1):14-20. [PMID 11228862](https://pubmed.ncbi.nlm.nih.gov/11228862/)
 - [2] Venurkar S, Srivastava T, Shukla S, Acharya S, et al. Decoding Human Personality Through Dermatoglyphics. *Cureus*. 2022;14(10):e30445. [PMID 36420244](https://pubmed.ncbi.nlm.nih.gov/36420244/)
-- [3] 16Personalities. 性格類型. [https://www.16personalities.com/tw/性格類型](https://www.16personalities.com/tw/%E6%80%A7%E6%A0%BC%E9%A1%9E%E5%9E%8B)
