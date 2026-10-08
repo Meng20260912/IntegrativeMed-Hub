@@ -3,7 +3,7 @@
 // 內容依魏孟鈞醫師 2026-10-07 口述整理；醫院訓練細節以作者服務的醫院為例。
 
 export const QUIZ_ID = 'hospital-or-clinic';
-export const QUIZ_VERSION = '2026-10-08';
+export const QUIZ_VERSION = '2026-10-08b';
 
 export const DIMENSIONS = [
   { key: 'learn',    name: '學習與成長',   icon: '📚', left: '有課程、有人帶', right: '自己摸索' },
@@ -47,7 +47,7 @@ export const QUESTIONS = [
     { t: '加護病房的急重症病人，西醫團隊想知道中醫能幫上什麼', v: -2 },
     { t: '化療中的癌症病人，吃不下、睡不好', v: -1 },
     { t: '每週固定來針灸的肩頸痠痛上班族', v: 1 },
-    { t: '想做婦科調理的年輕女性', v: 2 },
+    { t: '想調理體質、改善睡眠的年輕人', v: 2 },
   ]},
   { dim: 'patient', q: '一位病人同時有糖尿病、心衰竭、腎功能不好，還吃了 12 種西藥。你的心情是？', options: [
     { t: '很有挑戰，正想練這種病人', v: -2 },
