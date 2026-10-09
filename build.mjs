@@ -290,9 +290,20 @@ function markdown(src) {
       while (i < lines.length && /^&gt;\s?/.test(lines[i])) buf.push(lines[i++].replace(/^&gt;\s?/, ''));
       // 首行寫 [!重點] 時，輸出「診間重點」色塊，與引用原文區分
       const callout = /^\[!重點\]\s*$/.test((buf[0] || '').trim());
-      if (callout) buf.shift();
+      // 首行寫 [!名詞註解]、[!指引註解] 等「[!…註解]」時，輸出輔助性的註解框（術語表樣式），
+      // 條目開頭的「**名詞**：」改成標籤，避免被當成正文的粗體強調
+      const gloss = (buf[0] || '').trim().match(/^\[!([^\]\s]{1,10}註解)\]\s*$/);
+      if (callout || gloss) buf.shift();
+      const inner = markdown(buf.join('\n').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&')).html;
+      if (gloss) {
+        const body = inner
+          .replace(/^<ul>/gm, '<ul class="gloss-list">')
+          .replace(/<li><strong>([^<]+)<\/strong>\s*[：:]\s*/g, '<li><span class="term">$1</span><span class="gloss-sep">：</span>');
+        out.push(`<aside class="gloss" aria-label="${attr(gloss[1])}"><p class="gloss-title">${gloss[1]}</p>${body}</aside>`);
+        continue;
+      }
       const cls = callout ? ' class="callout"' : '';
-      out.push(`<blockquote${cls}>${markdown(buf.join('\n').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&')).html}</blockquote>`);
+      out.push(`<blockquote${cls}>${inner}</blockquote>`);
       continue;
     }
     // 清單

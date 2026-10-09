@@ -211,6 +211,20 @@ h1,h2,h3,h4{line-height:1.45;overflow-wrap:break-word}
 .prose blockquote.callout{background:var(--hl-bg);border-left-color:var(--hl-line);color:var(--ink)}
 .prose blockquote.callout::before{content:"診間重點";display:block;margin-bottom:.35em;
   font-weight:700;font-size:.9em;letter-spacing:.06em;color:var(--hl-ink)}
+/* 名詞註解／指引註解：輔助性的術語框。白底細框、字級略小，與經典原文（深藍左線）、診間重點（土黃）區分 */
+.prose .gloss{margin:1.4em 0 1.6em;padding:.85em 1.1em .9em;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius-sm);font-size:.9em;line-height:1.8;color:var(--ink-2)}
+.prose .gloss-title{display:flex;align-items:center;gap:.5em;margin:0 0 .55em;font-size:.84em;font-weight:700;
+  letter-spacing:.08em;color:var(--ink-3)}
+.prose .gloss-title::after{content:"";flex:1;border-top:1px dashed var(--line)}
+.prose .gloss p{margin:0 0 .6em}
+.prose .gloss>:last-child,.prose .gloss li:last-child{margin-bottom:0}
+.prose .gloss-list{list-style:none;margin:0;padding:0}
+.prose .gloss-list li{margin:0 0 .6em;padding-left:0}
+.prose .gloss-sep{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.prose .gloss .term{display:inline-block;margin:0 .5em .1em 0;padding:.05em .62em;border:1px solid var(--line);
+  border-radius:.9em;background:var(--surface-2);color:var(--navy);font-size:.9em;font-weight:600;
+  line-height:1.65;vertical-align:.04em;overflow-wrap:anywhere}
 .prose code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;
   background:var(--blue-soft);color:var(--navy);padding:.15em .42em;border-radius:5px;overflow-wrap:break-word}
 .prose pre{margin:1.4em 0;padding:1em;background:var(--surface);border:1px solid var(--line);
