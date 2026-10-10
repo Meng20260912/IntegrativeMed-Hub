@@ -159,10 +159,9 @@ function lastUpdated(file, fm) {
   return new Date().toISOString();
 }
 
-const fmtDate = (iso) => {
-  const d = new Date(iso);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-};
+// 一律以台北時區顯示日期，避免 Cloudflare 在 UTC 建置時，台灣凌晨的提交被算成前一天
+const TPE_DATE = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit' });
+const fmtDate = (iso) => TPE_DATE.format(new Date(iso));
 
 /* ---------- frontmatter ---------- */
 function parseFrontmatter(raw) {
