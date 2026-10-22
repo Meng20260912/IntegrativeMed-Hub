@@ -9,7 +9,7 @@ import sharp from 'sharp';
 const IMG = path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'static', 'img');
 const OUT = path.join(IMG, 'resp');
 const WIDTHS = [480, 800, 1200, 1600];
-const SKIP = /^(brand-logo|apple-touch-icon|favicon)|^(hero-tcm-shop|pharmacy)\.jpg$/; // logo 與已棄用的佔位檔不處理
+const SKIP = /^(brand-logo|apple-touch-icon|favicon)/; // logo 與圖示不處理
 
 fs.mkdirSync(OUT, { recursive: true });
 let made = 0;

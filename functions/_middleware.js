@@ -13,11 +13,10 @@ export async function onRequest(context) {
   }
   const res = await context.next();
 
-  // 靜態檔案（圖片、CSS、JS…）若不存在，Pages 的找不到頁面處理會回傳
-  // HTTP 200 加上首頁 HTML。瀏覽器拿 HTML 當圖片解讀就是破圖，而且 200
-  // 會被瀏覽器與 CDN 當成正常結果快取住，破圖會一直留著；搜尋引擎也會
-  // 把這些網址當成可收錄的重複內容。這裡改回真正的 404。
-  if (res.status === 200 && STATIC_FILE.test(url.pathname) &&
+  // 靜態檔案（圖片、CSS、JS…）不存在時，Pages 會回傳 404.html 這份 HTML。
+  // 瀏覽器拿 HTML 當圖片解讀就是破圖，而且每張破圖都要傳一整頁 HTML。
+  // 這類請求改回輕量的純文字 404，HTML 的找不到頁面留給真正的頁面網址。
+  if (STATIC_FILE.test(url.pathname) &&
       (res.headers.get('content-type') || '').includes('text/html')) {
     return new Response('404 Not Found\n', {
       status: 404,

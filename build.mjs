@@ -367,7 +367,7 @@ function subsetSerifFont(html) {
   return html.replaceAll(SERIF_FONT_PLACEHOLDER, attr(url));
 }
 
-function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
+function layout({ title, desc, body, canonical = '', extraHead = '', bodyClass = '',
                   ogType = 'website', image = '', schema = null, showHeader = true, currentCat = '' }) {
   const img = image || `${SITE_URL}/img/banner-integrative.jpg`;
   return subsetSerifFont(`<!doctype html>
@@ -379,14 +379,12 @@ function layout({ title, desc, body, canonical, extraHead = '', bodyClass = '',
 <meta name="description" content="${attr(desc)}">
 <meta name="theme-color" content="#12395f" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
-<link rel="canonical" href="${attr(canonical)}">
-<meta property="og:site_name" content="${attr(SITE.name)}">
+${canonical ? `<link rel="canonical" href="${attr(canonical)}">\n` : ''}<meta property="og:site_name" content="${attr(SITE.name)}">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:title" content="${attr(title)}">
 <meta property="og:description" content="${attr(desc)}">
 <meta property="og:type" content="${attr(ogType)}">
-<meta property="og:url" content="${attr(canonical)}">
-<meta property="og:image" content="${attr(img)}">
+${canonical ? `<meta property="og:url" content="${attr(canonical)}">\n` : ''}<meta property="og:image" content="${attr(img)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${attr(title)}">
 <meta name="twitter:description" content="${attr(desc)}">
@@ -858,6 +856,30 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 <p>純靜態網站，由零依賴的 Node 腳本把 Markdown 產生成 HTML，部署於 Cloudflare Pages。首頁文章卡片在建置階段就寫入 HTML，不靠瀏覽器端 JavaScript 產生。瀏覽計數使用 Cloudflare KV，不使用第三方追蹤服務、不放置 Cookie。</p>
 <h3>授權</h3>
 <p>文字內容採 CC BY 4.0。圖片各自標示原作者與授權，詳見頁尾。</p>
+</div>`,
+}));
+
+// --- 找不到頁面 ---
+// Cloudflare Pages 找不到資產時，會先看輸出目錄根部有沒有 404.html。
+// 有就回傳它並帶真正的 404 狀態碼；沒有就退回 index.html 並回傳 200，
+// 瀏覽器把那份 HTML 當圖片解讀就成了破圖，搜尋引擎也會收錄成重複內容。
+// 這一頁標示 noindex，也不列入 sitemap。
+fs.writeFileSync(path.join(OUT, '404.html'), layout({
+  title: `找不到這個頁面 — ${SITE.name}`,
+  desc: '這個網址可能已經變更，或是輸入時漏了字。從首頁的文章列表或頁首的分類列都能找回想看的內容。',
+  extraHead: '<meta name="robots" content="noindex, follow">\n',
+  body: `<div class="wrap prose page">
+<h1>找不到這個頁面</h1>
+<p>這個網址可能已經變更，或是輸入時漏了字。網站上的文章都還在，從下面幾個入口可以找回來。</p>
+<ul>
+<li><a href="/">回首頁，瀏覽全部文章</a></li>
+<li><a href="/about/">關於本站與作者</a></li>
+</ul>
+<p>頁首的分類列也可以直接跳到各個主題。</p>
+<h2>最近更新的文章</h2>
+<ul>
+${posts.slice(0, 5).map(p => `<li><a href="/posts/${attr(p.slug)}/">${esc(p.title)}</a></li>`).join('\n')}
+</ul>
 </div>`,
 }));
 

@@ -16,7 +16,7 @@ slug: url-slug          # 網址會是 /posts/url-slug/
 author: Meng            # 顯示在文章頁與首頁卡片
 date: 2026-09-12        # 發布日期
 summary: 一到兩句摘要，會顯示在首頁卡片
-hero: pharmacy.jpg      # static/img/ 底下的檔名（可省略）
+hero: consultation.jpg  # static/img/ 底下的檔名（可省略）
 heroAlt: 圖片替代文字
 heroCaption: 圖說      # 可省略
 tags: [標籤一, 標籤二]
