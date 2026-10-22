@@ -4,6 +4,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import { scanSimplified, reportSimplified } from './scripts/check-simplified.mjs';
+
+// 稿件不得出現簡體字（含圖說、標題、摘要）。發現就擋下建置，不要讓它上線。
+{
+  const hits = scanSimplified();
+  if (hits.length) {
+    console.error('\n' + reportSimplified(hits) + '\n');
+    process.exit(1);
+  }
+}
 
 const ROOT = path.dirname(new URL(import.meta.url).pathname);
 const POSTS_DIR = path.join(ROOT, 'content', 'posts');
