@@ -361,13 +361,14 @@ ${CATEGORIES.map(c => `    <li><a href="/category/${c.slug}/"${c.slug === curren
 
 // 標題襯線字只下載本頁標題實際用到的字（Google Fonts text= 子集），
 // 避免整套 Noto Serif TC 被切成十幾個分片、手機上拖慢首次繪製。
-// 收字範圍對應 styles.css 裡用 var(--serif) 的元素：h1、h2、網站名稱、首頁作者名。
+// 收字範圍對應 styles.css 裡用 var(--serif) 的元素：h1、h2、網站名稱、首頁作者名、首頁測驗入口標題。
 const SERIF_FONT_PLACEHOLDER = '%%SERIF_FONT_URL%%';
 function subsetSerifFont(html) {
   const chunks = [];
   for (const m of html.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)) chunks.push(m[1]);
   for (const m of html.matchAll(/<span class="brand-text"><b>([\s\S]*?)<span class="brand-en">/g)) chunks.push(m[1]);
   for (const m of html.matchAll(/class="hero-name"[^>]*>([\s\S]*?)<\/a>/g)) chunks.push(m[1]);
+  for (const m of html.matchAll(/class="quiz-title"[^>]*>([\s\S]*?)<\/span>/g)) chunks.push(m[1]);
   const text = chunks.join('')
     .replace(/<[^>]+>/g, '')
     .replace(/&(amp|lt|gt|quot|#39);/g, (_, e) => ({ amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'" })[e])
@@ -600,6 +601,7 @@ const indexBody = `<section class="hero">
   </div>
 </section>
 
+
 <div class="wrap toolbar">
   <div class="toolbar-inner">
     <ul class="chips" aria-label="文章分類">
@@ -620,6 +622,18 @@ ${CATEGORIES.map(c => { const n = catCount(c.slug); return `      <li><a class="
     </div>
   </div>
 </div>
+
+<section class="wrap quiz-promo" aria-labelledby="quiz-promo-title">
+  <a class="quiz-card" href="/quiz/hospital-or-clinic/?src=home">
+    <img src="/quiz/hospital-or-clinic/og.jpg" alt="" width="1200" height="630" decoding="async">
+    <span class="quiz-text">
+      <span class="quiz-kicker">中醫實習醫學生小測驗</span>
+      <span class="quiz-title" id="quiz-promo-title">選配前先測一下：你是醫院型還是診所型？</span>
+      <span class="quiz-meta">16 題情境題，約 3 分鐘，從七個面向看看自己比較偏哪一邊</span>
+      <span class="quiz-btn">開始測驗 →</span>
+    </span>
+  </a>
+</section>
 
 <section class="wrap posts">
   <div class="posts-head">
