@@ -2,7 +2,7 @@
 title: "歸為止血藥的仙鶴草與白及，放進現代研究後看到什麼？"
 slug: agrimony-bletilla-antiplatelet-bleeding-evidence
 author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
-date: 2026-10-06
+date: 2026-10-22
 summary: 仙鶴草與白及傳統上歸為止血藥，放進現代研究後，作用卻不只一個方向。下篇接續洗腎病人的會診病例，整理仙鶴草的凝血研究、白及多醣與含白及複方的動物及臨床試驗，並說明動物研究與臨床試驗各自能回答的問題。
 hero: agrimony-bletilla-research-hero.jpg
 heroAlt: 研究室窗邊，女性中醫師以鑷子夾起一片白及飲片對著窗光端詳，桌上竹篩分放仙鶴草與白及，旁邊試管架上是裝著淡黃色血漿的試管
