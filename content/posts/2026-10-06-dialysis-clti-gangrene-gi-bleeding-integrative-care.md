@@ -191,7 +191,7 @@ category: clinic-notes
 <text class="cl-h" x="327.5" y="1050" text-anchor="middle" fill="#16202b" font-weight="600" font-size="22" font-family="sans-serif">直接截肢</text>
 <text class="cl-s" x="327.5" y="1078" text-anchor="middle" fill="#4c5a68" font-size="20" font-family="sans-serif">或緩和處置</text>
 </svg>
-<figcaption><strong>圖 2．慢性威脅性肢體缺血（CLTI）的評估與治療流程。</strong>依據 2024 年美國心臟病學會／美國心臟協會（American College of Cardiology/American Heart Association, ACC/AHA）下肢周邊動脈疾病指引重新整理，從缺血程度與肢體威脅評估，一路帶到血管影像、血運重建評估，以及後續足部與傷口照護。這張圖是為了配合本病例重新整理的臨床流程，並非原指引流程圖的逐格翻譯。<a class="cite" href="#ref-1" aria-label="參考文獻 1">[1]</a>圖中虛線框為建議等級較弱的選項。</figcaption>
+<figcaption><strong>圖 2．慢性威脅性肢體缺血（CLTI）的評估與治療流程。</strong>依據 2024 年美國心臟病學會／美國心臟協會（American College of Cardiology/American Heart Association, ACC/AHA）下肢周邊動脈疾病指引重新整理，從缺血程度與肢體威脅評估，一路帶到血管影像、血運重建評估，以及後續足部與傷口照護。這張圖是為了配合本病例重新整理的臨床流程，並非原指引流程圖的逐格翻譯。<a class="cite" href="#ref-1" aria-label="參考文獻 1">[1]</a> 圖中虛線框為建議等級較弱的選項。</figcaption>
 </figure>
 
 血液透析本身也是重要的風險背景。台灣一項前瞻性多中心研究追蹤 1,136 位血液透析病人；原先沒有 PAD 的 1,038 人中，後續有 128 人新診斷出 PAD。這 128 人中，65 人表現為嚴重肢體缺血；同樣在這 128 人中，有 25 人後來接受截肢或死於 PAD 相關原因 [3]。
