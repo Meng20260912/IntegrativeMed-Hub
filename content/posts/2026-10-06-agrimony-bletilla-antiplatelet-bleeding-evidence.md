@@ -28,9 +28,74 @@ category: [translational, evidence]
 兩條路徑都能活化 factor X；factor Xa 與 factor Va 等共同形成凝血酶原酶複合體，將凝血酶原（factor II）轉為凝血酶（factor IIa），再把纖維蛋白原轉為纖維蛋白，最後由 factor XIIIa 交聯形成較穩定的纖維蛋白網 [2]。
 
 <figure class="diagram">
-<img src="/img/coagulation-pathways-simplified.svg" alt="凝血機轉簡圖：組織因子與 VIIa 複合體及 IXa 與 VIIIa 複合體活化 factor X，經 Xa、Va、凝血酶原、凝血酶與纖維蛋白原形成纖維蛋白，並標示 PT、aPTT、血小板、血管內皮、天然抗凝血物質與纖維蛋白溶解系統" loading="lazy">
-<figcaption>圖 1．凝血機轉簡圖：內在路徑、外在路徑與共同路徑。</figcaption>
-<small>傳統凝血路徑模型適合用來理解凝血酶原時間（prothrombin time, PT）、活化部分凝血活酶時間（activated partial thromboplastin time, aPTT）與不同凝血因子的關係；圖中已標示主要活化型凝血因子，但仍屬教學用簡化模型。人體內真正的止血與血栓形成還牽涉血小板、血管內皮、天然抗凝血物質與纖維蛋白溶解系統；目前更接近生理狀況的理解，是由 initiation、amplification 與 propagation 所構成的 cell-based model。<a class="cite" href="#ref-2" aria-label="參考文獻 2">[2]</a></small>
+<svg viewBox="0 0 440 788" style="min-width:0;max-width:440px;margin-inline:auto" role="img" aria-labelledby="cg-t cg-d" xmlns="http://www.w3.org/2000/svg">
+<title id="cg-t">凝血機轉簡圖：外在路徑、內在路徑與共同路徑</title>
+<desc id="cg-d">凝血機轉簡圖。外在路徑：組織因子與 VIIa 形成複合體；內在路徑：XII 活化為 XIIa、XI 活化為 XIa，再形成 IXa 與 VIIIa 複合體。兩條路徑都活化凝血因子 X，進入共同路徑：Xa 與 Va 形成凝血酶原酶複合體，凝血酶原轉為凝血酶，纖維蛋白原轉為纖維蛋白，由 XIIIa 交聯。左側括號標示 PT 涵蓋外在與共同路徑，右側括號標示 aPTT 涵蓋內在與共同路徑。下方列出體內其他參與者：血小板、血管內皮、天然抗凝血物質、纖維蛋白溶解系統。</desc>
+<style>
+
+.cg-pe{font:700 22px var(--sans,sans-serif);fill:#2f5f8c}.cg-pi{font:700 22px var(--sans,sans-serif);fill:#755a91}.cg-pc{font:700 22px var(--sans,sans-serif);fill:#3e7560}
+.cg-te{font:700 20px var(--sans,sans-serif);fill:#2f5f8c}.cg-ti{font:700 20px var(--sans,sans-serif);fill:#755a91}
+.cg-ne{fill:#eaf2f8;stroke:#2f5f8c;stroke-width:2}.cg-ni{fill:#f2edf8;stroke:#755a91;stroke-width:2}.cg-nc{fill:#eaf4ef;stroke:#3e7560;stroke-width:2}
+.cg-cz{fill:#f3f8f5;stroke:#bed5c9;stroke-width:1.5}
+.cg-nm{font:600 21px var(--sans,sans-serif);fill:#173d5f}
+.cg-ae,.cg-be{stroke:#2f5f8c;fill:none}.cg-ai,.cg-bi{stroke:#755a91;fill:none}.cg-ac{stroke:#3e7560;fill:none}
+.cg-mke{fill:#2f5f8c}.cg-mki{fill:#755a91}.cg-mkc{fill:#3e7560}
+.cg-sh{font:700 21px var(--sans,sans-serif);fill:#234b6b}
+.cg-sc{fill:var(--surface,#fff);stroke:#cfd9e4;stroke-width:1.4}.cg-st{font:600 20px var(--sans,sans-serif);fill:#234b6b}
+@media (prefers-color-scheme:dark){
+.cg-pe,.cg-te{fill:#72a6ce}.cg-pi,.cg-ti{fill:#aa91c2}.cg-pc{fill:#78ad96}
+.cg-ne{fill:#20394d;stroke:#72a6ce}.cg-ni{fill:#352d42;stroke:#aa91c2}.cg-nc{fill:#243a32;stroke:#78ad96}.cg-cz{fill:#1c2d27;stroke:#3c5a4d}
+.cg-nm{fill:#d5e7f4}.cg-ae,.cg-be{stroke:#72a6ce}.cg-ai,.cg-bi{stroke:#aa91c2}.cg-ac{stroke:#78ad96}
+.cg-mke{fill:#72a6ce}.cg-mki{fill:#aa91c2}.cg-mkc{fill:#78ad96}
+.cg-sh,.cg-st{fill:#9bc8e6}.cg-sc{fill:#18242f;stroke:#2c3a48}}
+</style>
+<defs><marker id="cg-ae" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path class="cg-mke" d="M0,0 L10,5 L0,10 z" fill="#2f5f8c"/></marker><marker id="cg-ai" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path class="cg-mki" d="M0,0 L10,5 L0,10 z" fill="#755a91"/></marker><marker id="cg-ac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path class="cg-mkc" d="M0,0 L10,5 L0,10 z" fill="#3e7560"/></marker></defs>
+<text class="cg-pe" x="128" y="28" text-anchor="middle" fill="#2f5f8c" font-weight="700" font-size="22" font-family="sans-serif">外在路徑</text>
+<text class="cg-pi" x="322" y="28" text-anchor="middle" fill="#755a91" font-weight="700" font-size="22" font-family="sans-serif">內在路徑</text>
+<rect class="cg-ni" x="250" y="44" width="144" height="46" rx="10" fill="#f2edf8" stroke="#755a91" stroke-width="2"/>
+<text class="cg-nm" x="322.0" y="74.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">XII → XIIa</text>
+<path class="cg-ai" d="M322,90 V104" fill="none" stroke="#755a91" stroke-width="3" marker-end="url(#cg-ai)"/>
+<rect class="cg-ni" x="250" y="110" width="144" height="46" rx="10" fill="#f2edf8" stroke="#755a91" stroke-width="2"/>
+<text class="cg-nm" x="322.0" y="140.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">XI → XIa</text>
+<path class="cg-ai" d="M322,156 V170" fill="none" stroke="#755a91" stroke-width="3" marker-end="url(#cg-ai)"/>
+<rect class="cg-ni" x="240" y="176" width="164" height="66" rx="10" fill="#f2edf8" stroke="#755a91" stroke-width="2"/>
+<text class="cg-nm" x="322.0" y="203.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">IXa＋VIIIa</text>
+<text class="cg-nm" x="322.0" y="229.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">複合體</text>
+<rect class="cg-ne" x="52" y="150" width="152" height="66" rx="10" fill="#eaf2f8" stroke="#2f5f8c" stroke-width="2"/>
+<text class="cg-nm" x="128.0" y="177.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">組織因子</text>
+<text class="cg-nm" x="128.0" y="203.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">＋VIIa</text>
+<rect class="cg-cz" x="40" y="262" width="368" height="356" rx="14" fill="#f3f8f5" stroke="#bed5c9" stroke-width="1.5"/>
+<text class="cg-pc" x="58" y="292" fill="#3e7560" font-weight="700" font-size="22" font-family="sans-serif">共同路徑</text>
+<path class="cg-ae" d="M128,216 C128,262 170,300 196,312" fill="none" stroke="#2f5f8c" stroke-width="3" marker-end="url(#cg-ae)"/>
+<path class="cg-ai" d="M322,242 C322,280 280,300 256,312" fill="none" stroke="#755a91" stroke-width="3" marker-end="url(#cg-ai)"/>
+<rect class="cg-nc" x="134" y="318" width="180" height="46" rx="10" fill="#eaf4ef" stroke="#3e7560" stroke-width="2"/>
+<text class="cg-nm" x="224.0" y="348.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">X → Xa</text>
+<path class="cg-ac" d="M224,364 V378" fill="none" stroke="#3e7560" stroke-width="3" marker-end="url(#cg-ac)"/>
+<rect class="cg-nc" x="84" y="384" width="280" height="66" rx="10" fill="#eaf4ef" stroke="#3e7560" stroke-width="2"/>
+<text class="cg-nm" x="224.0" y="411.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">Xa＋Va</text>
+<text class="cg-nm" x="224.0" y="437.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">凝血酶原酶複合體</text>
+<path class="cg-ac" d="M224,450 V464" fill="none" stroke="#3e7560" stroke-width="3" marker-end="url(#cg-ac)"/>
+<rect class="cg-nc" x="64" y="470" width="320" height="46" rx="10" fill="#eaf4ef" stroke="#3e7560" stroke-width="2"/>
+<text class="cg-nm" x="224.0" y="500.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">凝血酶原 → 凝血酶</text>
+<path class="cg-ac" d="M224,516 V530" fill="none" stroke="#3e7560" stroke-width="3" marker-end="url(#cg-ac)"/>
+<rect class="cg-nc" x="54" y="536" width="340" height="66" rx="10" fill="#eaf4ef" stroke="#3e7560" stroke-width="2"/>
+<text class="cg-nm" x="224.0" y="563.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">纖維蛋白原 → 纖維蛋白</text>
+<text class="cg-nm" x="224.0" y="589.0" text-anchor="middle" fill="#173d5f" font-weight="600" font-size="21" font-family="sans-serif">XIIIa 交聯</text>
+<path class="cg-be" d="M30,150 H22 V602 H30" fill="none" stroke="#2f5f8c" stroke-width="2.5"/>
+<text class="cg-te" x="14" y="140" fill="#2f5f8c" font-weight="700" font-size="20" font-family="sans-serif">PT</text>
+<path class="cg-bi" d="M418,44 H426 V602 H418" fill="none" stroke="#755a91" stroke-width="2.5"/>
+<text class="cg-ti" x="436" y="34" text-anchor="end" fill="#755a91" font-weight="700" font-size="20" font-family="sans-serif">aPTT</text>
+<text class="cg-sh" x="220" y="656" text-anchor="middle" fill="#234b6b" font-weight="700" font-size="21" font-family="sans-serif">體內其他參與者</text>
+<rect class="cg-sc" x="20" y="670" width="194" height="46" rx="10" fill="#ffffff" stroke="#cfd9e4" stroke-width="1.4"/>
+<text class="cg-st" x="117" y="700" text-anchor="middle" fill="#234b6b" font-weight="600" font-size="20" font-family="sans-serif">血小板</text>
+<rect class="cg-sc" x="226" y="670" width="194" height="46" rx="10" fill="#ffffff" stroke="#cfd9e4" stroke-width="1.4"/>
+<text class="cg-st" x="323" y="700" text-anchor="middle" fill="#234b6b" font-weight="600" font-size="20" font-family="sans-serif">血管內皮</text>
+<rect class="cg-sc" x="20" y="728" width="194" height="46" rx="10" fill="#ffffff" stroke="#cfd9e4" stroke-width="1.4"/>
+<text class="cg-st" x="117" y="758" text-anchor="middle" fill="#234b6b" font-weight="600" font-size="20" font-family="sans-serif">天然抗凝血物質</text>
+<rect class="cg-sc" x="226" y="728" width="194" height="46" rx="10" fill="#ffffff" stroke="#cfd9e4" stroke-width="1.4"/>
+<text class="cg-st" x="323" y="758" text-anchor="middle" fill="#234b6b" font-weight="600" font-size="20" font-family="sans-serif">纖維蛋白溶解系統</text>
+</svg>
+<figcaption>圖 1．凝血機轉簡圖：內在路徑、外在路徑與共同路徑。傳統凝血路徑模型適合用來理解凝血酶原時間（prothrombin time, PT）、活化部分凝血活酶時間（activated partial thromboplastin time, aPTT）與不同凝血因子的關係；圖中已標示主要活化型凝血因子，但仍屬教學用簡化模型。人體內真正的止血與血栓形成還牽涉血小板、血管內皮、天然抗凝血物質與纖維蛋白溶解系統；目前更接近生理狀況的理解，是由 initiation、amplification 與 propagation 所構成的 cell-based model。<a class="cite" href="#ref-2" aria-label="參考文獻 2">[2]</a></figcaption>
 </figure>
 
 正因為凝血系統牽涉許多不同環節，一個研究看到 PT 縮短，另一個指標卻往抗凝血方向變化，兩者未必互相矛盾。它們可能反映的是不同凝血路徑、不同凝血因子，或血小板功能受到不同程度的影響。單看 PT、aPTT 或血小板聚集其中一個結果，也不能直接推論一個人在臨床上最後會比較容易出血，還是比較容易形成血栓。
