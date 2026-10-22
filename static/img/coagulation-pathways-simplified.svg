@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1120" viewBox="0 0 1200 1120" role="img" aria-labelledby="title desc">
+  <title id="title">凝血機轉簡圖：外在路徑、內在路徑與共同路徑</title>
+  <desc id="desc">外在路徑的組織因子與凝血因子七a複合體，以及內在路徑的凝血因子九a與八a複合體，皆可活化凝血因子十。凝血因子十a與五a形成凝血酶原酶複合體，將凝血酶原轉為凝血酶，再將纖維蛋白原轉為纖維蛋白，並由十三a交聯穩定。PT主要反映外在與共同路徑，aPTT主要反映內在與共同路徑。圖旁另列血小板、血管內皮、天然抗凝與纖溶系統，並說明此圖是教學用簡化模型，人體內凝血更接近細胞基礎模型。</desc>
+  <style>
+    .cp-bg{fill:#fff}.cp-title{font:700 32px "Noto Serif TC","PingFang TC",serif;fill:#12395f}.cp-subtitle{font:17px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#536779}
+    .cp-panel{fill:#f8fafc;stroke:#cfd9e4;stroke-width:1.5}.cp-path-label{font:700 22px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#12395f}.cp-path-en{font:14px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#657687}
+    .cp-node-ext{fill:#eaf2f8;stroke:#2f5f8c;stroke-width:2}.cp-node-int{fill:#f2edf8;stroke:#755a91;stroke-width:2}.cp-node-common{fill:#eaf4ef;stroke:#3e7560;stroke-width:2}.cp-common-zone{fill:#f3f8f5;stroke:#bed5c9;stroke-width:1.5}
+    .cp-node-main{font:700 19px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#173d5f}.cp-node-sub{font:15px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#536779}
+    .cp-arrow-ext{fill:none;stroke:#2f5f8c;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.cp-arrow-int{fill:none;stroke:#755a91;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.cp-arrow-common{fill:none;stroke:#3e7560;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .cp-marker-ext{fill:#2f5f8c}.cp-marker-int{fill:#755a91}.cp-marker-common{fill:#3e7560}.cp-test-ext{fill:#dceaf5;stroke:#2f5f8c;stroke-width:1.4}.cp-test-int{fill:#ece5f4;stroke:#755a91;stroke-width:1.4}
+    .cp-test-name{font:700 18px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#12395f}.cp-test-en{font:12.5px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#657687}.cp-test-detail{font:13.5px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#536779}.cp-section-title{font:700 20px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#12395f}
+    .cp-side-card{fill:#fff;stroke:#cfd9e4;stroke-width:1.4}.cp-side-icon{fill:#eef3f8;stroke:#6f879b;stroke-width:1.5}.cp-side-line{fill:none;stroke:#6f879b;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.cp-side-title{font:700 17px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#234b6b}.cp-side-en{font:12.5px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#657687}.cp-side-text{font:14px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#5b6b79}
+    .cp-note-box{fill:#eef3f8;stroke:#cfd9e4;stroke-width:1.2}.cp-note-title{font:700 18px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#12395f}.cp-note{font:15px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#43586b}.cp-legend{font:14px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;fill:#657687}
+    @media (prefers-color-scheme:dark){.cp-bg{fill:#151e28}.cp-title,.cp-path-label,.cp-test-name,.cp-section-title,.cp-note-title{fill:#8cc0e8}.cp-subtitle,.cp-path-en,.cp-node-sub,.cp-test-en,.cp-test-detail,.cp-side-en,.cp-side-text,.cp-note,.cp-legend{fill:#b2bfcc}.cp-panel,.cp-note-box{fill:#1b2733;stroke:#2c3a48}.cp-node-ext{fill:#20394d;stroke:#72a6ce}.cp-node-int{fill:#352d42;stroke:#aa91c2}.cp-node-common{fill:#243a32;stroke:#78ad96}.cp-common-zone{fill:#1c2d27;stroke:#3c5a4d}.cp-node-main{fill:#d5e7f4}.cp-arrow-ext{stroke:#72a6ce}.cp-arrow-int{stroke:#aa91c2}.cp-arrow-common{stroke:#78ad96}.cp-marker-ext{fill:#72a6ce}.cp-marker-int{fill:#aa91c2}.cp-marker-common{fill:#78ad96}.cp-test-ext{fill:#20394d;stroke:#72a6ce}.cp-test-int{fill:#352d42;stroke:#aa91c2}.cp-side-card{fill:#18242f;stroke:#2c3a48}.cp-side-icon{fill:#243441;stroke:#7990a4}.cp-side-line{stroke:#7990a4}.cp-side-title{fill:#9bc8e6}}
+  </style>
+  <defs>
+    <marker id="arrow-ext" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth"><path class="cp-marker-ext" d="M0,0 L0,8 L9,4 z"/></marker>
+    <marker id="arrow-int" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth"><path class="cp-marker-int" d="M0,0 L0,8 L9,4 z"/></marker>
+    <marker id="arrow-common" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth"><path class="cp-marker-common" d="M0,0 L0,8 L9,4 z"/></marker>
+  </defs>
+  <rect class="cp-bg" width="1200" height="1120"/>
+  <text class="cp-title" x="600" y="48" text-anchor="middle">凝血機轉簡圖</text>
+  <text class="cp-subtitle" x="600" y="78" text-anchor="middle">外在路徑與內在路徑匯入共同路徑；檢驗只反映其中一部分</text>
+
+  <rect class="cp-panel" x="40" y="108" width="790" height="770" rx="18"/>
+  <text class="cp-path-label" x="270" y="151" text-anchor="middle">外在路徑</text><text class="cp-path-en" x="270" y="174" text-anchor="middle">extrinsic pathway</text>
+  <rect class="cp-test-ext" x="150" y="188" width="240" height="72" rx="12"/><text class="cp-test-name" x="270" y="210" text-anchor="middle">PT</text><text class="cp-test-en" x="270" y="229" text-anchor="middle">prothrombin time</text><text class="cp-test-detail" x="270" y="250" text-anchor="middle">主要反映外在＋共同路徑</text>
+  <text class="cp-path-label" x="610" y="151" text-anchor="middle">內在路徑</text><text class="cp-path-en" x="610" y="174" text-anchor="middle">intrinsic pathway</text>
+  <rect class="cp-test-int" x="490" y="188" width="240" height="72" rx="12"/><text class="cp-test-name" x="610" y="210" text-anchor="middle">aPTT</text><text class="cp-test-en" x="610" y="229" text-anchor="middle">activated partial thromboplastin time</text><text class="cp-test-detail" x="610" y="250" text-anchor="middle">主要反映內在＋共同路徑</text>
+
+  <rect class="cp-node-ext" x="145" y="310" width="250" height="76" rx="13"/><text class="cp-node-main" x="270" y="339" text-anchor="middle">組織因子＋VIIa 複合體</text><text class="cp-node-sub" x="270" y="365" text-anchor="middle">TF–FVIIa complex</text>
+
+  <rect class="cp-node-int" x="515" y="270" width="190" height="62" rx="13"/><text class="cp-node-main" x="610" y="296" text-anchor="middle">XII → XIIa</text><text class="cp-node-sub" x="610" y="319" text-anchor="middle">factor XII activation</text>
+  <path class="cp-arrow-int" d="M610 332 V346" marker-end="url(#arrow-int)"/>
+  <rect class="cp-node-int" x="515" y="358" width="190" height="62" rx="13"/><text class="cp-node-main" x="610" y="384" text-anchor="middle">XI → XIa</text><text class="cp-node-sub" x="610" y="407" text-anchor="middle">factor XI activation</text>
+  <path class="cp-arrow-int" d="M610 420 V434" marker-end="url(#arrow-int)"/>
+  <rect class="cp-node-int" x="500" y="446" width="220" height="62" rx="13"/><text class="cp-node-main" x="610" y="472" text-anchor="middle">IXa＋VIIIa 複合體</text><text class="cp-node-sub" x="610" y="495" text-anchor="middle">intrinsic tenase</text>
+
+  <rect class="cp-common-zone" x="78" y="510" width="714" height="366" rx="15"/>
+  <text class="cp-path-label" x="110" y="544">共同路徑</text><text class="cp-path-en" x="110" y="566">common pathway</text>
+  <path class="cp-arrow-ext" d="M270 386 C270 480 350 526 402 558" marker-end="url(#arrow-ext)"/><path class="cp-arrow-int" d="M610 508 L478 558" marker-end="url(#arrow-int)"/>
+  <rect class="cp-node-common" x="322" y="566" width="226" height="58" rx="13"/><text class="cp-node-main" x="435" y="591" text-anchor="middle">凝血因子 X → Xa</text><text class="cp-node-sub" x="435" y="613" text-anchor="middle">factor X activation</text>
+  <path class="cp-arrow-common" d="M435 624 V642" marker-end="url(#arrow-common)"/>
+  <rect class="cp-node-common" x="280" y="650" width="310" height="58" rx="13"/><text class="cp-node-main" x="435" y="675" text-anchor="middle">Xa＋Va 凝血酶原酶複合體</text><text class="cp-node-sub" x="435" y="697" text-anchor="middle">prothrombinase（含 Ca²⁺、磷脂）</text>
+  <path class="cp-arrow-common" d="M435 708 V726" marker-end="url(#arrow-common)"/>
+  <rect class="cp-node-common" x="235" y="734" width="400" height="58" rx="13"/><text class="cp-node-main" x="435" y="759" text-anchor="middle">凝血酶原（II）→ 凝血酶（IIa）</text><text class="cp-node-sub" x="435" y="781" text-anchor="middle">prothrombin → thrombin</text>
+  <path class="cp-arrow-common" d="M435 792 V810" marker-end="url(#arrow-common)"/>
+  <rect class="cp-node-common" x="205" y="818" width="460" height="58" rx="13"/><text class="cp-node-main" x="435" y="843" text-anchor="middle">纖維蛋白原（I）→ 纖維蛋白</text><text class="cp-node-sub" x="435" y="865" text-anchor="middle">fibrinogen → fibrin；XIIIa 交聯穩定</text>
+
+  <rect class="cp-panel" x="855" y="108" width="305" height="770" rx="18"/>
+  <text class="cp-section-title" x="1007.5" y="151" text-anchor="middle">體內還有這些參與者</text><text class="cp-path-en" x="1007.5" y="176" text-anchor="middle">共同影響止血與血栓形成</text>
+  <rect class="cp-side-card" x="880" y="198" width="255" height="100" rx="13"/><circle class="cp-side-icon" cx="917" cy="235" r="15"/><circle class="cp-side-icon" cx="935" cy="253" r="10"/><text class="cp-side-title" x="966" y="225">血小板</text><text class="cp-side-en" x="966" y="245">platelets</text><text class="cp-side-text" x="966" y="271">黏附、活化與聚集</text>
+  <rect class="cp-side-card" x="880" y="311" width="255" height="100" rx="13"/><path class="cp-side-icon" d="M900 350 Q918 327 939 350 Q918 373 900 350 Z"/><text class="cp-side-title" x="966" y="338">血管內皮</text><text class="cp-side-en" x="966" y="358">vascular endothelium</text><text class="cp-side-text" x="966" y="384">調節促凝與抗凝訊號</text>
+  <rect class="cp-side-card" x="880" y="424" width="255" height="100" rx="13"/><path class="cp-side-icon" d="M919 438 L940 446 V462 Q940 479 919 490 Q898 479 898 462 V446 Z"/><text class="cp-side-title" x="966" y="451">天然抗凝系統</text><text class="cp-side-en" x="966" y="471">natural anticoagulants</text><text class="cp-side-text" x="966" y="497">限制凝血反應擴大</text>
+  <rect class="cp-side-card" x="880" y="537" width="255" height="100" rx="13"/><path class="cp-side-line" d="M898 576 H940 M904 564 L934 588 M934 564 L904 588"/><text class="cp-side-title" x="966" y="564">纖溶系統</text><text class="cp-side-en" x="966" y="584">fibrinolytic system</text><text class="cp-side-text" x="966" y="610">plasmin 分解纖維蛋白網</text>
+  <text class="cp-legend" x="1007.5" y="681" text-anchor="middle">實際反應彼此連動，</text><text class="cp-legend" x="1007.5" y="704" text-anchor="middle">超出線性路徑所能呈現的範圍。</text>
+
+  <rect class="cp-note-box" x="40" y="920" width="1120" height="166" rx="16"/>
+  <text class="cp-note-title" x="76" y="956">閱讀這張圖時，請保留兩個前提</text>
+  <circle cx="82" cy="992" r="4" fill="#2f5f8c"/><text class="cp-note" x="100" y="998">PT 與 aPTT 有助於理解傳統凝血路徑模型；單一檢驗不能直接預測整體出血或血栓風險。</text>
+  <circle cx="82" cy="1032" r="4" fill="#2f5f8c"/><text class="cp-note" x="100" y="1038">這是教學用簡化模型。人體內的凝血反應涉及細胞表面與多重調控，更接近細胞基礎模型（cell-based model）。</text>
+  <text class="cp-legend" x="1126" y="1068" text-anchor="end">圖｜drmjwei.net「讀經典，看實證」</text>
+</svg>
