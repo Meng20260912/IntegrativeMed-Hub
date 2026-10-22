@@ -319,8 +319,9 @@ CLTI 的治療會隨著病人的全身狀況、傷口與缺血變化持續調整
 ## 延伸閱讀
 
 - 〈[下篇：歸為止血藥的仙鶴草與白及，放進現代研究後看到什麼？](/posts/agrimony-bletilla-antiplatelet-bleeding-evidence/)〉：接續本病例，整理仙鶴草與白及的凝血研究、動物研究與臨床試驗。
-- 〔待補：站內 PAD／CLTI 相關文章〕
-- 〔待補：站內中西醫整合照護相關文章〕
+- 〈[從「脫癰」到指引：周邊動脈疾病的治療順序，與中醫的證據位置](/posts/peripheral-artery-disease-integrative-care/)〉：2024 年指引的治療順序，以及雷射針灸等中醫相關介入各自走到哪一層證據。
+- 〈[坐著踮腳的研究，能用在坐姿改良版八段錦嗎？](/posts/seated-heel-raise-baduanjin-spu-evidence/)〉：坐姿提踵研究與坐姿八段錦的比較，以及周邊動脈疾病的運動處方。
+- 〈[中西醫整合醫學到底在整合什麼？三種模式的制度、責任與決策權](/posts/what-is-integrative-medicine/)〉：同樣是中醫會診，不同醫院的決策權、病歷互通與責任歸屬可能完全不同。
 
 ## 參考資料
 

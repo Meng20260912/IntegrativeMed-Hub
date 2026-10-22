@@ -181,7 +181,8 @@ category: [translational, evidence]
 ## 延伸閱讀
 
 - 〈[上篇：腳在缺血，消化道又在出血，中醫怎麼加入共同照護？](/posts/dialysis-clti-gangrene-gi-bleeding-integrative-care/)〉：本病例的會診經過、慢性威脅性肢體缺血評估與葛根芩連湯辨證。
-- 〔待補：站內中西醫整合照護相關文章〕
+- 〈[中藥與西藥的交互作用：先分清楚是藥動學還是藥效學](/posts/herb-drug-interaction/)〉：病人同時用中藥與西藥時，先分辨交互作用卡在代謝酵素、生理終點還是分子標的。
+- 〈[通心絡登上 JAMA 之後：CTS-AMI 試驗能帶給我們的啟發](/posts/tongxinluo-cts-ami-stemi-evidence/)〉：心血管病人在標準治療之上加用中藥，一項大型隨機試驗怎麼讀。
 
 ## 參考資料
 
