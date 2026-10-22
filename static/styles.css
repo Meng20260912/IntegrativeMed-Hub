@@ -366,3 +366,18 @@ a.hero-name:hover{border-bottom-color:#fff}
 .prose .cv-now li{grid-template-columns:1fr}
 @media (max-width:560px){.prose .cv-list li{grid-template-columns:1fr;gap:0}}
 
+
+/* ---------- 首頁：小測驗入口 ---------- */
+.quiz-promo{margin-bottom:clamp(24px,4vw,36px)}
+.quiz-card{display:grid;grid-template-columns:minmax(0,1fr);gap:0;overflow:hidden;text-decoration:none;color:inherit;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .2s ease, box-shadow .2s ease}
+.quiz-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.quiz-card img{width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover}
+.quiz-text{display:flex;flex-direction:column;gap:.35em;padding:clamp(14px,3vw,24px);min-width:0}
+.quiz-kicker{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--accent-warn)}
+.quiz-title{font-family:var(--serif);font-weight:900;font-size:clamp(1.15rem,2.6vw,1.45rem);line-height:1.45;color:var(--navy);text-wrap:balance}
+.quiz-meta{font-size:.9rem;color:var(--ink-2)}
+.quiz-btn{align-self:flex-start;margin-top:.4em;padding:.45em 1.2em;border-radius:999px;background:var(--navy);color:#fff;font-weight:700;font-size:.9rem}
+@media (prefers-color-scheme:dark){.quiz-btn{color:#0b1622}}
+@media (min-width:760px){.quiz-card{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center}}
+@media (prefers-reduced-motion:reduce){.quiz-card,.quiz-card:hover{transition:none;transform:none}}
