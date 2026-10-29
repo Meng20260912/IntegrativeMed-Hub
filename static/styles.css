@@ -381,3 +381,35 @@ a.hero-name:hover{border-bottom-color:#fff}
 @media (prefers-color-scheme:dark){.quiz-btn{color:#0b1622}}
 @media (min-width:760px){.quiz-card{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center}}
 @media (prefers-reduced-motion:reduce){.quiz-card,.quiz-card:hover{transition:none;transform:none}}
+
+/* ---------- 訂閱新文章通知 ---------- */
+.sub-wrap{margin-block:clamp(26px,5.5vw,46px)}
+.sub{max-width:var(--measure);margin-inline:auto;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);padding:clamp(18px,4.6vw,28px);box-shadow:var(--shadow)}
+.sub h2{font-family:var(--serif);font-weight:900;font-size:1.1rem;margin:0 0 .35em}
+.sub-lede{margin:0 0 1em;color:var(--ink-2);font-size:.92rem;line-height:1.75}
+.sub-form{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch}
+.sub-input{flex:1 1 14rem;min-width:0;padding:.6em .85em;font:inherit;font-size:.95rem;
+  color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-sm)}
+.sub-input::placeholder{color:var(--ink-3)}
+.sub-input:focus-visible{border-color:var(--blue)}
+.sub-btn{flex:0 0 auto;padding:.6em 1.7em;font:inherit;font-size:.95rem;font-weight:700;line-height:1.6;
+  background:var(--navy);color:var(--surface);border:0;border-radius:var(--radius-sm);cursor:pointer}
+.sub-btn:hover{background:var(--blue)}
+.sub-btn[disabled]{opacity:.55;cursor:default}
+@media (prefers-color-scheme:dark){.sub-btn{color:#0b1622}}
+/* 窄螢幕：輸入框與按鈕各佔一行，按鈕拉滿寬度好按 */
+@media (max-width:520px){.sub-form{display:grid;grid-template-columns:1fr;gap:9px}.sub-btn{width:100%;padding:.68em 1em}}
+/* 蜜罐欄位：移出畫面外，真人看不到也不會對焦到 */
+.sub-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;margin:0}
+.sub-msg{margin:.9em 0 0;padding:.6em .85em;border-radius:var(--radius-sm);font-size:.9rem;line-height:1.75}
+.sub-msg.is-ok{background:var(--blue-soft);color:var(--navy);border:1px solid var(--line)}
+.sub-msg.is-err{background:var(--hl-bg);color:var(--hl-ink);border:1px solid var(--hl-line)}
+.sub-brief{margin:.85em 0 0;font-size:.82rem;color:var(--ink-3);line-height:1.7}
+.sub-terms{margin-top:.5em;font-size:.82rem;color:var(--ink-2)}
+.sub-terms summary{cursor:pointer;color:var(--blue);padding:.35em 0}
+.sub-terms[open] summary{margin-bottom:.2em}
+.sub-terms ul{margin:.3em 0 .5em;padding-left:1.25em;line-height:1.8}
+.sub-terms li{margin:.15em 0}
+.sub-terms p{margin:.4em 0;color:var(--ink-3);line-height:1.75}
+.sub-noscript{margin:.85em 0 0;font-size:.85rem;color:var(--accent-warn)}

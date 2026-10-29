@@ -473,6 +473,47 @@ ${TOOLS.map(x => `        <a class="site-card" href="${attr(x.url)}" target="_bl
 </html>`);
 }
 
+/* ---------- 訂閱新文章通知 ---------- */
+// 表單放在文章頁底部、首頁最後，以及 /subscribe/ 專頁。不用彈出式視窗。
+// 送出後的提示文字在 static/subscribe.js；寫入 D1 的 API 在 functions/api/subscribe/。
+// 這份名單只用於網站新文章通知，與專業電子報名單分開，彼此不互通。
+// 下面的個資告知是第一版草稿，待魏醫師審過定稿。
+const SUB_NOTICE = [
+  ['蒐集目的', '寄送本站新文章通知。'],
+  ['蒐集項目', '電子郵件地址，以及你從哪一頁送出訂閱。'],
+  ['使用範圍', '只用來寄送本站新文章通知。不提供給第三方，不用於廣告投放，也不與其他名單合併。'],
+  ['保存期限', '保存到你退訂為止。退訂後停止寄送，信箱留在退訂名單裡，只用來確保不會再寄信給你。'],
+  ['退訂方式', '每封通知信底部都有退訂連結，點一下就生效，不需要登入，也不必回信。'],
+  ['費用', '訂閱免費。'],
+];
+const SUB_V = assetVer('subscribe.js');
+function subscribeForm({ id = 'main', heading = '訂閱新文章通知', open = false, lede = '新文章上線時，寄一封通知到你的信箱。訂閱免費，隨時可以退訂。' } = {}) {
+  const i = id;   // 同一頁只有一個表單，id 用固定字串，不用流水號
+  return `<section class="sub" aria-labelledby="sub-h-${i}">
+  <h2 id="sub-h-${i}">${esc(heading)}</h2>
+  <p class="sub-lede">${esc(lede)}</p>
+  <form class="sub-form" data-subscribe novalidate>
+    <label class="skip" for="sub-email-${i}">電子郵件地址</label>
+    <input class="sub-input" id="sub-email-${i}" type="email" name="email" required
+           maxlength="254" inputmode="email" autocomplete="email" spellcheck="false"
+           placeholder="your.name@example.com">
+    <p class="sub-hp" aria-hidden="true"><label for="sub-nick-${i}">暫不使用</label><input id="sub-nick-${i}" type="text" name="nickname" tabindex="-1" autocomplete="off"></p>
+    <button class="sub-btn" type="submit">訂閱</button>
+  </form>
+  <p class="sub-msg" data-sub-msg role="status" aria-live="polite" hidden></p>
+  <p class="sub-brief">只寄本站的新文章通知，不提供給第三方。確認信由每日排程寄出，一天內會寄到。</p>
+  <details class="sub-terms"${open ? ' open' : ''}>
+    <summary>個人資料蒐集告知</summary>
+    <ul>
+${SUB_NOTICE.map(([k, v]) => `      <li><b>${esc(k)}：</b>${esc(v)}</li>`).join('\n')}
+    </ul>
+    <p>這份名單只用於本站的新文章通知，與作者另外寄送的專業電子報分開，兩邊不互通。</p>
+    <p>你可以要求查詢、更正或刪除自己的資料；直接回覆任何一封通知信即可。不填信箱不影響你閱讀本站的任何內容。</p>
+  </details>
+  <noscript><p class="sub-noscript">這個表單需要瀏覽器的 JavaScript。若已關閉，請改從<a href="/subscribe/">訂閱頁</a>送出，或直接回信告知要訂閱。</p></noscript>
+</section>`;
+}
+
 /* ---------- 閱讀時間 ---------- */
 // 只計讀者真正要讀的文字：
 // - 內嵌 <svg>…</svg> 整段不算（座標、樣式、<title>/<desc> 都是給螢幕閱讀器的），圖說 <figcaption> 照算
@@ -644,14 +685,18 @@ ${CATEGORIES.map(c => { const n = catCount(c.slug); return `      <li><a class="
 ${cards}
   </div>
   <p class="no-result" id="noResult" hidden>沒有符合的文章。試試其他關鍵字，或從上方分類瀏覽。</p>
-</section>`;
+</section>
+
+<div class="wrap sub-wrap">
+${subscribeForm({ id: 'home', heading: '訂閱新文章通知' })}
+</div>`;
 
 fs.writeFileSync(path.join(OUT, 'index.html'), layout({
   title: `${SITE.name}｜${SITE.nameEn}`,
   desc: SITE.desc, canonical: SITE_URL + '/', body: indexBody, bodyClass: 'is-home',
   image: `${SITE_URL}/img/${heroImg}`,
   showHeader: false,
-  extraHead: `<script src="/views.js${VIEWS_V}" defer></script>\n<script src="/filter.js${assetVer('filter.js')}" defer></script>`,
+  extraHead: `<script src="/views.js${VIEWS_V}" defer></script>\n<script src="/filter.js${assetVer('filter.js')}" defer></script>\n<script src="/subscribe.js${SUB_V}" defer></script>`,
   schema: {
     '@context': 'https://schema.org',
     '@graph': [
@@ -715,6 +760,9 @@ ${p.toc.map(t => `      <li><a href="#${attr(t.id)}">${t.txt}</a></li>`).join('\
   <div class="wrap prose">
 ${p.html}
   </div>
+  <div class="wrap sub-wrap">
+${subscribeForm({ id: 'post', heading: '訂閱新文章通知' })}
+  </div>
   <div class="wrap post-foot">
     <p class="updated-note">本文最後更新於 <time datetime="${attr(p.updated)}">${fmtDate(p.updated)}</time>，更新日期由 Git 提交時間自動產生。</p>
     <a class="back" href="/">← 回文章列表</a>
@@ -736,6 +784,7 @@ ${p.html}
       `<meta property="article:author" content="${attr(p.authorName)}">`,
       ...p.tags.map(t => `<meta property="article:tag" content="${attr(t)}">`),
       `<script src="/views.js${VIEWS_V}" defer></script>`,
+      `<script src="/subscribe.js${SUB_V}" defer></script>`,
     ].join('\n'),
     schema: {
       '@context': 'https://schema.org',
@@ -883,6 +932,99 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
 </div>`,
 }));
 
+// --- 訂閱頁與確認／退訂結果頁 ---
+// /subscribe/ 是可以收錄的說明頁；其餘四頁只有點了信裡的連結才會到，標 noindex 也不列入 sitemap。
+// functions/api/subscribe/ 的三個端點就是導向這幾個網址（見 lib/subscribe.js 的 PAGES）。
+function subPage(slug, { title, desc, body, form = false, noindex = true }) {
+  const dir = path.join(OUT, 'subscribe', slug);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), layout({
+    title: `${title} — ${SITE.name}`,
+    desc,
+    canonical: noindex ? '' : `${SITE_URL}/subscribe/${slug ? slug + '/' : ''}`,
+    extraHead: (noindex ? '<meta name="robots" content="noindex, follow">\n' : '')
+      + (form ? `<script src="/subscribe.js${SUB_V}" defer></script>` : ''),
+    body,
+  }));
+}
+
+subPage('', {
+  noindex: false, form: true,
+  title: '訂閱新文章通知',
+  desc: '本站有新文章時寄一封通知到你的信箱。訂閱免費，每封信底部都有退訂連結，點一下就生效。',
+  body: `<div class="wrap prose page">
+<h1>訂閱新文章通知</h1>
+<p>本站有新文章上線時，寄一封通知到你的信箱，裡面只放標題、一兩句摘要和連結。<strong>訂閱免費</strong>，不寄廣告，也不轉給任何第三方。</p>
+<h2>流程</h2>
+<ol>
+<li>填入信箱送出。</li>
+<li>收一封確認信，點裡面的連結。確認信由每日排程寄出，<strong>一天內會寄到</strong>，不是即時寄出的。</li>
+<li>點了連結才算訂閱完成，之後新文章上線就會收到通知。</li>
+</ol>
+<p>沒有點確認連結的信箱不會收到任何通知信，確認連結發出後 30 天內有效。</p>
+<h2>想退訂的時候</h2>
+<p>每封通知信底部都有退訂連結，點一下就生效，不需要登入、不必回信，也不會再問你第二次。</p>
+<h2>與專業電子報的關係</h2>
+<p>這份名單只用於本站的新文章通知。作者另外寄送的專業電子報（指引更新與專業知識整理）是獨立的名單，兩邊不互通。訂了這裡不會收到那一份，訂了那一份也不會自動被加進這裡。</p>
+</div>
+<div class="wrap sub-wrap">
+${subscribeForm({ id: 'page', heading: '填入信箱開始訂閱', open: true })}
+</div>`,
+});
+
+subPage('confirmed', {
+  title: '訂閱確認完成',
+  desc: '訂閱已經確認完成，本站有新文章時會寄通知到你的信箱。',
+  body: `<div class="wrap prose page">
+<h1>訂閱確認完成</h1>
+<p>確認好了，你的信箱已經在新文章通知名單裡。之後本站有新文章上線，就會寄一封通知給你。</p>
+<p>想停止收信，每封通知信底部都有退訂連結，點一下就生效。</p>
+<ul>
+<li><a href="/">回首頁，瀏覽全部文章</a></li>
+<li><a href="/about/">關於本站與作者</a></li>
+</ul>
+</div>`,
+});
+
+subPage('unsubscribed', {
+  title: '已經退訂',
+  desc: '退訂完成，之後不會再收到本站的新文章通知。',
+  body: `<div class="wrap prose page">
+<h1>已經退訂</h1>
+<p>退訂完成，之後不會再收到本站的新文章通知。這一步不需要再做任何確認。</p>
+<p>你的信箱留在退訂名單裡，只用來確保不會再寄信給你。想重新訂閱，隨時可以從<a href="/subscribe/">訂閱頁</a>再填一次。</p>
+<ul>
+<li><a href="/">回首頁，瀏覽全部文章</a></li>
+<li><a href="/feed.xml">改用 RSS 追蹤新文章</a></li>
+</ul>
+</div>`,
+});
+
+subPage('invalid', {
+  title: '這個連結沒有作用',
+  desc: '這個訂閱連結查不到對應的紀錄，可能是網址被信件軟體截斷或少了幾個字。',
+  body: `<div class="wrap prose page">
+<h1>這個連結沒有作用</h1>
+<p>這個連結查不到對應的訂閱紀錄。常見的原因有幾個：網址被信件軟體折行截斷、複製時少了幾個字，或是這筆訂閱已經退訂過了。</p>
+<p>想訂閱的話，到<a href="/subscribe/">訂閱頁</a>重新填一次信箱就好。</p>
+<p>如果你是想退訂卻點不動，請改用最近一封通知信底部的退訂連結；還是不行就直接回覆那封信，作者會把你的信箱移出名單。</p>
+</div>`,
+});
+
+subPage('expired', {
+  form: true,
+  title: '確認連結已經過期',
+  desc: '訂閱確認連結在發出後 30 天內有效，這一封已經超過期限。重新填一次信箱就會再寄新的確認信。',
+  body: `<div class="wrap prose page">
+<h1>確認連結已經過期</h1>
+<p>訂閱確認連結在發出後 30 天內有效，手上這一封已經超過期限了。期限是為了避免舊信件裡的連結被別人撿去用。</p>
+<p>重新填一次信箱，排程就會再寄一封新的確認信給你。</p>
+</div>
+<div class="wrap sub-wrap">
+${subscribeForm({ id: 'again', heading: '重新寄一封確認信' })}
+</div>`,
+});
+
 // --- 找不到頁面 ---
 // Cloudflare Pages 找不到資產時，會先看輸出目錄根部有沒有 404.html。
 // 有就回傳它並帶真正的 404 狀態碼；沒有就退回 index.html 並回傳 200，
@@ -914,7 +1056,7 @@ const QUIZ_DIR = path.join(STATIC_DIR, 'quiz');
 const quizUrls = fs.existsSync(QUIZ_DIR)
   ? fs.readdirSync(QUIZ_DIR).filter(d => fs.existsSync(path.join(QUIZ_DIR, d, 'index.html'))).map(d => `/quiz/${d}/`)
   : [];
-const urls = ['/', '/about/', ...quizUrls, ...CATEGORIES.filter(c => posts.some(p => p.categories.includes(c.slug))).map(c => `/category/${c.slug}/`), ...posts.map(p => `/posts/${p.slug}/`)];
+const urls = ['/', '/about/', '/subscribe/', ...quizUrls, ...CATEGORIES.filter(c => posts.some(p => p.categories.includes(c.slug))).map(c => `/category/${c.slug}/`), ...posts.map(p => `/posts/${p.slug}/`)];
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   urls.map(u => {

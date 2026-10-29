@@ -69,11 +69,32 @@ Cloudflare Pages 會自動重跑 `node build.mjs`，首頁**自動長出新卡�
 - 題目與結果文字都在該資料夾的 `quiz-data.js`，改內容只改這個檔；改完把 `index.html` 和 `quiz.js` 裡的 `?v=` 版本號加一，避免讀者看到快取的舊版。
 - 匿名作答統計：`functions/api/quiz/[id].js` 寫入 Cloudflare D1（binding `QUIZ_DB`，資料庫 `quiz-stats`，資料表見 `scripts/quiz-schema.sql`）。只存選項、結果、選填的 MBTI 與日期，不存 IP 或任何個人資料；沒有對外的讀取端點，統計結果只在 D1 查詢。
 
+## 訂閱新文章通知
+
+讀者填信箱，收到確認信並點下連結後才算訂閱完成（雙重確認）。**這份名單與既有的專業電子報完全分開，兩邊不互匯。**
+
+- 表單：文章頁正文之後、首頁文章列表之後，以及說明頁 `/subscribe/`。不用彈出式視窗。表單產生器是 `build.mjs` 的 `subscribeForm()`，個資告知文字在同一處的 `SUB_NOTICE`。
+- 前端：`static/subscribe.js`（送出與提示文字）。樣式在 `static/styles.css` 最後一段。
+- API：`functions/api/subscribe/`，共用邏輯在 `lib/subscribe.js`（放在 `functions/` 之外，才不會被當成一個網址）。
+  - `POST /api/subscribe` 寫入 `pending` 並產生 token。重複訂閱不報錯也不重複寫入；已確認的回 `already`。同一個 IP 一小時最多 5 次，另有隱藏欄位擋機器人。
+  - `GET /api/subscribe/confirm?token=…` 確認訂閱，導向 `/subscribe/confirmed/`。
+  - `GET /api/subscribe/unsubscribe?token=…` 退訂，導向 `/subscribe/unsubscribed/`。不需登入、不必回信，點了就生效。另收 `POST` 供信件軟體的一鍵退訂。
+- 結果頁 `/subscribe/confirmed|unsubscribed|invalid|expired/` 都標 `noindex`，也不列入 sitemap；說明頁 `/subscribe/` 則會收錄。
+- 資料表：`scripts/subscribers-schema.sql`，D1 資料庫 `site-subscribers`（binding `SUBS_DB`）。因為存的是個人資料，不與 `quiz-stats` 共用資料庫。
+- **上線前要先建立資料庫**，步驟寫在 `wrangler.toml` 的註解裡；binding 現在是註解狀態，沒有它時 API 回 503，網站其他部分不受影響。
+- 寄送排程讀名單：`node scripts/subscribers.mjs <pending|confirmed|mark-sent <id…>|stats> [--local] [--csv]`。走 wrangler 直接查 D1，網站上沒有可以抓名單的網址，程式裡也不留密鑰。
+
 ## 本機開發
 
 ```bash
 npm run build     # 產生 dist/
 npm run dev       # 建置後用 wrangler 起本機伺服器（含 Functions 與 KV）
+```
+
+要在本機試訂閱功能，先建本機資料表（本機模式用的是另一份空資料庫，不會碰到線上名單）：
+
+```bash
+npx wrangler d1 execute site-subscribers --local --file scripts/subscribers-schema.sql
 ```
 
 ## 部署

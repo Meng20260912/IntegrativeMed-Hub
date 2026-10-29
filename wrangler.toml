@@ -13,3 +13,11 @@ id = "0da24863268b486093a1d84647c04569"
 binding = "QUIZ_DB"
 database_name = "quiz-stats"
 database_id = "2daa9cfc-a2f2-4737-95e4-a1d078ecd0b5"
+
+# 網站新文章通知的訂閱名單（個人資料）。資料表見 scripts/subscribers-schema.sql
+# 與小測驗分開放：quiz-stats 明確標示不存個人資料。
+# 沒有這個 binding 時，/api/subscribe 會回 503，表單顯示「訂閱功能維護中」，網站其他部分不受影響。
+[[d1_databases]]
+binding = "SUBS_DB"
+database_name = "site-subscribers"
+database_id = "c4718e10-0bce-488d-a026-058809469b6f"
