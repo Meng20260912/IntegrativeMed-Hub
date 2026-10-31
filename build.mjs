@@ -874,7 +874,7 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
     name: `關於作者 — ${SITE.name}`,
     mainEntity: PERSON,
   },
-  body: `<div class="wrap page-logo"><img src="${attr(imgSrc('brand-logo.png'))}" alt="魏孟鈞中醫師"${sizeAttr('brand-logo.png')} fetchpriority="high" decoding="async"></div>
+  body: `<div class="wrap page-logo"><img src="${attr(imgSrc('brand-logo-sm.png'))}" alt="魏孟鈞中醫師"${sizeAttr('brand-logo-sm.png')} fetchpriority="high" decoding="async"></div>
 <div class="wrap prose page">
 <h1>關於作者</h1>
 <figure class="about-profile">${picture('about-profile.jpg', ` alt="魏孟鈞醫師個人介紹圖：台北慈濟醫院中醫部中醫內科主治醫師，列出現職、專長領域、研究方向與醫療特色"${sizeAttr('about-profile.jpg')} decoding="async"`, '(min-width: 600px) 520px, 100vw')}</figure>
