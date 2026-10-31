@@ -10,6 +10,22 @@
   var noResult = document.getElementById('noResult');
   var total = cards.length;
   var activeTag = '';
+  // 全文索引在第一次使用搜尋時才下載；下載完成前（或失敗時）先比對卡片上看得到的文字
+  var index = null;
+  var indexRequested = false;
+
+  function loadIndex() {
+    if (indexRequested || !q || !q.dataset.index) return;
+    indexRequested = true;
+    fetch(q.dataset.index)
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) { if (data) { index = data; apply(); } })
+      .catch(function () {});
+  }
+
+  function searchText(c) {
+    return (index && index[c.dataset.slug]) || c.textContent.toLowerCase();
+  }
 
   function apply() {
     var term = (q && q.value || '').trim().toLowerCase();
@@ -17,7 +33,7 @@
     cards.forEach(function (c) {
       var tags = (c.dataset.tags || '').split('|');
       var okTag = !activeTag || tags.indexOf(activeTag) !== -1;
-      var okTerm = !term || (c.dataset.search || '').indexOf(term) !== -1;
+      var okTerm = !term || searchText(c).indexOf(term) !== -1;
       var show = okTag && okTerm;
       c.hidden = !show;
       if (show) shown++;
@@ -40,6 +56,8 @@
 
   if (q) {
     var t;
+    q.addEventListener('focus', loadIndex);
+    q.addEventListener('input', loadIndex);
     q.addEventListener('input', function () { clearTimeout(t); t = setTimeout(apply, 120); });
   }
 })();

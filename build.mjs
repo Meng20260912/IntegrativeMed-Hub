@@ -607,11 +607,16 @@ fs.cpSync(STATIC_DIR, OUT, { recursive: true });
 const heroImg = 'banner-integrative.jpg';
 const heroCredit = CREDITS[heroImg];
 
+// 全文搜尋索引另存一檔，使用者開始搜尋才下載；寫進每張卡片會讓首頁 HTML 膨脹到近 500 KB
+const searchIndexJson = JSON.stringify(Object.fromEntries(posts.map(p => [p.slug, p.searchText])));
+fs.writeFileSync(path.join(OUT, 'search-index.json'), searchIndexJson);
+const searchIndexUrl = `/search-index.json?v=${createHash('sha1').update(searchIndexJson).digest('hex').slice(0, 8)}`;
+
 // --- 首頁：卡片直接寫進 HTML（需求 6），不靠 JS 讀 JSON ---
 const catCount = (slug) => posts.filter(p => p.categories.includes(slug)).length;
 
 // 卡片上的分類標籤：首頁用主分類；分類頁傳入目前分類，跨類文章在各分類頁顯示該頁的分類
-const cardHtml = (p, cat = p.category) => `      <article class="card" data-tags="${attr(p.tags.join('|'))}" data-search="${attr(p.searchText)}">
+const cardHtml = (p, cat = p.category) => `      <article class="card" data-slug="${attr(p.slug)}" data-tags="${attr(p.tags.join('|'))}">
         ${p.hero ? `<a class="card-thumb" href="/posts/${attr(p.slug)}/" tabindex="-1" aria-hidden="true">${picture(p.hero, ' alt="" loading="lazy" decoding="async"', '(min-width: 1100px) 360px, (min-width: 700px) 50vw, 100vw')}</a>` : ''}
         <div class="card-body">
           <p class="card-date">${cat ? `<a class="card-cat" href="/category/${cat}/">${esc(CAT[cat].name)}</a>` : ''}<time datetime="${attr(p.updated)}">${fmtDate(p.updated).replace(/-/g, '/')}</time> 更新</p>
@@ -652,7 +657,7 @@ ${CATEGORIES.map(c => { const n = catCount(c.slug); return `      <li><a class="
     <div class="toolbar-row">
       <div class="search">
         <label class="skip" for="q">搜尋文章</label>
-        <input type="search" id="q" placeholder="搜尋標題、摘要或標籤…" autocomplete="off">
+        <input type="search" id="q" placeholder="搜尋標題、摘要或標籤…" autocomplete="off" data-index="${attr(searchIndexUrl)}">
       </div>
       <div class="toolbar-links">
         <a href="${TOOLS_URL}/?src=home" class="btn-blog" target="_blank" rel="noopener noreferrer">病因病機圖工作台 ↗</a>
@@ -666,7 +671,7 @@ ${CATEGORIES.map(c => { const n = catCount(c.slug); return `      <li><a class="
 
 <section class="wrap quiz-promo" aria-labelledby="quiz-promo-title">
   <a class="quiz-card" href="/quiz/hospital-or-clinic/?src=home">
-    <img src="/quiz/hospital-or-clinic/og.jpg" alt="" width="1200" height="630" decoding="async">
+    ${picture('quiz-hospital-or-clinic.jpg', ' alt="" width="1200" height="630" loading="lazy" decoding="async"', '(min-width: 760px) 50vw, 100vw')}
     <span class="quiz-text">
       <span class="quiz-kicker">中醫實習醫學生小測驗</span>
       <span class="quiz-title" id="quiz-promo-title">選配前先測一下：你是醫院型還是診所型？</span>
