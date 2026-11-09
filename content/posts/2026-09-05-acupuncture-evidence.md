@@ -77,7 +77,7 @@ category: evidence
 
 延伸閱讀
 
-- 〈[針灸的現代研究證據（下）：哪些適應症站得住腳，施針前該注意什麼？](/posts/acupuncture-indications-safety/)〉
+- 〈[針灸哪些適應症真的有證據？施針前要注意的風險（下篇）](/posts/acupuncture-indications-safety/)〉
 - 〈[讀懂中醫臨床試驗](/posts/tcm-trial-methodology/)〉：辨證論治遇上隨機分派時，三種試驗設計各自的代價。
 
 **參考資料**

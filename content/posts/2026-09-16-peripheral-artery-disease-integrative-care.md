@@ -162,7 +162,7 @@ ABI 反映的也不只是腿。美國心臟學會的流行病學聲明整理 16 
 延伸閱讀
 
 - 〈[中藥與西藥的交互作用：先分清楚是藥動學還是藥效學](/posts/herb-drug-interaction/)〉
-- 〈[針灸的現代研究證據（下）：哪些適應症站得住腳，施針前該注意什麼？](/posts/acupuncture-indications-safety/)〉
+- 〈[針灸哪些適應症真的有證據？施針前要注意的風險（下篇）](/posts/acupuncture-indications-safety/)〉
 - 〈[「腳麻是袂安怎走？」談周邊動脈疾病與間歇性跛行](https://blog.drmjwei.net/2025/06/blog-post.html)〉、〈[走路像灌鉛、雙腳冷吱吱？別把「腳中風」當老化！](https://blog.drmjwei.net/2026/08/blog-post_23.html)〉：本文作者寫給一般民眾的周邊動脈疾病衛教。
 
 **參考資料**

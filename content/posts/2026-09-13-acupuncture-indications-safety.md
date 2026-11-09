@@ -1,5 +1,5 @@
 ---
-title: 針灸的現代研究證據（下）：哪些適應症站得住腳，施針前該注意什麼？
+title: 針灸哪些適應症真的有證據？施針前要注意的風險（下篇）
 slug: acupuncture-indications-safety
 author: 魏孟鈞/台北慈濟醫院中醫部中醫內科主治醫師
 date: 2026-09-13
