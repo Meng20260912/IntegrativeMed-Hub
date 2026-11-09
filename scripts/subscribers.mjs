@@ -21,8 +21,25 @@
 // 每封信底部都必須放退訂連結。
 
 import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const DB = 'site-subscribers';
+
+// 為什麼不用 npx：npx 抓的是共用快取裡沒有鎖版本的 wrangler，那份快取壞過兩次
+// （少了 Mac 的原生執行檔 @cloudflare/workerd-darwin-arm64），一壞就整支腳本查不到名單，
+// 剛好那天有人訂閱，確認信就會晚一天寄出。改成直接叫專案自己裝的那一份，
+// 版本鎖在 package.json，不受快取與網路影響。
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const WRANGLER = path.join(ROOT, 'node_modules', '.bin', 'wrangler');
+
+if (!fs.existsSync(WRANGLER)) {
+  process.stderr.write(
+    `找不到 ${WRANGLER}\n` +
+    `請在專案根目錄執行 npm install（wrangler 是 devDependency）後再跑這支腳本。\n`);
+  process.exit(1);
+}
 const argv = process.argv.slice(2);
 const flag = (f) => { const i = argv.indexOf(f); if (i >= 0) argv.splice(i, 1); return i >= 0; };
 const LOCAL = flag('--local');
@@ -30,11 +47,12 @@ const CSV = flag('--csv');
 const cmd = argv.shift();
 
 function query(sql) {
-  const args = ['--yes', 'wrangler', 'd1', 'execute', DB, LOCAL ? '--local' : '--remote',
+  const args = ['d1', 'execute', DB, LOCAL ? '--local' : '--remote',
                 '--json', '--command', sql];
   let out;
   try {
-    out = execFileSync('npx', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    out = execFileSync(WRANGLER, args,
+                       { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   } catch (e) {
     process.stderr.write((e.stderr || e.message || '') + '\n');
     process.exit(1);

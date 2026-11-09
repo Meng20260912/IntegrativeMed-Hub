@@ -83,10 +83,12 @@ Cloudflare Pages 會自動重跑 `node build.mjs`，首頁**自動長出新卡�
 - 資料表：`scripts/subscribers-schema.sql`，D1 資料庫 `site-subscribers`（binding `SUBS_DB`）。因為存的是個人資料，不與 `quiz-stats` 共用資料庫。
 - **上線前要先建立資料庫**，步驟寫在 `wrangler.toml` 的註解裡；binding 現在是註解狀態，沒有它時 API 回 503，網站其他部分不受影響。
 - 寄送排程讀名單：`node scripts/subscribers.mjs <pending|confirmed|mark-sent <id…>|stats> [--local] [--csv]`。走 wrangler 直接查 D1，網站上沒有可以抓名單的網址，程式裡也不留密鑰。
+- 這支腳本叫的是 `node_modules/.bin/wrangler`，版本鎖在 `package.json`（不走 npx 的共用快取，那份快取壞過兩次，會讓腳本整支查不到名單）。換機器或重新 clone 之後要先 `npm install`，不然腳本會直接報錯提醒。
 
 ## 本機開發
 
 ```bash
+npm install       # 第一次或換機器時跑一次，裝 wrangler
 npm run build     # 產生 dist/
 npm run dev       # 建置後用 wrangler 起本機伺服器（含 Functions 與 KV）
 ```
@@ -94,7 +96,7 @@ npm run dev       # 建置後用 wrangler 起本機伺服器（含 Functions 與
 要在本機試訂閱功能，先建本機資料表（本機模式用的是另一份空資料庫，不會碰到線上名單）：
 
 ```bash
-npx wrangler d1 execute site-subscribers --local --file scripts/subscribers-schema.sql
+npm exec -- wrangler d1 execute site-subscribers --local --file scripts/subscribers-schema.sql
 ```
 
 ## 部署
