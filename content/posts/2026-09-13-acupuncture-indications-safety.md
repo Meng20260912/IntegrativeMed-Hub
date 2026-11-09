@@ -72,7 +72,7 @@ category: clinic-notes
 
 延伸閱讀
 
-- 〈[針灸的現代研究證據（上）：假針灸也有效，該怎麼解讀？](/posts/acupuncture-evidence/)〉
+- 〈[假針灸也有效，該怎麼解讀？針灸試驗的檢查點（上篇）](/posts/acupuncture-evidence/)〉
 - 〈[針灸是什麼？安全與效益一次看懂（上）](https://blog.drmjwei.net/2024/12/blog-post_22.html)〉、〈[針灸治療的安全與風險：正確的選擇與預防（下）](https://blog.drmjwei.net/2024/12/blog-post_31.html)〉：本文作者寫給一般民眾的針灸衛教，含治療前後的注意事項。
 - 〈[針灸嚴重不良事件穴位整理](https://cmlearning.info/acupuncture-adverse-event/)〉：韓彥辰中醫師於大醫精誠網站整理的穴位風險與建議針刺深度。
 
