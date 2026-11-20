@@ -877,7 +877,7 @@ fs.writeFileSync(path.join(OUT, 'about', 'index.html'), layout({
   body: `<div class="wrap page-logo"><img src="${attr(imgSrc('brand-logo-sm.png'))}" alt="魏孟鈞中醫師"${sizeAttr('brand-logo-sm.png')} fetchpriority="high" decoding="async"></div>
 <div class="wrap prose page">
 <h1>關於作者</h1>
-<figure class="about-profile">${picture('about-profile.jpg', ` alt="魏孟鈞醫師個人介紹圖：台北慈濟醫院中醫部中醫內科主治醫師，列出現職、專長領域、研究方向與醫療特色"${sizeAttr('about-profile.jpg')} decoding="async"`, '(min-width: 600px) 520px, 100vw')}</figure>
+<figure class="about-profile">${picture('about-profile.jpg', ` alt="魏孟鈞醫師個人介紹圖：台北慈濟醫院中醫部中醫內科主治醫師，列出現職、專長領域、研究方向與醫療特色"${sizeAttr('about-profile.jpg')} decoding="async" fetchpriority="high"`, '(min-width: 600px) 520px, 100vw')}</figure>
 <p><strong>魏孟鈞</strong>（Meng-Jiun Wei），台北慈濟醫院中醫部中醫內科主治醫師。</p>
 <ul>
 <li><strong>專長領域：</strong>心血管疾病調理、周邊動脈疾病照護、重症與術後整合照護、安寧緩和醫療、代謝與內分泌失調</li>
